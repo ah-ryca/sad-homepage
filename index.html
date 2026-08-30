@@ -200,15 +200,15 @@
                 </div>
                 
                 <div class="mockup-container">
-                    <div class="panel-address-info">
+                    <a href="http://sad.org.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-address-info">
                         آدرس سامانه سازمان: sad.org.shahrood133.ir
-                    </div>
+                    </a>
                     <div class="browser-mockup">
                         <div class="browser-header">
                             <div class="browser-dot dot-red"></div>
                             <div class="browser-dot dot-yellow"></div>
                             <div class="browser-dot dot-green"></div>
-                            <div class="browser-address">sad.org.shahrood133.ir</div>
+                            <a href="http://sad.org.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="browser-address">sad.org.shahrood133.ir</a>
                         </div>
                         <div class="browser-body" onclick="openLightbox(this)">
                             <img id="img-organization" src="images/سازمان/مانیتورینگ ماموریت.png" alt="سازمان">
@@ -334,15 +334,15 @@
                 </div>
                 
                 <div class="mockup-container">
-                    <div class="panel-address-info">
+                    <a href="http://sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-address-info">
                         آدرس سامانه شرکت‌ها: sad.shahrood133.ir
-                    </div>
+                    </a>
                     <div class="browser-mockup">
                         <div class="browser-header">
                             <div class="browser-dot dot-red"></div>
                             <div class="browser-dot dot-yellow"></div>
                             <div class="browser-dot dot-green"></div>
-                            <div class="browser-address">sad.shahrood133.ir</div>
+                            <a href="http://sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="browser-address">sad.shahrood133.ir</a>
                         </div>
                         <div class="browser-body" onclick="openLightbox(this)">
                             <img id="img-company" src="images/شرکت/تخصیص هوشمند سرویسها با کمک هوش مصنوعی.png" alt="شرکت">
@@ -448,9 +448,9 @@
                 </div>
                 
                 <div class="mockup-container">
-                    <div class="panel-address-info">
+                    <a href="http://d.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-address-info">
                         آدرس پنل رانندگان: d.sad.shahrood133.ir
-                    </div>
+                    </a>
                     <div class="phone-mockup">
                         <div class="phone-notch"></div>
                         <div class="phone-screen" onclick="openLightbox(this)">
@@ -547,9 +547,9 @@
                 </div>
                 
                 <div class="mockup-container">
-                    <div class="panel-address-info">
+                    <a href="http://p.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-address-info">
                         آدرس پنل والدین: p.sad.shahrood133.ir
-                    </div>
+                    </a>
                     <div class="phone-mockup">
                         <div class="phone-notch"></div>
                         <div class="phone-screen" onclick="openLightbox(this)">
@@ -930,6 +930,13 @@
 
         // Initialize slideshow on page load
         window.addEventListener('DOMContentLoaded', () => {
+            // Dynamically add progress bar to all feature cards
+            document.querySelectorAll('.feature-card').forEach(card => {
+                const progress = document.createElement('div');
+                progress.className = 'card-progress';
+                card.appendChild(progress);
+            });
+
             startAutoplay();
             initMouseTilt();
             initCalculator();

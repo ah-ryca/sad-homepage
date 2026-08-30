@@ -369,33 +369,91 @@ header {
 .features-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 28px;
     max-height: 600px;
     overflow-y: auto;
+    padding-right: 24px;
+    border-right: 3px solid var(--border);
+    margin-right: 12px;
+    position: relative;
     padding-left: 10px;
 }
 
 .feature-card {
-    background-color: var(--card-bg);
-    border: 2px solid var(--border);
-    border-radius: 20px;
-    padding: 20px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
     cursor: pointer;
     display: flex;
     gap: 16px;
-    transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all var(--transition-speed) ease;
     text-align: right;
+    position: relative;
+    opacity: 0.6;
 }
 
 .feature-card:hover {
-    transform: translateY(-4px) scale(1.01);
-    border-color: var(--primary);
+    opacity: 0.9;
+    transform: translateX(-4px);
 }
 
 .feature-card.active {
-    border-color: var(--primary);
-    background-color: rgba(88, 204, 2, 0.06);
+    opacity: 1;
 }
+
+/* Timeline dot */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    right: -32px; /* align with border-right of .features-list */
+    top: 14px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--border);
+    border: 3px solid var(--bg);
+    transition: all var(--transition-speed) ease;
+    z-index: 2;
+}
+
+.feature-card.active::before {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.4);
+    box-shadow: 0 0 0 6px rgba(88, 204, 2, 0.2);
+}
+
+.card-progress {
+    height: 3px;
+    background-color: var(--primary);
+    width: 0%;
+    transition: none;
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+.feature-card.active .card-progress {
+    width: 60px;
+    transition: width 5s linear;
+}
+
+/* Address Link Overrides */
+a.panel-address-info, a.browser-address {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+a.panel-address-info:hover {
+    color: var(--primary-hover);
+    border-color: var(--primary);
+}
+a.browser-address:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
 
 .feature-icon-wrapper {
     background: rgba(0, 0, 0, 0.05);
