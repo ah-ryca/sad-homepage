@@ -804,78 +804,120 @@ body.dark-theme .phone-notch {
     animation-duration: 18s;
 }
 
-/* Simulated Parent Live Notifications Stream */
-.notifications-stream-wrapper {
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+/* Dedicated Live Notifications Section */
+.notifications-showcase-section {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
 }
 
-.stream-title {
-    font-size: 13px;
-    font-weight: bold;
-    color: var(--accent-purple);
-    margin-bottom: 2px;
-}
-
-.notification-bubble {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+.notifications-showcase-box {
+    background-color: var(--card-bg);
+    border: 2px dotted var(--primary);
+    border-radius: 28px;
+    padding: 60px 40px;
+    position: relative;
+    min-height: 380px;
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     box-shadow: var(--glass-shadow);
-    border-radius: 16px;
-    padding: 12px 16px;
+    background-image: radial-gradient(var(--border-solid) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.dialog-wrapper {
+    width: 340px;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.06));
+    transition: transform var(--transition-speed);
+}
+
+.dialog-wrapper.dialog-1 {
+    animation: floatSlow 6s ease-in-out infinite;
+}
+
+.dialog-wrapper.dialog-2 {
+    animation: floatMedium 8s ease-in-out infinite;
+    animation-delay: -2s;
+}
+
+.dialog-wrapper.dialog-3 {
+    animation: floatFast 7s ease-in-out infinite;
+    animation-delay: -4s;
+}
+
+.dialog-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.dialog-svg path {
+    fill: var(--card-bg);
+    stroke: var(--border);
+    backdrop-filter: var(--glass-blur);
+}
+
+.dialog-1 .dialog-svg path { stroke: var(--secondary); }
+.dialog-2 .dialog-svg path { stroke: var(--primary); }
+.dialog-3 .dialog-svg path { stroke: var(--accent-purple); }
+
+.dialog-content {
+    direction: rtl;
+    text-align: right;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    text-align: right;
-    border-right: 4px solid var(--border-solid);
-    transition: transform var(--transition-speed);
-    animation: bubbleSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    gap: 6px;
+    padding: 4px 6px;
 }
 
-.notification-bubble:hover {
-    transform: translateX(-4px);
-}
-
-.bubble-header {
+.dialog-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 8px;
     width: 100%;
 }
 
-.app-name {
-    font-size: 12px;
+.dialog-icon {
+    font-size: 16px;
+}
+
+.dialog-title {
+    font-size: 13px;
     font-weight: bold;
     color: var(--text);
 }
 
-.bubble-time {
+.dialog-time {
     font-size: 11px;
     color: var(--text-muted);
+    margin-right: auto;
 }
 
-.bubble-body {
-    font-size: 13px;
+.dialog-body {
+    font-size: 12px;
     color: var(--text-muted);
     line-height: 1.5;
 }
 
-.bubble-approaching { border-right-color: var(--secondary); }
-.bubble-pickedup { border-right-color: var(--primary); }
-.bubble-delivered { border-right-color: var(--accent-purple); }
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(0.8deg); }
+}
 
-.notification-bubble:nth-child(1) { animation-delay: 0.1s; }
-.notification-bubble:nth-child(2) { animation-delay: 0.3s; }
-.notification-bubble:nth-child(3) { animation-delay: 0.5s; }
+@keyframes floatMedium {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-16px) rotate(-1deg); }
+}
 
-@keyframes bubbleSlideIn {
-    from { transform: translateX(20px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+@keyframes floatFast {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(0.5deg); }
 }
 
 @keyframes move-wave {
