@@ -183,23 +183,28 @@
 
             </div>
 
-            <!-- Network Interactive Graph showing Organizations & Connected Companies -->
-            <div class="network-graph-wrapper">
-                <div class="network-graph-title">
-                    <h2>شبکه سازمان‌ها و شرکت‌های حمل‌ونقل همکار</h2>
-                    <p>اتصال هوشمند شهرداری‌ها و نهادهای ناظر به پیمانکاران واجد صلاحیت جهت توزیع و مدیریت سفرها</p>
+            <!-- Premium Organizations & Connected Companies Dynamic Showcase -->
+            <div class="partners-showcase-section">
+                <div class="partners-title">
+                    <h2>همکاران ما</h2>
                 </div>
-                <div class="graph-container">
-                    <canvas id="graph-canvas"></canvas>
-                    
+                
+                <div class="partners-layout-container">
                     <!-- Top Row: Organizations -->
-                    <div class="graph-row" id="graph-orgs">
-                        <!-- Org nodes dynamically rendered here -->
+                    <div class="partners-shelf" id="partners-orgs-shelf">
+                        <!-- Injected dynamically -->
                     </div>
-                    
+
+                    <!-- Middle SVG bridge for orthogonal connector paths -->
+                    <div class="partners-bridge-container">
+                        <svg id="partners-bridge-svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+                            <!-- Dynamic SVG paths and motion square pulses -->
+                        </svg>
+                    </div>
+
                     <!-- Bottom Row: Companies -->
-                    <div class="graph-row" id="graph-comps">
-                        <!-- Company nodes dynamically rendered here -->
+                    <div class="partners-shelf" id="partners-comps-shelf">
+                        <!-- Injected dynamically -->
                     </div>
                 </div>
             </div>
@@ -541,11 +546,13 @@
             });
         }
 
-        // Fetch public companies/organizations and render graph
+        // Fetch public companies/organizations and render interactive dashboard graph
+        let networkDataGlobal = null;
+        let activeOrgIdGlobal = null;
+
         function initNetworkGraph() {
             const apiUrl = 'https://sad.shahrood133.ir/api/v1/public/companies-network/';
             
-            // Fallback static data if CORS / offline dev
             const fallbackData = {
                 organizations: [
                     { id: 1, name: "سازمان مدیریت حمل‌ونقل شاهرود", city_name: "شاهرود", logo: null },
@@ -562,198 +569,137 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.type === 'success') {
-                        renderGraph(data.result);
+                        networkDataGlobal = data.result;
                     } else {
-                        renderGraph(fallbackData);
+                        networkDataGlobal = fallbackData;
                     }
+                    renderPartnersShowcase();
                 })
                 .catch(() => {
-                    renderGraph(fallbackData);
+                    networkDataGlobal = fallbackData;
+                    renderPartnersShowcase();
                 });
         }
 
-        const graphNodes = { orgs: [], comps: [] };
+        function renderPartnersShowcase() {
+            const orgShelf = document.getElementById('partners-orgs-shelf');
+            const compShelf = document.getElementById('partners-comps-shelf');
+            if (!orgShelf || !compShelf || !networkDataGlobal) return;
 
-        function renderGraph(data) {
-            const orgsCol = document.getElementById('graph-orgs');
-            const compsCol = document.getElementById('graph-comps');
-            if (!orgsCol || !compsCol) return;
-
-            orgsCol.innerHTML = '';
-            compsCol.innerHTML = '';
-            graphNodes.orgs = [];
-            graphNodes.comps = [];
+            orgShelf.innerHTML = '';
+            compShelf.innerHTML = '';
 
             // Render Organizations
-            data.organizations.forEach(org => {
-                const node = document.createElement('div');
-                node.className = 'graph-node org-node';
-                node.dataset.id = org.id;
-                node.innerHTML = `
-                    <div class="node-logo-wrapper">
-                        ${org.logo ? `<img src="${org.logo}" class="node-logo" alt="${org.name}">` : `<span class="node-logo-default">🏢</span>`}
+            networkDataGlobal.organizations.forEach((org, idx) => {
+                const card = document.createElement('div');
+                card.className = `partner-logo-card org-logo-card ${idx === 0 ? 'active-org' : ''}`;
+                card.dataset.id = org.id;
+                card.onclick = () => selectOrganization(org.id, card);
+                card.onmouseenter = () => selectOrganization(org.id, card);
+
+                card.innerHTML = `
+                    <div class="partner-logo-img-wrapper">
+                        ${org.logo ? `<img src="${org.logo}" alt="${org.name}">` : `<span class="partner-logo-default-icon">🏢</span>`}
                     </div>
-                    <div class="node-info">
-                        <h4>${org.name}</h4>
-                        <p>${org.city_name}</p>
-                    </div>
+                    <div class="partner-label">${org.name}</div>
+                    <div class="partner-city">${org.city_name}</div>
                 `;
-                orgsCol.appendChild(node);
-                graphNodes.orgs.push({ id: org.id, element: node });
+                orgShelf.appendChild(card);
             });
 
             // Render Companies
-            data.companies.forEach(comp => {
-                const node = document.createElement('div');
-                node.className = 'graph-node comp-node';
-                node.dataset.id = comp.id;
-                node.dataset.orgId = comp.organization_id;
-                node.innerHTML = `
-                    <div class="node-logo-wrapper">
-                        ${comp.logo ? `<img src="${comp.logo}" class="node-logo" alt="${comp.name}">` : `<span class="node-logo-default">🤝</span>`}
+            networkDataGlobal.companies.forEach(comp => {
+                const card = document.createElement('div');
+                card.className = 'partner-logo-card comp-logo-card';
+                card.dataset.id = comp.id;
+                card.dataset.orgId = comp.organization_id;
+
+                card.innerHTML = `
+                    <div class="partner-logo-img-wrapper">
+                        ${comp.logo ? `<img src="${comp.logo}" alt="${comp.name}">` : `<span class="partner-logo-default-icon">🤝</span>`}
                     </div>
-                    <div class="node-info">
-                        <h4>${comp.name}</h4>
-                        <p>شرکت حمل‌ونقل همکار</p>
-                    </div>
+                    <div class="partner-label">${comp.name}</div>
+                    <div class="partner-city">شرکت پیمانکار</div>
                 `;
-                compsCol.appendChild(node);
-                graphNodes.comps.push({ id: comp.id, orgId: comp.organization_id, element: node });
+                compShelf.appendChild(card);
             });
 
-            setTimeout(initGraphCanvas, 100);
-        }
-
-        let graphCanvasTimer = null;
-        function initGraphCanvas() {
-            const canvas = document.getElementById('graph-canvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            
-            let width = canvas.width = canvas.offsetWidth;
-            let height = canvas.height = canvas.offsetHeight;
-            
-            window.addEventListener('resize', () => {
-                width = canvas.width = canvas.offsetWidth;
-                height = canvas.height = canvas.offsetHeight;
-            });
-
-            const pulses = [];
-
-            function drawConnections() {
-                ctx.clearRect(0, 0, width, height);
-                const isDark = document.body.classList.contains('dark-theme');
-                const lineColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)';
-                const rect = canvas.getBoundingClientRect();
-
-                // Build mapping of active node coordinates
-                const orgCoords = {};
-                graphNodes.orgs.forEach(org => {
-                    const nodeRect = org.element.getBoundingClientRect();
-                    orgCoords[org.id] = {
-                        x: (nodeRect.left - rect.left) + (nodeRect.width / 2),
-                        y: nodeRect.bottom - rect.top // Center-Bottom coordinate
-                    };
-                });
-
-                const compCoords = [];
-                graphNodes.comps.forEach(comp => {
-                    const nodeRect = comp.element.getBoundingClientRect();
-                    compCoords.push({
-                        id: comp.id,
-                        orgId: comp.orgId,
-                        element: comp.element,
-                        x: (nodeRect.left - rect.left) + (nodeRect.width / 2),
-                        y: nodeRect.top - rect.top // Center-Top coordinate
-                    });
-                });
-
-                // Draw connections & animate pulses
-                compCoords.forEach(comp => {
-                    const org = orgCoords[comp.orgId];
-                    if (!org) return;
-
-                    const y_mid = (org.y + comp.y) / 2;
-
-                    // Draw orthogonal path
-                    ctx.beginPath();
-                    ctx.moveTo(org.x, org.y);
-                    ctx.lineTo(org.x, y_mid);
-                    ctx.lineTo(comp.x, y_mid);
-                    ctx.lineTo(comp.x, comp.y);
-                    ctx.strokeStyle = lineColor;
-                    ctx.lineWidth = 2;
-                    ctx.stroke();
-
-                    // Periodically spawn pulse signals from org to comp
-                    if (Math.random() < 0.005) {
-                        pulses.push({
-                            x1: org.x, y1: org.y,
-                            x2: comp.x, y2: comp.y,
-                            progress: 0,
-                            speed: 0.015,
-                            compElement: comp.element
-                        });
-                    }
-                });
-
-                // Update and draw pulse signals
-                for (let i = pulses.length - 1; i >= 0; i--) {
-                    const p = pulses[i];
-                    p.progress += p.speed;
-                    if (p.progress >= 1) {
-                        // Light up the company node upon impact!
-                        p.compElement.classList.add('illuminated');
-                        setTimeout(() => {
-                            p.compElement.classList.remove('illuminated');
-                        }, 500);
-
-                        pulses.splice(i, 1);
-                        continue;
-                    }
-
-                    const y_mid = (p.y1 + p.y2) / 2;
-                    const len1 = y_mid - p.y1;
-                    const len2 = Math.abs(p.x2 - p.x1);
-                    const len3 = p.y2 - y_mid;
-                    const total_len = len1 + len2 + len3;
-
-                    const current_dist = p.progress * total_len;
-                    let currX, currY;
-
-                    if (current_dist < len1) {
-                        // Segment 1: Vertical down
-                        currX = p.x1;
-                        currY = p.y1 + current_dist;
-                    } else if (current_dist < len1 + len2) {
-                        // Segment 2: Horizontal
-                        const segment2_dist = current_dist - len1;
-                        const direction = p.x2 > p.x1 ? 1 : -1;
-                        currX = p.x1 + direction * segment2_dist;
-                        currY = y_mid;
-                    } else {
-                        // Segment 3: Vertical down
-                        const segment3_dist = current_dist - len1 - len2;
-                        currX = p.x2;
-                        currY = y_mid + segment3_dist;
-                    }
-
-                    // Draw a square data packet pulse
-                    ctx.save();
-                    ctx.translate(currX, currY);
-                    ctx.beginPath();
-                    ctx.rect(-5, -5, 10, 10);
-                    ctx.fillStyle = '#1cb0f6';
-                    ctx.shadowBlur = 15;
-                    ctx.shadowColor = '#1cb0f6';
-                    ctx.fill();
-                    ctx.restore();
-                }
-
-                requestAnimationFrame(drawConnections);
+            // Default selection
+            if (networkDataGlobal.organizations.length > 0) {
+                const firstOrgId = networkDataGlobal.organizations[0].id;
+                activeOrgIdGlobal = firstOrgId;
+                updateHighlightsAndBridge();
             }
 
-            drawConnections();
+            // Recalculate SVG lines on horizontal shelves scrolling
+            orgShelf.addEventListener('scroll', updateHighlightsAndBridge);
+            compShelf.addEventListener('scroll', updateHighlightsAndBridge);
+            window.addEventListener('resize', updateHighlightsAndBridge);
+        }
+
+        function selectOrganization(orgId, cardElement) {
+            if (activeOrgIdGlobal === orgId) return;
+            activeOrgIdGlobal = orgId;
+
+            // Toggle active classes on Organization cards
+            document.querySelectorAll('.org-logo-card').forEach(card => {
+                card.classList.remove('active-org');
+            });
+            cardElement.classList.add('active-org');
+
+            updateHighlightsAndBridge();
+        }
+
+        function updateHighlightsAndBridge() {
+            if (!networkDataGlobal || activeOrgIdGlobal === null) return;
+
+            const svg = document.getElementById('partners-bridge-svg');
+            if (!svg) return;
+
+            const svgRect = svg.getBoundingClientRect();
+            const width = svg.clientWidth;
+            
+            // Highlight related company cards
+            const compCards = document.querySelectorAll('.comp-logo-card');
+            const activeComps = [];
+
+            compCards.forEach(card => {
+                const compOrgId = parseInt(card.dataset.orgId);
+                if (compOrgId === activeOrgIdGlobal) {
+                    card.classList.add('active-comp');
+                    activeComps.push(card);
+                } else {
+                    card.classList.remove('active-comp');
+                }
+            });
+
+            // Find active Organization card element
+            const activeOrgCard = document.querySelector(`.org-logo-card[data-id="${activeOrgIdGlobal}"]`);
+            if (!activeOrgCard) return;
+
+            const orgRect = activeOrgCard.getBoundingClientRect();
+            const x_org = (orgRect.left - svgRect.left) + (orgRect.width / 2);
+
+            let pathsHtml = '';
+            const y_mid = 50; // Middle Y coordinate of the 100px SVG height
+
+            activeComps.forEach((compCard, idx) => {
+                const compRect = compCard.getBoundingClientRect();
+                const x_comp = (compRect.left - svgRect.left) + (compRect.width / 2);
+                
+                // Construct orthogonal square path coordinate string
+                const pathData = `M ${x_org} 0 L ${x_org} ${y_mid} L ${x_comp} ${y_mid} L ${x_comp} 100`;
+
+                // Add active pathway and a native SVG animated motion pulse along the wire
+                pathsHtml += `
+                    <path d="${pathData}" class="partners-bridge-path active-path" />
+                    <rect width="8" height="8" x="-4" y="-4" fill="#1cb0f6" class="partners-bridge-pulse active-pulse">
+                        <animateMotion dur="2.2s" repeatCount="indefinite" path="${pathData}" />
+                    </rect>
+                `;
+            });
+
+            svg.innerHTML = pathsHtml;
         }
 
         // Initialize features on page load
