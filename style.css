@@ -840,14 +840,17 @@ body.dark-theme .phone-notch {
     width: 44%;
     z-index: 2;
     transition: transform var(--transition-speed);
+    display: flex;
 }
 
 .timeline-item.right-item {
     align-self: flex-start;
+    justify-content: flex-end; /* Snugs it to the left (center line) in RTL */
 }
 
 .timeline-item.left-item {
     align-self: flex-end;
+    justify-content: flex-start; /* Snugs it to the right (center line) in RTL */
 }
 
 /* Dots on the center line matching dialog entries */
@@ -864,11 +867,13 @@ body.dark-theme .phone-notch {
 }
 
 .right-item .timeline-dot {
-    right: -16%;
+    left: -20px;
+    right: auto;
 }
 
 .left-item .timeline-dot {
-    left: -16%;
+    right: -20px;
+    left: auto;
 }
 
 .timeline-dot.dot-approaching { border-color: var(--secondary); }
@@ -876,7 +881,7 @@ body.dark-theme .phone-notch {
 .timeline-dot.dot-delivered { border-color: var(--accent-purple); }
 
 .dialog-wrapper {
-    width: 100%;
+    width: 290px; /* Highly compact, premium sizing */
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.06));
     transition: transform var(--transition-speed);
 }
@@ -1109,6 +1114,7 @@ body.dark-theme footer {
     .timeline-item {
         width: calc(100% - 50px);
         align-self: flex-end !important;
+        justify-content: flex-start !important;
     }
 
     .right-item .timeline-dot,
