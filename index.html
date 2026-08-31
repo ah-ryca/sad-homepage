@@ -443,36 +443,63 @@
             animate();
         }
 
-        // Multiple Slideshows for each mockup container (with exact Persian string matching)
+        // Dynamic auto-discovery of screenshots (image1, image2...) to support adding images later
         const roleScreenshots = {
-            organization: [
-                "images/سازمان/مانیتورینگ ماموریت.png",
-                "images/سازمان/مدیریت رانندگان.png",
-                "images/سازمان/مدیریت قراردادها.png",
-                "images/سازمان/کنترل و مدیریت تعرفه ها.png"
-            ],
-            company: [
-                "images/شرکت/تخصیص هوشمند سرویسها با کمک هوش مصنوعی.png",
-                "images/شرکت/کنترل تغییر ادرس دانش اموز.png",
-                "images/شرکت/درخواستهای مرخصی رانندگان.png",
-                "images/شرکت/بانک اطلاعاتی مدارس.png",
-                "images/شرکت/بررسی شکایات.png"
-            ],
-            driver: [
-                "images/راننده/داشبورد رانننده.png",
-                "images/راننده/درخواست مرخصی.png",
-                "images/راننده/شروع ماموریتها.png",
-                "images/راننده/مشاهده سرویسها.png",
-                "images/راننده/مشاهده عملکرد راننده.png"
-            ],
-            parent: [
-                "images/والدین/داشبورد مدیریت.png",
-                "images/والدین/امتیاز به راننده.png"
-            ]
+            organization: [],
+            company: [],
+            driver: [],
+            parent: []
         };
 
         const activeSlides = { organization: 0, company: 0, driver: 0, parent: 0 };
         const slideIntervals = {};
+
+        function discoverScreenshots(role, callback) {
+            const list = [];
+            let idx = 1;
+            const maxSearch = 25;
+            
+            const folder = {
+                organization: "org",
+                company: "company",
+                driver: "driver",
+                parent: "parent"
+            }[role];
+
+            function checkNext() {
+                if (idx > maxSearch) {
+                    callback(list);
+                    return;
+                }
+
+                const img = new Image();
+                img.src = `images/${folder}/image${idx}.png`;
+                
+                img.onload = () => {
+                    list.push(img.src);
+                    idx++;
+                    checkNext();
+                };
+
+                img.onerror = () => {
+                    // Try JPG if PNG fails
+                    const imgJpg = new Image();
+                    imgJpg.src = `images/${folder}/image${idx}.jpg`;
+                    
+                    imgJpg.onload = () => {
+                        list.push(imgJpg.src);
+                        idx++;
+                        checkNext();
+                    };
+                    
+                    imgJpg.onerror = () => {
+                        // Stop discovery, run callback
+                        callback(list);
+                    };
+                };
+            }
+            checkNext();
+        }
 
         function setupSlideshow(role) {
             const slidesContainer = document.getElementById(`slides-${role}`);
@@ -480,6 +507,7 @@
             if (!slidesContainer || !dotsContainer) return;
 
             const screenshots = roleScreenshots[role];
+            if (screenshots.length === 0) return;
 
             // Render Slides
             slidesContainer.innerHTML = '';
@@ -502,6 +530,9 @@
                 };
                 dotsContainer.appendChild(dot);
             });
+
+            // Clear previous interval if any
+            if (slideIntervals[role]) clearInterval(slideIntervals[role]);
 
             // Auto Interval
             slideIntervals[role] = setInterval(() => {
@@ -533,11 +564,14 @@
             initTypingAnimation();
             initConstellation();
             
-            // Start slideshows for all 4 roles
-            setupSlideshow('organization');
-            setupSlideshow('company');
-            setupSlideshow('driver');
-            setupSlideshow('parent');
+            // Discover screenshots dynamically for all 4 roles
+            const roles = ['organization', 'company', 'driver', 'parent'];
+            roles.forEach(role => {
+                discoverScreenshots(role, (list) => {
+                    roleScreenshots[role] = list;
+                    setupSlideshow(role);
+                });
+            });
         });
     </script>
 </body>
