@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سامانه مدیریت حمل‌ونقل دانش‌آموزی (ساد)</title>
+    <title>سامانه مدیریت حمل‌و‌نقل دانش‌آموزی (ساد)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,8 +19,7 @@
     <header>
         <div class="container nav-wrapper">
             <div class="logo-section">
-                <!-- Using Logo from assets -->
-                <img src="images/student-time-management.svg" alt="لوگو سامانه ساد" class="site-logo">
+                <img src="images/logo.png" alt="لوگو سامانه ساد" class="site-logo">
                 <div>
                     <div class="logo-title">ساد</div>
                 </div>
@@ -30,686 +29,178 @@
                     <ul class="nav-menu">
                         <li><a href="#hero">صفحه اصلی</a></li>
                         <li><a href="#features">قابلیت‌ها</a></li>
-                        <li><a href="#stats">آمار عملکرد</a></li>
                     </ul>
                 </nav>
                 <!-- Theme Toggle Switch -->
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="تغییر پوسته">
                     <svg id="theme-icon" viewBox="0 0 24 24">
-                        <!-- Sun/Moon icon depending on theme -->
-                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zM5.99 16.95l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/>
+                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 16.95l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/>
                     </svg>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with City Map Constellation Network -->
     <section class="hero" id="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1>سفر هوشمند و ایمن مدارس با <span class="highlight" id="typing-text"></span><span class="typing-cursor">|</span></h1>
-                <p>ساد بستری یکپارچه و نوآورانه برای مانیتورینگ، برنامه‌ریزی هوشمند، و مدیریت همه‌جانبه سرویس‌های مدارس است. این سامانه با متصل کردن سازمان‌ها، شرکت‌های پیمانکار، رانندگان و والدین، امنیت و آسودگی خاطر را برای خانواده‌ها به ارمغان می‌آورد.</p>
-                <div class="hero-buttons">
-                    <a href="#features" class="btn btn-primary">مشاهده امکانات سامانه</a>
-                    <a href="#stats" class="btn btn-secondary">چرا سامانه ساد؟</a>
-                </div>
-            </div>
-            <div class="hero-illustration">
-                <div class="floating-card">
-                    <!-- Custom SVG representing school bus and smart routing -->
-                    <svg class="illustration-svg" viewBox="0 0 200 200">
-                        <!-- Background glow and grid -->
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#243256" stroke-width="2" stroke-dasharray="5,5" />
-                        <circle cx="100" cy="100" r="50" fill="none" stroke="#243256" stroke-width="1" />
-                        
-                        <!-- Route Line -->
-                        <path d="M 40,140 Q 80,60 120,130 T 160,80" fill="none" stroke="#1cb0f6" stroke-width="4" stroke-linecap="round" />
-                        
-                        <!-- Pulse Point -->
-                        <circle cx="120" cy="130" r="10" fill="rgba(88, 204, 2, 0.3)">
-                            <animate attributeName="r" values="6;14;6" dur="2s" repeatCount="indefinite" />
-                        </circle>
-                        <circle cx="120" cy="130" r="5" fill="#58cc02" />
-
-                        <!-- School Bus Body -->
-                        <g transform="translate(65, 80) scale(0.35)">
-                            <rect x="10" y="30" width="120" height="70" rx="20" fill="#ffc800" />
-                            <rect x="90" y="30" width="40" height="70" rx="10" fill="#ffc800" />
-                            <!-- Windows -->
-                            <rect x="25" y="40" width="20" height="20" rx="5" fill="#243256" />
-                            <rect x="55" y="40" width="20" height="20" rx="5" fill="#243256" />
-                            <rect x="85" y="40" width="20" height="20" rx="5" fill="#243256" />
-                            <!-- Wheels -->
-                            <circle cx="40" cy="100" r="16" fill="#0a0e1a" />
-                            <circle cx="40" cy="100" r="6" fill="#fff" />
-                            <circle cx="100" cy="100" r="16" fill="#0a0e1a" />
-                            <circle cx="100" cy="100" r="6" fill="#fff" />
-                            <!-- Lights -->
-                            <circle cx="130" cy="60" r="8" fill="#ff9600" />
-                        </g>
-                    </svg>
-                </div>
+        <canvas id="constellation-canvas"></canvas>
+        <div class="container hero-content">
+            <h1>سفر هوشمند و ایمن مدارس با <span class="highlight" id="typing-text"></span><span class="typing-cursor">|</span></h1>
+            <p>مدیریت هوشمند، مانیتورینگ آنلاین و اتصال یکپارچه مدارس، شرکت‌ها، رانندگان و والدین در یک بستر امن.</p>
+            <div class="hero-buttons">
+                <a href="#features" class="btn btn-primary">مشاهده امکانات و پنل‌ها</a>
             </div>
         </div>
     </section>
 
-    <!-- User Roles & Interactive Features Section -->
-    <section class="role-tabs-section" id="features">
+    <!-- Polished Concise Features Section with Step-by-Step Alternating Grid -->
+    <section class="features-section" id="features">
         <div class="container">
             <div class="section-header">
-                <h2>پنل‌ها و قابلیت‌های تخصصی سامانه</h2>
-                <p>پاسخگویی به نیازهای تمام ذینفعان در یک بستر یکپارچه</p>
+                <h2>پنل‌ها و قابلیت‌های تخصصی سامانه ساد</h2>
+                <p>پاسخگویی به نیازهای تمام ذینفعان در یک بستر یکپارچه و هوشمند</p>
             </div>
 
-            <!-- Role Selection Tabs -->
-            <div class="role-tabs">
-                <button class="tab-btn active" onclick="switchRole('organization')">پنل سازمان‌ها</button>
-                <button class="tab-btn" onclick="switchRole('company')">پنل شرکت‌ها</button>
-                <button class="tab-btn" onclick="switchRole('driver')">برنامه رانندگان</button>
-                <button class="tab-btn" onclick="switchRole('parent')">برنامه والدین</button>
-            </div>
-
-            <!-- Panel 1: Organization -->
-            <div id="panel-organization" class="feature-panel active">
-                <div class="features-list" id="list-organization">
-                    
-                    <div class="feature-card active" onclick="showScreenshot('organization', 'images/سازمان/مانیتورینگ ماموریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مانیتورینگ زنده و لحظه‌ای</h3>
-                            <p>مشاهده موقعیت رانندگان، دانش‌آموزان و مدارس روی نقشه زنده و نظارت بر وضعیت سفرها.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('organization', 'images/سازمان/مانیتورینگ ماموریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>سیستم هشدار و استثنائات</h3>
-                            <p>دریافت هشدارهای لحظه‌ای خروج از مسیر، سرعت غیرمجاز، تأخیرهای طولانی، یا آفلاین شدن رانندگان.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('organization', 'images/سازمان/مدیریت قراردادها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت شرکت‌های حمل‌ونقل</h3>
-                            <p>تعریف، ارزیابی، نظارت و مقایسه عملکرد پیمانکاران مختلف سرویس مدارس.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('organization', 'images/سازمان/مدیریت قراردادها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت مدارس</h3>
-                            <p>ثبت و سازماندهی اطلاعات مدارس تحت پوشش و نیازهای ناوگان اختصاص یافته به آن‌ها.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('organization', 'images/سازمان/مدیریت قراردادها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت قراردادها</h3>
-                            <p>نظارت بر قراردادهای منعقد شده بین مدارس، شرکت‌ها و رانندگان و انطباق تعهدات آن‌ها.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('organization', 'images/سازمان/مدیریت رانندگان.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>سیستم شکایات و بازخوردها</h3>
-                            <p>ثبت، دسته‌بندی و پیگیری شکایات واصله از سوی والدین، رانندگان و مدارس تا حصول نتیجه نهایی.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('organization', 'images/سازمان/مدیریت رانندگان.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>داشبورد مدیریتی و KPI</h3>
-                            <p>نمایش شاخص‌های کلیدی عملکرد مانند درصد به‌موقع بودن سرویس‌ها، سفرهای فعال و ظرفیت ناوگان.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('organization', 'images/سازمان/کنترل و مدیریت تعرفه ها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M5 9.2h14V19H5zM5 5h14v2.1H5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>گزارشات و تحلیل‌ها</h3>
-                            <p>ارائه گزارش‌های عملیاتی، مالی، عملکرد رانندگان و تحلیل پیشرفته روندها به صورت نموداری و امکان خروجی PDF/Excel.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('organization', 'images/سازمان/کنترل و مدیریت تعرفه ها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 1.21-1.04 2.01-2.8 2.01-1.96 0-2.72-1.21-2.8-2.54H7c.1 1.96 1.64 3.23 3.5 3.73V21h3v-2.15c2-.37 3.5-1.5 3.5-3.51 0-2.62-1.9-3.73-4.7-4.44z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>کنترل و مدیریت تعرفه‌ها</h3>
-                            <p>تنظیم، کنترل و قیمت‌گذاری تعرفه‌های سرویس‌ها بر اساس فاکتورهای مختلف جغرافیایی و زمانی.</p>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="steps-flow-container">
                 
-                <div class="mockup-container">
-                    <a href="http://sad.org.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-address-info">
-                        آدرس سامانه سازمان: sad.org.shahrood133.ir
-                    </a>
-                    <div class="browser-mockup">
-                        <div class="browser-header">
-                            <div class="browser-dot dot-red"></div>
-                            <div class="browser-dot dot-yellow"></div>
-                            <div class="browser-dot dot-green"></div>
-                            <a href="http://sad.org.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="browser-address">sad.org.shahrood133.ir</a>
-                        </div>
-                        <div class="browser-body" onclick="openLightbox(this)">
-                            <img id="img-organization" src="images/سازمان/مانیتورینگ ماموریت.png" alt="سازمان">
+                <!-- Step 1: Organization (Info Right, Mockup Left) -->
+                <div class="flow-step">
+                    <div class="flow-mockup-side">
+                        <div class="mockup-ambient-glow" style="--mockup-glow: rgba(88, 204, 2, 0.16);"></div>
+                        <div class="browser-mockup" onclick="openLightbox(this)">
+                            <div class="browser-header">
+                                <div class="browser-dot dot-red"></div>
+                                <div class="browser-dot dot-yellow"></div>
+                                <div class="browser-dot dot-green"></div>
+                                <a href="http://sad.org.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="browser-address">sad.org.shahrood133.ir</a>
+                            </div>
+                            <div class="browser-body">
+                                <div class="slides-container" id="slides-organization">
+                                    <!-- Slides dynamically loaded -->
+                                </div>
+                                <div class="slide-dots" id="dots-organization"></div>
+                            </div>
                         </div>
                     </div>
+                    <div class="flow-content-side">
+                        <div class="step-badge">۱. پنل سازمان‌ها و مدارس</div>
+                        <h2>نظارت، کنترل و برنامه‌ریزی کلان سرویس‌ها</h2>
+                        <p>بستر جامع سازمان‌ها و مدارس برای مدیریت متمرکز و نظارت بر امنیت سفرهای دانش‌آموزی.</p>
+                        <ul class="flow-bullets">
+                            <li><strong>مانیتورینگ زنده:</strong> مشاهده آنلاین موقعیت رانندگان و وضعیت سفرها روی نقشه.</li>
+                            <li><strong>کنترل قراردادها:</strong> ثبت اطلاعات مدارس، دانش‌آموزان و تایید همکاری پیمانکاران.</li>
+                            <li><strong>گزارش‌گیری متمرکز:</strong> دریافت فایل‌های تحلیلی از کارکرد ناوگان و تخلفات.</li>
+                        </ul>
+                        <a href="http://sad.org.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; width: fit-content;">ورود به پنل سازمان</a>
+                    </div>
                 </div>
+
+                <!-- Step 2: Company (Info Left, Mockup Right) -->
+                <div class="flow-step">
+                    <div class="flow-mockup-side">
+                        <div class="mockup-ambient-glow" style="--mockup-glow: rgba(28, 176, 246, 0.16);"></div>
+                        <div class="browser-mockup" onclick="openLightbox(this)">
+                            <div class="browser-header">
+                                <div class="browser-dot dot-red"></div>
+                                <div class="browser-dot dot-yellow"></div>
+                                <div class="browser-dot dot-green"></div>
+                                <a href="http://sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="browser-address">sad.shahrood133.ir</a>
+                            </div>
+                            <div class="browser-body">
+                                <div class="slides-container" id="slides-company">
+                                    <!-- Slides dynamically loaded -->
+                                </div>
+                                <div class="slide-dots" id="dots-company"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flow-content-side">
+                        <div class="step-badge">۲. پنل شرکت‌های حمل‌ونقل</div>
+                        <h2>مدیریت هوشمند ناوگان و رانندگان</h2>
+                        <p>پنل اختصاصی شرکت‌های پیمانکار حمل‌ونقل برای بهینه‌سازی فرآیندها و افزایش راندمان مالی.</p>
+                        <ul class="flow-bullets">
+                            <li><strong>برنامه‌ریزی هوشمند مسیر:</strong> تخصیص خودکار و گروهی دانش‌آموزان هم‌مسیر به رانندگان.</li>
+                            <li><strong>حسابداری یکپارچه:</strong> محاسبه اتوماتیک حقوق، کسورات و صورت‌حساب‌های مالی رانندگان.</li>
+                            <li><strong>جایگزینی آنی راننده:</strong> اختصاص خودکار راننده جایگزین در صورت ثبت مرخصی یا غیبت.</li>
+                        </ul>
+                        <a href="http://sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; width: fit-content;">ورود به پنل شرکت حمل‌و‌نقل</a>
+                    </div>
+                </div>
+
+                <!-- Step 3: Driver (Info Right, Mockup Left) -->
+                <div class="flow-step">
+                    <div class="flow-mockup-side">
+                        <div class="mockup-ambient-glow" style="--mockup-glow: rgba(255, 150, 0, 0.16);"></div>
+                        <div class="phone-mockup" onclick="openLightbox(this)">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="slides-container" id="slides-driver">
+                                    <!-- Slides dynamically loaded -->
+                                </div>
+                                <div class="slide-dots" id="dots-driver"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flow-content-side">
+                        <div class="step-badge">۳. اپلیکیشن رانندگان</div>
+                        <h2>سهولت در هدایت سفر و ثبت کارکرد راننده</h2>
+                        <p>اپلیکیشن کاربردی رانندگان سرویس برای دریافت برنامه‌ها و ناوبری مطمئن در سفرهای روزانه.</p>
+                        <ul class="flow-bullets">
+                            <li><strong>مسیریابی هوشمند:</strong> نمایش کوتاه‌ترین ایستگاه‌ها برای سوار و پیاده کردن کودکان.</li>
+                            <li><strong>ثبت حضور و غیاب:</strong> تعیین وضعیت سوار/پیاده شدن با یک دکمه در هر ایستگاه.</li>
+                            <li><strong>کیف پول رانندگان:</strong> مشاهده شفاف صورت‌حساب کارکرد و ثبت مرخصی آنلاین.</li>
+                        </ul>
+                        <a href="http://d.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; width: fit-content;">ورود به اپلیکیشن راننده</a>
+                    </div>
+                </div>
+
+                <!-- Step 4: Parent (Info Left, Mockup Right) -->
+                <div class="flow-step">
+                    <div class="flow-mockup-side">
+                        <div class="mockup-ambient-glow" style="--mockup-glow: rgba(120, 83, 232, 0.16);"></div>
+                        <div class="phone-mockup" onclick="openLightbox(this)">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="slides-container" id="slides-parent">
+                                    <!-- Slides dynamically loaded -->
+                                </div>
+                                <div class="slide-dots" id="dots-parent"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flow-content-side">
+                        <div class="step-badge">۴. اپلیکیشن والدین</div>
+                        <h2>آسودگی خاطر و پیگیری لحظه‌ای دانش‌آموز</h2>
+                        <p>اپلیکیشن والدین برای ردیابی زنده فرزند و کنترل هزینه‌ها و ارتباط با راننده.</p>
+                        <ul class="flow-bullets">
+                            <li><strong>ردیابی لحظه‌ای سرویس:</strong> مشاهده حرکت آنلاین خودرو روی نقشه زنده.</li>
+                            <li><strong>اعلان‌های هوشمند:</strong> دریافت خبر خودکار در زمان نزدیک شدن سرویس و سوار/پیاده شدن.</li>
+                            <li><strong>مدیریت عدم حضور:</strong> اعلام غیبت فرزند به راننده قبل از حرکت و پرداخت آنلاین شهریه.</li>
+                        </ul>
+                        <a href="http://p.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; width: fit-content;">ورود به اپلیکیشن والدین</a>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Panel 2: Company -->
-            <div id="panel-company" class="feature-panel">
-                <div class="features-list" id="list-company">
+            <!-- Network Interactive Graph showing Organizations & Connected Companies -->
+            <div class="network-graph-wrapper">
+                <div class="network-graph-title">
+                    <h2>شبکه سازمان‌ها و شرکت‌های حمل‌ونقل همکار</h2>
+                    <p>اتصال هوشمند شهرداری‌ها و نهادهای ناظر به پیمانکاران واجد صلاحیت جهت توزیع و مدیریت سفرها</p>
+                </div>
+                <div class="graph-container">
+                    <canvas id="graph-canvas"></canvas>
                     
-                    <div class="feature-card active" onclick="showScreenshot('company', 'images/شرکت/تخصیص هوشمند سرویسها با کمک هوش مصنوعی.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.09 0 9.8 2.73 2.71 7.15 2.71 9.88 0a7.037 7.037 0 0 0 1.96-4.88h2.01c0 2.21-.83 4.42-2.5 6.09-3.41 3.39-8.98 3.39-12.39 0-3.41-3.39-3.41-8.9 0-12.29 3.41-3.39 8.98-3.39 12.39 0L21 3.12v7z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>تخصیص هوشمند دانش‌آموزان</h3>
-                            <p>برنامه‌ریزی و انتساب خودکار دانش‌آموزان به رانندگان بر اساس آدرس مسکونی، ظرفیت خودرو و بهینه‌سازی مسیر.</p>
-                        </div>
+                    <!-- Right Column: Organizations -->
+                    <div class="graph-column" id="graph-orgs">
+                        <!-- Org nodes dynamically rendered here -->
                     </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/مانیتورینگ زنده ماموریتها و سرویسها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مانیتورینگ زنده ماموریت‌ها و سرویس‌ها</h3>
-                            <p>پیگیری زنده سفرهای فعال و مشاهده خط سیر حرکت رانندگان به سوی مدارس در طول زمان خدمت‌رسانی.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/مانیتورینگ.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مانیتورینگ اختصاصی ناوگان</h3>
-                            <p>ردیابی و نظارت آنلاین بر موقعیت رانندگان و وضعیت سرویس‌های در حال اجرا در سیستم.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/داشبورد مدیریتی سرویسها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>داشبورد مدیریتی سرویس‌ها</h3>
-                            <p>خلاصه آمارهای عملیاتی، شاخص‌های کیفیت خدمات و میزان رضایت والدین به همراه جزییات مالی.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/مدیریت  سرویسها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.9 5.06 12.46 5 12 5c-.46 0-.9.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت سرویس‌ها</h3>
-                            <p>تعریف و بهینه‌سازی ایستگاه‌ها، تغییر ظرفیت و اصلاح برنامه‌های حرکت رفت و برگشت رانندگان.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/مدیریت دانش اموزان.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت دانش‌آموزان</h3>
-                            <p>ثبت‌نام، تعیین مسیر و بررسی لیست دانش‌آموزان منتسب به هر خط سرویس مدارس.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/مدیریت قراردادها و پرداختهای مالی والدین.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5 0.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت امور مالی و قراردادها</h3>
-                            <p>محاسبه کارکرد رانندگان، پورسانت‌ها، درآمدهای شرکت و قراردادهای مالی با مدارس.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/کنترل تغییر ادرس دانش اموز.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>بررسی و تایید درخواست‌های تغییر آدرس</h3>
-                            <p>بررسی درخواست‌های تغییر موقعیت مکانی والدین و اعمال بلافاصله در سیستم برنامه‌ریزی.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/بانک اطلاعاتی مدارس.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.89 12.55L12 15.89l6.11-3.34c.08-.04.15-.09.22-.15V18c0 1.1-.9 2-2 2H7.67c-1.1 0-2-.9-2-2v-5.6c.07.06.14.11.22.15z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>بانک اطلاعاتی مدارس</h3>
-                            <p>ثبت و دسترسی آسان به مشخصات، شماره تماس‌ها و موقعیت جغرافیایی مدارس طرف قرارداد.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/بررسی شکایات.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>بررسی شکایات</h3>
-                            <p>پیگیری و پاسخ‌دهی به شکایات مربوط به رانندگان و سرویس‌های تحت پوشش شرکت.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('company', 'images/شرکت/درخواستهای مرخصی رانندگان.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm-7-3H7v-2h5v2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت جایگزینی رانندگان</h3>
-                            <p>اعلام خودکار راننده جایگزین در صورت غیبت/آفلاین شدن راننده در ساعت سرویس با هماهنگی کامل.</p>
-                        </div>
-                    </div>
-
-                </div>
-                
-                <div class="mockup-container">
-                    <a href="http://sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-address-info">
-                        آدرس سامانه شرکت‌ها: sad.shahrood133.ir
-                    </a>
-                    <div class="browser-mockup">
-                        <div class="browser-header">
-                            <div class="browser-dot dot-red"></div>
-                            <div class="browser-dot dot-yellow"></div>
-                            <div class="browser-dot dot-green"></div>
-                            <a href="http://sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="browser-address">sad.shahrood133.ir</a>
-                        </div>
-                        <div class="browser-body" onclick="openLightbox(this)">
-                            <img id="img-company" src="images/شرکت/تخصیص هوشمند سرویسها با کمک هوش مصنوعی.png" alt="شرکت">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 3: Driver -->
-            <div id="panel-driver" class="feature-panel">
-                <div class="features-list" id="list-driver">
                     
-                    <div class="feature-card active" onclick="showScreenshot('driver', 'images/راننده/داشبورد رانننده.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>داشبورد اختصاصی راننده</h3>
-                            <p>پنل اصلی راننده برای مشاهده کارکرد روزانه، تعداد سفرهای امروز و برنامه‌ریزی شخصی.</p>
-                        </div>
+                    <!-- Left Column: Companies -->
+                    <div class="graph-column" id="graph-comps">
+                        <!-- Company nodes dynamically rendered here -->
                     </div>
-
-                    <div class="feature-card" onclick="showScreenshot('driver', 'images/راننده/شروع ماموریتها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>شروع و پایان آسان ماموریت‌ها</h3>
-                            <p>امکان شروع و خاتمه سفرهای رفت و برگشت و ثبت وضعیت حضور و غیاب دانش‌آموزان در هر ایستگاه.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('driver', 'images/راننده/مشاهده سرویسها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مشاهده و مدیریت سرویس‌ها</h3>
-                            <p>مشاهده لیست دانش‌آموزان منتسب و اطلاعات تماس آن‌ها به جهت هماهنگی بهتر.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('driver', 'images/راننده/درخواست مرخصی.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>ثبت آنلاین درخواست‌ها</h3>
-                            <p>امکان ثبت درخواست مرخصی، درخواست مساعده مالی، یا گزارش تغییر وضعیت در مسیر سرویس.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('driver', 'images/راننده/مانیتور لحظه ای.jpg', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مسیریابی و ناوبری هوشمند</h3>
-                            <p>نمایش ایستگاه‌ها، مسیرهای بهینه و موقعیت مدارس روی نقشه با کمک جی‌پی‌اس برای تسریع در حرکت.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('driver', 'images/راننده/مشاهده عملکرد راننده.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>عملکرد و امتیازها</h3>
-                            <p>مشاهده امتیازهای ثبت‌شده توسط والدین، بازخوردها و تخلفات احتمالی جهت بهبود کیفیت خدمات.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('driver', 'images/راننده/پیامهای لحظه ای در اپ و به صورت نوتفیکیشن.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>پیام‌های لحظه‌ای و اعلان‌ها</h3>
-                            <p>دریافت لحظه‌ای تغییرات در برنامه سرویس، هشدارهای امنیتی و پیام‌های مستقیم از طرف شرکت یا سازمان.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('driver', 'images/راننده/مشاهده سرویسها.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>پشتیبانی اضطراری</h3>
-                            <p>امکان ارتباط سریع و مستقیم با پشتیبانی شرکت در زمان بروز حادثه یا خرابی خودرو در مسیر سفر.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('driver', 'images/راننده/داشبورد رانننده.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2-.9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5 0.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت قراردادها و کارکرد مالی</h3>
-                            <p>مشاهده شفاف صورت‌حساب‌ها، درآمدهای کسب‌شده، کسورات و تاریخچه تسویه‌حساب‌ها با شرکت پیمانکار.</p>
-                        </div>
-                    </div>
-
-                </div>
-                
-                <div class="mockup-container">
-                    <a href="http://d.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-address-info">
-                        آدرس پنل رانندگان: d.sad.shahrood133.ir
-                    </a>
-                    <div class="phone-mockup">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen" onclick="openLightbox(this)">
-                            <img id="img-driver" src="images/راننده/داشبورد رانننده.png" alt="راننده">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 4: Parent -->
-            <div id="panel-parent" class="feature-panel">
-                <div class="features-list" id="list-parent">
-                    
-                    <div class="feature-card active" onclick="showScreenshot('parent', 'images/والدین/داشبورد مدیریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.89 12.55L12 15.89l6.11-3.34c.08-.04.15-.09.22-.15V18c0 1.1-.9 2-2 2H7.67c-1.1 0-2-.9-2-2v-5.6c.07.06.14.11.22.15z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>داشبورد مدیریت فرزندان</h3>
-                            <p>کنترل وضعیت روزانه سفر فرزندان، مشاهده مشخصات راننده و خودروی سرویس‌دهنده در پنل کاربری.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('parent', 'images/والدین/داشبورد مدیریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>ثبت درخواست سرویس مدرسه</h3>
-                            <p>ثبت‌نام فرزندان برای سرویس در ابتدای سال تحصیلی جدید و پیگیری وضعیت بررسی و تایید آن.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('parent', 'images/والدین/داشبورد مدیریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>ردیابی زنده خودرو روی نقشه</h3>
-                            <p>مشاهده موقعیت مکانی لحظه‌ای خودروی سرویس فرزند هنگام شروع سفر تا زمان رسیدن به مقصد.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('parent', 'images/والدین/داشبورد مدیریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>اعلان‌های لحظه‌ای و پیام‌ها</h3>
-                            <p>دریافت نوتیفیکیشن‌های خودکار هنگام نزدیک شدن سرویس به منزل، سوار شدن فرزند، و رسیدن به مدرسه.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('parent', 'images/والدین/داشبورد مدیریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5 0.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>پرداخت آنلاین هزینه‌ها</h3>
-                            <p>مشاهده قرارداد سرویس، اقساط، تاریخچه تراکنش‌ها و پرداخت آنلاین هزینه‌ها از درگاه بانکی.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('parent', 'images/والدین/داشبورد مدیریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>ثبت شکایات و نظرات</h3>
-                            <p>امکان ثبت گلایه، انتقاد یا پیشنهاد در خصوص تاخیر راننده، ایمنی رانندگی یا رفتارهای نامناسب.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('parent', 'images/والدین/امتیاز به راننده.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>امتیازدهی به راننده</h3>
-                            <p>ثبت امتیاز و نظردهی به کیفیت خدمات و رفتار راننده پس از هر سفر یا به صورت دوره‌ای.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-card" onclick="showScreenshot('parent', 'images/والدین/داشبورد مدیریت.png', this)">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        <div class="feature-text">
-                            <h3>مدیریت مشخصات و آدرس</h3>
-                            <p>ثبت و ویرایش اطلاعات دانش‌آموز، پایه تحصیلی و آدرس دقیق منزل جهت قرارگیری در مسیر سرویس.</p>
-                        </div>
-                    </div>
-
-                </div>
-                
-                <div class="mockup-container">
-                    <a href="http://p.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-address-info">
-                        آدرس پنل والدین: p.sad.shahrood133.ir
-                    </a>
-                    <div class="phone-mockup">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen" onclick="openLightbox(this)">
-                            <img id="img-parent" src="images/والدین/داشبورد مدیریت.png" alt="والدین">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Why Companies Choose Us (Benefits) Section -->
-    <section class="benefits-section" id="benefits">
-        <div class="container">
-            <div class="section-header">
-                <h2>چرا شرکت‌های حمل‌ونقل ساد را انتخاب می‌کنند؟</h2>
-                <p>افزایش مستقیم سودآوری، کاهش استرس پشتیبانی و مدیریت هوشمند ناوگان</p>
-            </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-                    </div>
-                    <div class="benefit-text">
-                        <h3>کاهش تماس‌های مکرر و استرس‌زای والدین</h3>
-                        <p>با ردیابی زنده و ارسال اعلان‌های خودکار سوار/پیاده شدن فرزندان، تماس‌های والدین با شرکت بیش از ۹۰٪ کاهش یافته و کارمندان پشتیبانی شما با آرامش کار خواهند کرد.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5 0.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                    </div>
-                    <div class="benefit-text">
-                        <h3>کاهش چشمگیر هزینه‌های سوخت و ناوگان</h3>
-                        <p>تخصیص هوشمند مسیر و دانش‌آموزان به رانندگان، مسافت کل طی‌شده را بهینه‌سازی کرده و سود خالص شرکت حمل‌ونقل شما را افزایش می‌دهد.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                    </div>
-                    <div class="benefit-text">
-                        <h3>مدیریت بدون دغدغه رانندگان و غیبت‌ها</h3>
-                        <p>رانندگان مسیرهای بهینه را با برنامه پیش می‌برند و در صورت لزوم، مرخصی و انتساب رانندگان جایگزین با یک کلیک به صورت خودکار انجام می‌شود.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z"/></svg>
-                    </div>
-                    <div class="benefit-text">
-                        <h3>ثبات و تضمین تمدید قرارداد با مدارس</h3>
-                        <p>ارائه پنل مانیتورینگ مدرن به مدارس و ایجاد شفافیت کامل، اعتماد مدیران مدارس را جذب کرده و تمدید همکاری شما را در سال‌های آتی تضمین می‌کند.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROI / Savings Calculator Section -->
-    <section class="calculator-section" id="estimator">
-        <div class="container">
-            <div class="section-header">
-                <h2>محاسبه‌گر هوشمند صرفه‌جویی و بهره‌وری مالی</h2>
-                <p>تعداد سرویس‌های فعال خود را مشخص کنید تا میزان صرفه‌جویی ماهانه با ساد را ببینید</p>
-            </div>
-            <div class="calc-container">
-                <div class="calc-inputs">
-                    <div class="calc-input-group">
-                        <label for="calc-slider">تعداد سرویس‌ها / خودروهای فعال شرکت:</label>
-                        <div class="calc-slider-wrapper">
-                            <input type="range" id="calc-slider" class="calc-slider" min="5" max="250" value="30">
-                            <span class="calc-num-display" id="calc-cars-count">30</span>
-                        </div>
-                    </div>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.7;">با استفاده از تخصیص بهینه مبتنی بر موقعیت مکانی و سیستم پیشرفته اطلاع‌رسانی ساد، فرآیند اجرای سرویس‌ها فشرده‌تر و کارآمدتر می‌شود.</p>
-                </div>
-                <div class="calc-results">
-                    <div class="calc-result-item">
-                        <span class="calc-result-label">کاهش مسافت طی‌شده کل ناوگان در ماه:</span>
-                        <span class="calc-result-value accent" id="calc-distance-saved">۵,۴۰۰ کیلومتر</span>
-                    </div>
-                    <div class="calc-result-item">
-                        <span class="calc-result-label">کاهش مصرف بنزین در ماه:</span>
-                        <span class="calc-result-value accent" id="calc-fuel-saved">۵۴۰ لیتر</span>
-                    </div>
-                    <div class="calc-result-item">
-                        <span class="calc-result-label">کاهش تماس‌های زنگ پشتیبانی والدین:</span>
-                        <span class="calc-result-value" id="calc-calls-saved">۳,۶۰۰ تماس</span>
-                    </div>
-                    <div class="calc-result-item">
-                        <span class="calc-result-label">افزایش سود خالص تخمینی شرکت در ماه:</span>
-                        <span class="calc-result-value" id="calc-money-saved">۴۵,۰۰۰,۰۰۰ تومان</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Onboarding Steps Section -->
-    <section class="steps-section" id="steps">
-        <div class="container">
-            <div class="section-header">
-                <h2>۳ گام ساده برای پیوستن به سامانه ساد</h2>
-                <p>روند فعال‌سازی و شروع به کار سریع بدون معطلی و مراحل اداری سنگین</p>
-            </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-num">۱</div>
-                    <h3>ثبت‌نام و تعریف اطلاعات پایه</h3>
-                    <p>شرکت حمل‌ونقل و مدارس طرف قرارداد خود را در سیستم تعریف کرده و مدارک لازم را بارگذاری کنید.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">۲</div>
-                    <h3>ثبت دانش‌آموزان و تخصیص هوشمند</h3>
-                    <p>درخواست‌های ثبت‌نام والدین را با یک کلیک تایید کنید تا سیستم بهینه ترین مسیر را برای رانندگان بسازد.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">۳</div>
-                    <h3>شروع مانیتورینگ و کارکرد</h3>
-                    <p>رانندگان برنامه را نصب کرده و با شروع سفرها، مانیتورینگ زنده و گزارش‌های درآمد آغاز می‌شود.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Info / Stats Section -->
-    <section class="stats-section" id="stats">
-        <div class="container">
-            <div class="section-header">
-                <h2>آمارهای کلیدی سامانه ساد</h2>
-                <p>عملکرد ما در افزایش امنیت و سرعت سرویس‌دهی مدارس</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-num">۹۹.۸٪</div>
-                    <div class="stat-title">امنیت و صحت در انجام سفرهای ثبت‌شده</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">۱۵+ دقیقه</div>
-                    <div class="stat-title">کاهش میانگین زمان معطلی دانش‌آموزان</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">۴۰+ درصد</div>
-                    <div class="stat-title">صرفه‌جویی در هزینه با تخصیص هوشمند مسیر</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">۲۴/۷</div>
-                    <div class="stat-title">پشتیبانی اضطراری و مانیتورینگ آنلاین</div>
                 </div>
             </div>
         </div>
@@ -717,31 +208,20 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <h3>سامانه ساد</h3>
-                <p>ساد یک پلتفرم جامع و هوشمند برای مدیریت سرویس مدارس است که با هدف ارتقای امنیت دانش‌آموزان، بهبود مدیریت ناوگان شرکت‌ها و کاهش دغدغه‌های والدین طراحی شده است. تمام حقوق این سامانه محفوظ است.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="لوگو ساد" style="width: 40px; height: 40px; object-fit: contain;">
+                    <h3>سامانه ساد</h3>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">صفحه اصلی</a>
+                    <a href="#features">قابلیت‌ها</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>بخش‌های سامانه</h4>
-                <ul>
-                    <li><a href="#features" onclick="switchRole('organization')">پنل سازمان</a></li>
-                    <li><a href="#features" onclick="switchRole('company')">پنل شرکت حمل‌ونقل</a></li>
-                    <li><a href="#features" onclick="switchRole('driver')">اپلیکیشن رانندگان</a></li>
-                    <li><a href="#features" onclick="switchRole('parent')">اپلیکیشن والدین</a></li>
-                </ul>
+            <div class="footer-bottom">
+                © ۱۴۰۵ سامانه ساد. تمامی حقوق محفوظ است.
             </div>
-            <div class="footer-links">
-                <h4>دسترسی سریع</h4>
-                <ul>
-                    <li><a href="#hero">صفحه اصلی</a></li>
-                    <li><a href="#features">قابلیت‌ها</a></li>
-                    <li><a href="#stats">آمارهای کلیدی</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            توسعه داده شده با ❤️ در سامانه ساد - ۱۴۰۵
         </div>
     </footer>
 
@@ -753,37 +233,9 @@
 
     <!-- JavaScript code -->
     <script>
-        let autoPlayTimer = null;
-        let activeRole = 'organization';
-
-        // Role mapping to screenshot element IDs and card containers
-        const roleData = {
-            organization: {
-                imgId: 'img-organization',
-                cardsContainerId: 'list-organization',
-                mockupType: 'browser'
-            },
-            company: {
-                imgId: 'img-company',
-                cardsContainerId: 'list-company',
-                mockupType: 'browser'
-            },
-            driver: {
-                imgId: 'img-driver',
-                cardsContainerId: 'list-driver',
-                mockupType: 'phone'
-            },
-            parent: {
-                imgId: 'img-parent',
-                cardsContainerId: 'list-parent',
-                mockupType: 'phone'
-            }
-        };
-
         // Dark/Light Theme Switching
         const themeToggle = document.getElementById('theme-toggle');
         
-        // Detect saved theme or system setting (defaulting to light as requested)
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-theme');
@@ -804,11 +256,10 @@
                     const y = e.clientY - rect.top;
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    // Compute rotation based on distance from center
-                    const rotateX = ((centerY - y) / centerY) * 12; // max 12 deg
-                    const rotateY = ((x - centerX) / centerX) * 12; // max 12 deg
+                    const rotateX = ((centerY - y) / centerY) * 10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
 
-                    mockup.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+                    mockup.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
                     mockup.style.transition = 'transform 0.05s ease';
                 });
 
@@ -819,120 +270,19 @@
             });
         }
 
-        function switchRole(role) {
-            activeRole = role;
-            
-            // Toggle Tab Buttons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.getAttribute('onclick').includes(role)) {
-                    btn.classList.add('active');
-                }
-            });
-
-            // Toggle Panels
-            const panels = document.querySelectorAll('.feature-panel');
-            panels.forEach(p => p.classList.remove('active'));
-            document.getElementById(`panel-${role}`).classList.add('active');
-
-            // Reset Autoplay for new tab
-            startAutoplay();
-        }
-
-        function showScreenshot(role, imgPath, cardElement) {
-            const data = roleData[role];
-            if (!data) return;
-
-            // Update Image Src
-            const img = document.getElementById(data.imgId);
-            if (img) {
-                img.src = imgPath;
-            }
-
-            // Update Active Card Styling in the list
-            const container = document.getElementById(data.cardsContainerId);
-            if (container) {
-                const cards = container.querySelectorAll('.feature-card');
-                cards.forEach(c => c.classList.remove('active'));
-            }
-            cardElement.classList.add('active');
-        }
-
-        // Automatic slideshow of features
-        function startAutoplay() {
-            stopAutoplay();
-            autoPlayTimer = setInterval(() => {
-                const data = roleData[activeRole];
-                if (!data) return;
-
-                const container = document.getElementById(data.cardsContainerId);
-                if (!container) return;
-
-                const cards = container.querySelectorAll('.feature-card');
-                if (cards.length <= 1) return;
-
-                let activeIndex = -1;
-                cards.forEach((card, idx) => {
-                    if (card.classList.contains('active')) {
-                        activeIndex = idx;
-                    }
-                });
-
-                let nextIndex = (activeIndex + 1) % cards.length;
-                cards[nextIndex].click();
-            }, 5000);
-        }
-
-        function stopAutoplay() {
-            if (autoPlayTimer) {
-                clearInterval(autoPlayTimer);
-                autoPlayTimer = null;
-            }
-        }
-
         // Lightbox Functions
-        function openLightbox(mockupScreenElement) {
-            const imgElement = mockupScreenElement.querySelector('img');
-            if (!imgElement) return;
+        function openLightbox(mockupWrapper) {
+            const activeImg = mockupWrapper.querySelector('.slide-img.active');
+            if (!activeImg) return;
 
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
-            
-            lightboxImg.src = imgElement.src;
+            lightboxImg.src = activeImg.src;
             lightbox.style.display = 'flex';
-            
-            // Stop slideshow while inspecting
-            stopAutoplay();
         }
 
         function closeLightbox() {
             document.getElementById('lightbox').style.display = 'none';
-            startAutoplay();
-        }
-
-        // Pause slideshow on hover of features list
-        document.querySelectorAll('.features-list').forEach(list => {
-            list.addEventListener('mouseenter', stopAutoplay);
-            list.addEventListener('mouseleave', startAutoplay);
-        });
-
-        // Initialize Calculator
-        function initCalculator() {
-            const slider = document.getElementById('calc-slider');
-            if (!slider) return;
-
-            const updateCalc = () => {
-                const N = parseInt(slider.value);
-                document.getElementById('calc-cars-count').textContent = N.toLocaleString('fa-IR');
-                document.getElementById('calc-distance-saved').textContent = (N * 180).toLocaleString('fa-IR') + ' کیلومتر';
-                document.getElementById('calc-fuel-saved').textContent = (N * 18).toLocaleString('fa-IR') + ' لیتر';
-                document.getElementById('calc-calls-saved').textContent = (N * 120).toLocaleString('fa-IR') + ' تماس';
-                document.getElementById('calc-money-saved').textContent = (N * 1500000).toLocaleString('fa-IR') + ' تومان';
-            };
-
-            slider.addEventListener('input', updateCalc);
-            updateCalc();
         }
 
         // Typing animation for hero header
@@ -960,11 +310,11 @@
 
                 if (!isDeleting && charIndex === currentWord.length) {
                     isDeleting = true;
-                    typingSpeed = 2000; // Pause at end of word
+                    typingSpeed = 2000;
                 } else if (isDeleting && charIndex === 0) {
                     isDeleting = false;
                     wordIndex = (wordIndex + 1) % words.length;
-                    typingSpeed = 500; // Pause before next word
+                    typingSpeed = 500;
                 }
 
                 setTimeout(type, typingSpeed);
@@ -973,19 +323,424 @@
             type();
         }
 
-        // Initialize slideshow on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            // Dynamically add progress bar to all feature cards
-            document.querySelectorAll('.feature-card').forEach(card => {
-                const progress = document.createElement('div');
-                progress.className = 'card-progress';
-                card.appendChild(progress);
+        // Interactive City Route Network on Hero background
+        function initConstellation() {
+            const canvas = document.getElementById('constellation-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let width = canvas.width = canvas.offsetWidth;
+            let height = canvas.height = canvas.offsetHeight;
+            
+            window.addEventListener('resize', () => {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+            });
+            
+            const particles = [];
+            let mouse = { x: null, y: null, active: false };
+            const heroSection = document.getElementById('hero');
+            
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+                mouse.active = true;
+            });
+            heroSection.addEventListener('mouseleave', () => {
+                mouse.active = false;
+            });
+            
+            // Denser node network (90 nodes to simulate a complex city route map)
+            const particleCount = 90;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    radius: Math.random() * 2.5 + 1.5,
+                    pulseDelay: Math.random() * 100
+                });
+            }
+            
+            // Glowing signal pulse particles traveling along connected lines
+            const pulses = [];
+            
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                const isDark = document.body.classList.contains('dark-theme');
+                const lineColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)';
+                const mouseLineColor = isDark ? 'rgba(28, 176, 246, 0.22)' : 'rgba(28, 176, 246, 0.12)';
+                const dotColor = isDark ? 'rgba(156, 163, 175, 0.3)' : 'rgba(15, 23, 42, 0.15)';
+                
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+                    
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = dotColor;
+                    ctx.fill();
+                });
+                
+                const connections = [];
+                for (let i = 0; i < particles.length; i++) {
+                    const p1 = particles[i];
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = lineColor;
+                            ctx.lineWidth = (1 - dist / 100) * 1.0;
+                            ctx.stroke();
+                            connections.push({ from: p1, to: p2 });
+                        }
+                    }
+                    
+                    if (mouse.active) {
+                        const dx = p1.x - mouse.x;
+                        const dy = p1.y - mouse.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < 165) {
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.strokeStyle = mouseLineColor;
+                            ctx.lineWidth = (1 - dist / 165) * 1.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                if (connections.length > 0 && Math.random() < 0.15 && pulses.length < 25) {
+                    const conn = connections[Math.floor(Math.random() * connections.length)];
+                    pulses.push({
+                        from: conn.from,
+                        to: conn.to,
+                        progress: 0,
+                        speed: Math.random() * 0.02 + 0.015,
+                        color: Math.random() < 0.5 ? '#58cc02' : '#1cb0f6'
+                    });
+                }
+                
+                for (let i = pulses.length - 1; i >= 0; i--) {
+                    const p = pulses[i];
+                    p.progress += p.speed;
+                    if (p.progress >= 1) {
+                        pulses.splice(i, 1);
+                        continue;
+                    }
+                    
+                    const x = p.from.x + (p.to.x - p.from.x) * p.progress;
+                    const y = p.from.y + (p.to.y - p.from.y) * p.progress;
+                    
+                    ctx.beginPath();
+                    ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = p.color;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // Multiple Slideshows Logic for each mockup container
+        const roleScreenshots = {
+            organization: [
+                "images/سازمان/مانیتورینگ ماموریت.png",
+                "images/سازمان/مدیریت رانندگان.png",
+                "images/سازمان/مدیریت قراردادها.png",
+                "images/سازمان/کنترل و مدیریت تعرفه ها.png"
+            ],
+            company: [
+                "images/شرکت/تخصیص هوشمند سرویسها با کمک هوش مصنوعی.png",
+                "images/شرکت/کنترل تغییر ادرس دانش اموز.png",
+                "images/شرکت/درخواستهای مرخصی رانندگان.png",
+                "images/شرکت/بانک اطلاعاتی مدارس.png",
+                "images/شرکت/بررسی شکایات.png"
+            ],
+            driver: [
+                "images/راننده/داشبورد رانننده.png",
+                "images/راننده/درخواست مرخصی.png",
+                "images/راننده/شروع ماموریتها.png",
+                "images/راننده/مشاهده سرویسها.png",
+                "images/راننده/مشاهده عملکرد راننده.png"
+            ],
+            parent: [
+                "images/والدین/داشبورد مدیریت.png",
+                "images/والدین/امتیاز به راننده.png"
+            ]
+        };
+
+        const activeSlides = { organization: 0, company: 0, driver: 0, parent: 0 };
+        const slideIntervals = {};
+
+        function setupSlideshow(role) {
+            const slidesContainer = document.getElementById(`slides-${role}`);
+            const dotsContainer = document.getElementById(`dots-${role}`);
+            if (!slidesContainer || !dotsContainer) return;
+
+            const screenshots = roleScreenshots[role];
+
+            // Render Slides
+            slidesContainer.innerHTML = '';
+            screenshots.forEach((src, idx) => {
+                const img = document.createElement('img');
+                img.className = `slide-img ${idx === 0 ? 'active' : ''}`;
+                img.src = src;
+                img.alt = `${role} screenshot ${idx + 1}`;
+                slidesContainer.appendChild(img);
             });
 
-            startAutoplay();
+            // Render Dots
+            dotsContainer.innerHTML = '';
+            screenshots.forEach((_, idx) => {
+                const dot = document.createElement('span');
+                dot.className = `dot ${idx === 0 ? 'active' : ''}`;
+                dot.onclick = (e) => {
+                    e.stopPropagation();
+                    goToSlide(role, idx);
+                };
+                dotsContainer.appendChild(dot);
+            });
+
+            // Auto Interval
+            slideIntervals[role] = setInterval(() => {
+                const nextIndex = (activeSlides[role] + 1) % screenshots.length;
+                goToSlide(role, nextIndex);
+            }, 4000);
+        }
+
+        function goToSlide(role, index) {
+            activeSlides[role] = index;
+            const slidesContainer = document.getElementById(`slides-${role}`);
+            const dotsContainer = document.getElementById(`dots-${role}`);
+            if (!slidesContainer || !dotsContainer) return;
+
+            const imgs = slidesContainer.querySelectorAll('.slide-img');
+            imgs.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Fetch public companies/organizations and render graph
+        function initNetworkGraph() {
+            const apiUrl = 'https://sad.shahrood133.ir/api/v1/public/companies-network/';
+            
+            // Fallback static data if CORS / offline dev
+            const fallbackData = {
+                organizations: [
+                    { id: 1, name: "سازمان مدیریت حمل‌ونقل شاهرود", city_name: "شاهرود", logo: null },
+                    { id: 2, name: "اداره آموزش و پرورش شاهرود", city_name: "شاهرود", logo: null }
+                ],
+                companies: [
+                    { id: 10, name: "شرکت شاهرود سیر البرز", organization_id: 1, logo: null },
+                    { id: 11, name: "شرکت مسافربری رعد شاهرود", organization_id: 1, logo: null },
+                    { id: 12, name: "شرکت پیمانکار ایمن سفر", organization_id: 2, logo: null }
+                ]
+            };
+
+            fetch(apiUrl)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.type === 'success') {
+                        renderGraph(data.result);
+                    } else {
+                        renderGraph(fallbackData);
+                    }
+                })
+                .catch(() => {
+                    renderGraph(fallbackData);
+                });
+        }
+
+        const graphNodes = { orgs: [], comps: [] };
+
+        function renderGraph(data) {
+            const orgsCol = document.getElementById('graph-orgs');
+            const compsCol = document.getElementById('graph-comps');
+            if (!orgsCol || !compsCol) return;
+
+            orgsCol.innerHTML = '';
+            compsCol.innerHTML = '';
+            graphNodes.orgs = [];
+            graphNodes.comps = [];
+
+            // Render Organizations
+            data.organizations.forEach(org => {
+                const node = document.createElement('div');
+                node.className = 'graph-node org-node';
+                node.dataset.id = org.id;
+                node.innerHTML = `
+                    <div class="node-logo-wrapper">
+                        ${org.logo ? `<img src="${org.logo}" class="node-logo" alt="${org.name}">` : `<span class="node-logo-default">🏢</span>`}
+                    </div>
+                    <div class="node-info">
+                        <h4>${org.name}</h4>
+                        <p>${org.city_name}</p>
+                    </div>
+                `;
+                orgsCol.appendChild(node);
+                graphNodes.orgs.push({ id: org.id, element: node });
+            });
+
+            // Render Companies
+            data.companies.forEach(comp => {
+                const node = document.createElement('div');
+                node.className = 'graph-node comp-node';
+                node.dataset.id = comp.id;
+                node.dataset.orgId = comp.organization_id;
+                node.innerHTML = `
+                    <div class="node-logo-wrapper">
+                        ${comp.logo ? `<img src="${comp.logo}" class="node-logo" alt="${comp.name}">` : `<span class="node-logo-default">🤝</span>`}
+                    </div>
+                    <div class="node-info">
+                        <h4>${comp.name}</h4>
+                        <p>شرکت حمل‌ونقل همکار</p>
+                    </div>
+                `;
+                compsCol.appendChild(node);
+                graphNodes.comps.push({ id: comp.id, orgId: comp.organization_id, element: node });
+            });
+
+            setTimeout(initGraphCanvas, 100);
+        }
+
+        let graphCanvasTimer = null;
+        function initGraphCanvas() {
+            const canvas = document.getElementById('graph-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let width = canvas.width = canvas.offsetWidth;
+            let height = canvas.height = canvas.offsetHeight;
+            
+            window.addEventListener('resize', () => {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+            });
+
+            const pulses = [];
+
+            function drawConnections() {
+                ctx.clearRect(0, 0, width, height);
+                const isDark = document.body.classList.contains('dark-theme');
+                const lineColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)';
+                const rect = canvas.getBoundingClientRect();
+
+                // Build mapping of active node coordinates
+                const orgCoords = {};
+                graphNodes.orgs.forEach(org => {
+                    const nodeRect = org.element.getBoundingClientRect();
+                    orgCoords[org.id] = {
+                        x: (nodeRect.left - rect.left) + (nodeRect.width / 2),
+                        y: (nodeRect.top - rect.top) + (nodeRect.height / 2)
+                    };
+                });
+
+                const compCoords = [];
+                graphNodes.comps.forEach(comp => {
+                    const nodeRect = comp.element.getBoundingClientRect();
+                    compCoords.push({
+                        id: comp.id,
+                        orgId: comp.orgId,
+                        element: comp.element,
+                        x: (nodeRect.left - rect.left) + (nodeRect.width / 2),
+                        y: (nodeRect.top - rect.top) + (nodeRect.height / 2)
+                    });
+                });
+
+                // Draw connections & animate pulses
+                compCoords.forEach(comp => {
+                    const org = orgCoords[comp.orgId];
+                    if (!org) return;
+
+                    // Draw connection path
+                    ctx.beginPath();
+                    ctx.moveTo(org.x, org.y);
+                    ctx.lineTo(comp.x, comp.y);
+                    ctx.strokeStyle = lineColor;
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    // Periodically spawn pulse signals from org to comp
+                    if (Math.random() < 0.005) {
+                        pulses.push({
+                            x1: org.x, y1: org.y,
+                            x2: comp.x, y2: comp.y,
+                            progress: 0,
+                            speed: 0.02,
+                            compElement: comp.element
+                        });
+                    }
+                });
+
+                // Update and draw pulse signals
+                for (let i = pulses.length - 1; i >= 0; i--) {
+                    const p = pulses[i];
+                    p.progress += p.speed;
+                    if (p.progress >= 1) {
+                        // Light up the company node upon impact!
+                        p.compElement.classList.add('illuminated');
+                        setTimeout(() => {
+                            p.compElement.classList.remove('illuminated');
+                        }, 500);
+
+                        pulses.splice(i, 1);
+                        continue;
+                    }
+
+                    const currX = p.x1 + (p.x2 - p.x1) * p.progress;
+                    const currY = p.y1 + (p.y2 - p.y1) * p.progress;
+
+                    // Draw glowing pulse dot
+                    ctx.beginPath();
+                    ctx.arc(currX, currY, 5, 0, Math.PI * 2);
+                    ctx.fillStyle = '#1cb0f6';
+                    ctx.shadowBlur = 12;
+                    ctx.shadowColor = '#1cb0f6';
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+
+                requestAnimationFrame(drawConnections);
+            }
+
+            drawConnections();
+        }
+
+        // Initialize features on page load
+        window.addEventListener('DOMContentLoaded', () => {
             initMouseTilt();
-            initCalculator();
             initTypingAnimation();
+            initConstellation();
+            initNetworkGraph();
+            
+            // Start slideshows for all 4 roles
+            setupSlideshow('organization');
+            setupSlideshow('company');
+            setupSlideshow('driver');
+            setupSlideshow('parent');
         });
     </script>
 </body>
