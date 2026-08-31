@@ -810,29 +810,73 @@ body.dark-theme .phone-notch {
     border-top: 1px solid var(--border);
     position: relative;
     overflow: hidden;
-}
-
-.notifications-showcase-box {
-    background-color: var(--card-bg);
-    border: 2px dotted var(--primary);
-    border-radius: 28px;
-    padding: 60px 40px;
-    position: relative;
-    min-height: 380px;
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    box-shadow: var(--glass-shadow);
     background-image: radial-gradient(var(--border-solid) 1.5px, transparent 1.5px);
     background-size: 24px 24px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
 }
 
+.notifications-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Timeline center vertical dotted line */
+.timeline-line {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    border-left: 2px dotted var(--primary);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    width: 44%;
+    z-index: 2;
+    transition: transform var(--transition-speed);
+}
+
+.timeline-item.right-item {
+    align-self: flex-start;
+}
+
+.timeline-item.left-item {
+    align-self: flex-end;
+}
+
+/* Dots on the center line matching dialog entries */
+.timeline-dot {
+    position: absolute;
+    top: 35px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 3px solid var(--primary);
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.right-item .timeline-dot {
+    right: -16%;
+}
+
+.left-item .timeline-dot {
+    left: -16%;
+}
+
+.timeline-dot.dot-approaching { border-color: var(--secondary); }
+.timeline-dot.dot-pickedup { border-color: var(--primary); }
+.timeline-dot.dot-delivered { border-color: var(--accent-purple); }
+
 .dialog-wrapper {
-    width: 340px;
+    width: 100%;
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.06));
     transition: transform var(--transition-speed);
 }
@@ -1055,5 +1099,21 @@ body.dark-theme footer {
         flex-direction: column;
         text-align: center;
         gap: 20px;
+    }
+
+    .timeline-line {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-item {
+        width: calc(100% - 50px);
+        align-self: flex-end !important;
+    }
+
+    .right-item .timeline-dot,
+    .left-item .timeline-dot {
+        left: -37px !important;
+        right: auto !important;
     }
 }
