@@ -284,21 +284,18 @@ header {
 
 .hero-content h1 {
     font-size: 42px;
-    line-height: 1.4;
+    line-height: 1.5;
     color: var(--text);
     margin-bottom: 24px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
+    text-align: center;
 }
 
 .hero-content h1 span.highlight {
     color: var(--primary);
     white-space: nowrap;
     display: inline-block;
-    min-width: 280px;
+    min-height: 58px;
+    vertical-align: middle;
 }
 
 /* Typing cursor animation */

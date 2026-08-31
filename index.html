@@ -45,7 +45,7 @@
     <section class="hero" id="hero">
         <canvas id="constellation-canvas"></canvas>
         <div class="container hero-content">
-            <h1>سفر هوشمند و ایمن مدارس با <span class="typing-cursor">|</span><span class="highlight" id="typing-text"></span></h1>
+            <h1>سفر امن دانش‌آموز با<br><span class="typing-cursor">|</span><span class="highlight" id="typing-text"></span></h1>
             <p>مدیریت هوشمند، مانیتورینگ آنلاین و اتصال یکپارچه مدارس، شرکت‌ها، رانندگان و والدین در یک بستر امن.</p>
             <div class="hero-buttons">
                 <a href="#features" class="btn btn-primary">مشاهده امکانات و پنل‌ها</a>
@@ -343,15 +343,15 @@
                 mouse.active = false;
             });
             
-            // Create a denser node network (90 nodes to simulate a complex city route map)
-            const particleCount = 90;
+            // Create a denser node network (140 nodes to simulate a complex city route map)
+            const particleCount = 140;
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
                     x: Math.random() * width,
                     y: Math.random() * height,
-                    vx: (Math.random() - 0.5) * 0.4,
-                    vy: (Math.random() - 0.5) * 0.4,
-                    radius: Math.random() * 2.5 + 1.5,
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
+                    radius: Math.random() * 2.5 + 1.2,
                     pulseDelay: Math.random() * 100
                 });
             }
@@ -364,9 +364,8 @@
                 const isDark = document.body.classList.contains('dark-theme');
                 const lineColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)';
                 const mouseLineColor = isDark ? 'rgba(28, 176, 246, 0.22)' : 'rgba(28, 176, 246, 0.12)';
-                const dotColor = isDark ? 'rgba(156, 163, 175, 0.3)' : 'rgba(15, 23, 42, 0.15)';
                 
-                // Draw nodes
+                // Draw nodes with gentle twinkling breathing opacity
                 particles.forEach(p => {
                     p.x += p.vx;
                     p.y += p.vy;
@@ -376,7 +375,11 @@
                     
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = dotColor;
+                    
+                    // Modulate opacity using sine wave based on time and individual pulseDelay
+                    const baseAlpha = isDark ? 0.22 : 0.09;
+                    const alpha = baseAlpha * (Math.sin(Date.now() * 0.0012 + p.pulseDelay) * 0.6 + 0.6);
+                    ctx.fillStyle = isDark ? `rgba(243, 244, 246, ${alpha})` : `rgba(15, 23, 42, ${alpha})`;
                     ctx.fill();
                 });
                 
