@@ -272,7 +272,7 @@ header {
     width: 100%;
     height: 100%;
     z-index: -1;
-    pointer-events: auto;
+    pointer-events: auto; /* Allow mouse movement interaction */
 }
 
 .hero-content {
@@ -382,19 +382,21 @@ header {
 
 .flow-step {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: 1.1fr 1fr; /* Left: Mockup Showcase, Right: Details text */
     gap: 70px;
     align-items: center;
 }
 
+/* Alternate order for even items to swap positions cleanly in RTL */
 .flow-step:nth-child(even) .flow-mockup-side {
-    order: 2;
+    order: 2; /* Moves mockup to left (logical right in RTL grid) */
 }
 
 .flow-step:nth-child(even) .flow-content-side {
-    order: 1;
+    order: 1; /* Moves info text to right (logical left in RTL grid) */
 }
 
+/* Mockup Column side styles */
 .flow-mockup-side {
     position: relative;
     width: 100%;
@@ -532,21 +534,46 @@ header {
 .flow-step:nth-child(3) .flow-bullets li::before { color: var(--accent-orange); }
 .flow-step:nth-child(4) .flow-bullets li::before { color: var(--accent-purple); }
 
-.panel-domain-link {
+.panel-action-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-family: monospace;
-    font-size: 15px;
-    color: var(--secondary);
-    text-decoration: none;
+    justify-content: center;
+    padding: 12px 28px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+    color: var(--text);
+    border-radius: 14px;
+    font-size: 14px;
     font-weight: bold;
+    text-decoration: none;
     width: fit-content;
-    transition: color var(--transition-speed);
+    margin-top: 10px;
+    transition: all var(--transition-speed) ease;
 }
 
-.panel-domain-link:hover {
-    color: var(--primary);
+.panel-action-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.flow-step:nth-child(2) .panel-action-btn:hover {
+    border-color: var(--secondary);
+    background-color: var(--secondary);
+}
+
+.flow-step:nth-child(3) .panel-action-btn:hover {
+    border-color: var(--accent-orange);
+    background-color: var(--accent-orange);
+}
+
+.flow-step:nth-child(4) .panel-action-btn:hover {
+    border-color: var(--accent-purple);
+    background-color: var(--accent-purple);
 }
 
 /* Mockup Frames Styling */
@@ -598,7 +625,7 @@ header {
 
 .browser-body {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
     cursor: zoom-in;
@@ -738,175 +765,6 @@ body.dark-theme .phone-notch {
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
 
-/* Super Minimalist Partners Showcase Layout */
-.partners-showcase-section {
-    padding: 60px 0;
-    border-top: 1px solid var(--border);
-    width: 100%;
-}
-
-.partners-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.partners-title h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--text);
-}
-
-.partners-layout-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    position: relative;
-}
-
-/* Scroll Shelf styled for Partners */
-.partners-shelf {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 16px 8px;
-    width: 100%;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-}
-
-.partners-shelf::-webkit-scrollbar {
-    height: 6px;
-}
-
-.partners-shelf::-webkit-scrollbar-thumb {
-    background: var(--border-solid);
-    border-radius: 3px;
-}
-
-/* Large square node cards focusing on logo first */
-.partner-logo-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    width: 140px;
-    height: 140px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: all var(--transition-speed) ease;
-    flex-shrink: 0;
-    border-radius: 0px; /* Sharp corners */
-    box-shadow: var(--glass-shadow);
-    padding: 10px;
-    position: relative;
-}
-
-.partner-logo-card:hover {
-    transform: translateY(-4px);
-}
-
-.partner-logo-card.active-org {
-    border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(88, 204, 2, 0.25);
-    background: rgba(88, 204, 2, 0.05);
-}
-
-.partner-logo-card.active-comp {
-    border-color: var(--secondary);
-    box-shadow: 0 0 20px rgba(28, 176, 246, 0.3);
-    background: rgba(28, 176, 246, 0.08);
-}
-
-/* Enlarged bold logo wrapper */
-.partner-logo-img-wrapper {
-    width: 80px; /* Logo enlarged to 80px */
-    height: 80px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 0px; /* Sharp corners */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    flex-shrink: 0;
-    transition: all var(--transition-speed) ease;
-}
-
-body.dark-theme .partner-logo-img-wrapper {
-    background: #0f172a;
-}
-
-.partner-logo-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.partner-logo-default-icon {
-    font-size: 34px;
-}
-
-.partner-label {
-    font-size: 11px;
-    font-weight: bold;
-    color: var(--text);
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-}
-
-.partner-city {
-    font-size: 9px;
-    color: var(--text-muted);
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    margin-top: -6px;
-}
-
-/* Bridge SVG */
-.partners-bridge-container {
-    position: relative;
-    width: 100%;
-    height: 100px;
-    overflow: hidden;
-}
-
-#partners-bridge-svg {
-    width: 100%;
-    height: 100%;
-}
-
-.partners-bridge-path {
-    fill: none;
-    stroke: var(--border-solid);
-    stroke-width: 2;
-    transition: stroke var(--transition-speed);
-}
-
-.partners-bridge-path.active-path {
-    stroke: var(--secondary);
-    stroke-width: 3;
-    filter: drop-shadow(0 0 6px var(--secondary));
-}
-
-.partners-bridge-pulse {
-    fill: var(--secondary);
-    display: none;
-}
-
-.partners-bridge-pulse.active-pulse {
-    display: block;
-}
-
 /* Footer */
 footer {
     padding: 50px 0 24px;
@@ -1008,15 +866,11 @@ body.dark-theme footer {
     }
 
     .flow-step:nth-child(even) .flow-mockup-side {
-        order: initial;
+        order: initial; /* Reset alternating layout columns order on mobile */
     }
 
     .flow-step:nth-child(even) .flow-content-side {
         order: initial;
-    }
-
-    .partners-bridge-container {
-        display: none; /* Hide connecting SVG bridge lines on mobile screens */
     }
 }
 

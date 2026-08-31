@@ -91,7 +91,7 @@
                             <li><strong>کنترل قراردادها:</strong> ثبت اطلاعات مدارس، دانش‌آموزان و تایید همکاری پیمانکاران.</li>
                             <li><strong>گزارش‌گیری متمرکز:</strong> دریافت فایل‌های تحلیلی از کارکرد ناوگان و تخلفات.</li>
                         </ul>
-                        <a href="http://sad.org.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; width: fit-content;">ورود به پنل سازمان</a>
+                        <a href="http://sad.org.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-action-btn">ورود به پنل سازمان</a>
                     </div>
                 </div>
 
@@ -123,7 +123,7 @@
                             <li><strong>حسابداری یکپارچه:</strong> محاسبه اتوماتیک حقوق، کسورات و صورت‌حساب‌های مالی رانندگان.</li>
                             <li><strong>جایگزینی آنی راننده:</strong> اختصاص خودکار راننده جایگزین در صورت ثبت مرخصی یا غیبت.</li>
                         </ul>
-                        <a href="http://sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; width: fit-content;">ورود به پنل شرکت حمل‌و‌نقل</a>
+                        <a href="http://sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-action-btn">ورود به پنل شرکت‌ها</a>
                     </div>
                 </div>
 
@@ -150,7 +150,7 @@
                             <li><strong>ثبت حضور و غیاب:</strong> تعیین وضعیت سوار/پیاده شدن با یک دکمه در هر ایستگاه.</li>
                             <li><strong>کیف پول رانندگان:</strong> مشاهده شفاف صورت‌حساب کارکرد و ثبت مرخصی آنلاین.</li>
                         </ul>
-                        <a href="http://d.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; width: fit-content;">ورود به اپلیکیشن راننده</a>
+                        <a href="http://d.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-action-btn">ورود به پنل رانندگان</a>
                     </div>
                 </div>
 
@@ -177,36 +177,10 @@
                             <li><strong>اعلان‌های هوشمند:</strong> دریافت خبر خودکار در زمان نزدیک شدن سرویس و سوار/پیاده شدن.</li>
                             <li><strong>مدیریت عدم حضور:</strong> اعلام غیبت فرزند به راننده قبل از حرکت و پرداخت آنلاین شهریه.</li>
                         </ul>
-                        <a href="http://p.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 10px; width: fit-content;">ورود به اپلیکیشن والدین</a>
+                        <a href="http://p.sad.shahrood133.ir" target="_blank" rel="noopener noreferrer" class="panel-action-btn">ورود به پنل والدین</a>
                     </div>
                 </div>
 
-            </div>
-
-            <!-- Premium Organizations & Connected Companies Dynamic Showcase -->
-            <div class="partners-showcase-section">
-                <div class="partners-title">
-                    <h2>همکاران ما</h2>
-                </div>
-                
-                <div class="partners-layout-container">
-                    <!-- Top Row: Organizations -->
-                    <div class="partners-shelf" id="partners-orgs-shelf">
-                        <!-- Injected dynamically -->
-                    </div>
-
-                    <!-- Middle SVG bridge for orthogonal connector paths -->
-                    <div class="partners-bridge-container">
-                        <svg id="partners-bridge-svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
-                            <!-- Dynamic SVG paths and motion square pulses -->
-                        </svg>
-                    </div>
-
-                    <!-- Bottom Row: Companies -->
-                    <div class="partners-shelf" id="partners-comps-shelf">
-                        <!-- Injected dynamically -->
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -328,7 +302,7 @@
             type();
         }
 
-        // Interactive City Route Network on Hero background
+        // Interactive City Network canvas on Hero background
         function initConstellation() {
             const canvas = document.getElementById('constellation-canvas');
             if (!canvas) return;
@@ -356,6 +330,7 @@
                 mouse.active = false;
             });
             
+            // Create a denser node network (90 nodes to simulate a complex city route map)
             const particleCount = 90;
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
@@ -368,6 +343,7 @@
                 });
             }
             
+            // Glowing signal pulse particles traveling along connected lines
             const pulses = [];
             
             function animate() {
@@ -377,6 +353,7 @@
                 const mouseLineColor = isDark ? 'rgba(28, 176, 246, 0.22)' : 'rgba(28, 176, 246, 0.12)';
                 const dotColor = isDark ? 'rgba(156, 163, 175, 0.3)' : 'rgba(15, 23, 42, 0.15)';
                 
+                // Draw nodes
                 particles.forEach(p => {
                     p.x += p.vx;
                     p.y += p.vy;
@@ -390,6 +367,7 @@
                     ctx.fill();
                 });
                 
+                // Draw city map connections
                 const connections = [];
                 for (let i = 0; i < particles.length; i++) {
                     const p1 = particles[i];
@@ -426,6 +404,7 @@
                     }
                 }
                 
+                // Periodically spawn glowing signals traveling from one node to another
                 if (connections.length > 0 && Math.random() < 0.15 && pulses.length < 25) {
                     const conn = connections[Math.floor(Math.random() * connections.length)];
                     pulses.push({
@@ -437,6 +416,7 @@
                     });
                 }
                 
+                // Draw glowing pulses (representing transit travel / signals)
                 for (let i = pulses.length - 1; i >= 0; i--) {
                     const p = pulses[i];
                     p.progress += p.speed;
@@ -448,13 +428,14 @@
                     const x = p.from.x + (p.to.x - p.from.x) * p.progress;
                     const y = p.from.y + (p.to.y - p.from.y) * p.progress;
                     
+                    // Draw glow pulse
                     ctx.beginPath();
                     ctx.arc(x, y, 3.5, 0, Math.PI * 2);
                     ctx.fillStyle = p.color;
                     ctx.shadowBlur = 10;
                     ctx.shadowColor = p.color;
                     ctx.fill();
-                    ctx.shadowBlur = 0;
+                    ctx.shadowBlur = 0; // reset
                 }
                 
                 requestAnimationFrame(animate);
@@ -462,7 +443,7 @@
             animate();
         }
 
-        // Multiple Slideshows Logic for each mockup container
+        // Multiple Slideshows for each mockup container (with exact Persian string matching)
         const roleScreenshots = {
             organization: [
                 "images/سازمان/مانیتورینگ ماموریت.png",
@@ -546,168 +527,11 @@
             });
         }
 
-        // Fetch public companies/organizations and render interactive dashboard graph
-        let networkDataGlobal = null;
-        let activeOrgIdGlobal = null;
-
-        function initNetworkGraph() {
-            const apiUrl = 'https://sad.shahrood133.ir/api/v1/public/companies-network/';
-            
-            const fallbackData = {
-                organizations: [
-                    { id: 1, name: "سازمان مدیریت حمل‌ونقل شاهرود", city_name: "شاهرود", logo: null },
-                    { id: 2, name: "اداره آموزش و پرورش شاهرود", city_name: "شاهرود", logo: null }
-                ],
-                companies: [
-                    { id: 10, name: "شرکت شاهرود سیر البرز", organization_id: 1, logo: null },
-                    { id: 11, name: "شرکت مسافربری رعد شاهرود", organization_id: 1, logo: null },
-                    { id: 12, name: "شرکت پیمانکار ایمن سفر", organization_id: 2, logo: null }
-                ]
-            };
-
-            fetch(apiUrl)
-                .then(res => res.json())
-                .then(data => {
-                    if (data.type === 'success') {
-                        networkDataGlobal = data.result;
-                    } else {
-                        networkDataGlobal = fallbackData;
-                    }
-                    renderPartnersShowcase();
-                })
-                .catch(() => {
-                    networkDataGlobal = fallbackData;
-                    renderPartnersShowcase();
-                });
-        }
-
-        function renderPartnersShowcase() {
-            const orgShelf = document.getElementById('partners-orgs-shelf');
-            const compShelf = document.getElementById('partners-comps-shelf');
-            if (!orgShelf || !compShelf || !networkDataGlobal) return;
-
-            orgShelf.innerHTML = '';
-            compShelf.innerHTML = '';
-
-            // Render Organizations
-            networkDataGlobal.organizations.forEach((org, idx) => {
-                const card = document.createElement('div');
-                card.className = `partner-logo-card org-logo-card ${idx === 0 ? 'active-org' : ''}`;
-                card.dataset.id = org.id;
-                card.onclick = () => selectOrganization(org.id, card);
-                card.onmouseenter = () => selectOrganization(org.id, card);
-
-                card.innerHTML = `
-                    <div class="partner-logo-img-wrapper">
-                        ${org.logo ? `<img src="${org.logo}" alt="${org.name}">` : `<span class="partner-logo-default-icon">🏢</span>`}
-                    </div>
-                    <div class="partner-label">${org.name}</div>
-                    <div class="partner-city">${org.city_name}</div>
-                `;
-                orgShelf.appendChild(card);
-            });
-
-            // Render Companies
-            networkDataGlobal.companies.forEach(comp => {
-                const card = document.createElement('div');
-                card.className = 'partner-logo-card comp-logo-card';
-                card.dataset.id = comp.id;
-                card.dataset.orgId = comp.organization_id;
-
-                card.innerHTML = `
-                    <div class="partner-logo-img-wrapper">
-                        ${comp.logo ? `<img src="${comp.logo}" alt="${comp.name}">` : `<span class="partner-logo-default-icon">🤝</span>`}
-                    </div>
-                    <div class="partner-label">${comp.name}</div>
-                    <div class="partner-city">شرکت پیمانکار</div>
-                `;
-                compShelf.appendChild(card);
-            });
-
-            // Default selection
-            if (networkDataGlobal.organizations.length > 0) {
-                const firstOrgId = networkDataGlobal.organizations[0].id;
-                activeOrgIdGlobal = firstOrgId;
-                updateHighlightsAndBridge();
-            }
-
-            // Recalculate SVG lines on horizontal shelves scrolling
-            orgShelf.addEventListener('scroll', updateHighlightsAndBridge);
-            compShelf.addEventListener('scroll', updateHighlightsAndBridge);
-            window.addEventListener('resize', updateHighlightsAndBridge);
-        }
-
-        function selectOrganization(orgId, cardElement) {
-            if (activeOrgIdGlobal === orgId) return;
-            activeOrgIdGlobal = orgId;
-
-            // Toggle active classes on Organization cards
-            document.querySelectorAll('.org-logo-card').forEach(card => {
-                card.classList.remove('active-org');
-            });
-            cardElement.classList.add('active-org');
-
-            updateHighlightsAndBridge();
-        }
-
-        function updateHighlightsAndBridge() {
-            if (!networkDataGlobal || activeOrgIdGlobal === null) return;
-
-            const svg = document.getElementById('partners-bridge-svg');
-            if (!svg) return;
-
-            const svgRect = svg.getBoundingClientRect();
-            const width = svg.clientWidth;
-            
-            // Highlight related company cards
-            const compCards = document.querySelectorAll('.comp-logo-card');
-            const activeComps = [];
-
-            compCards.forEach(card => {
-                const compOrgId = parseInt(card.dataset.orgId);
-                if (compOrgId === activeOrgIdGlobal) {
-                    card.classList.add('active-comp');
-                    activeComps.push(card);
-                } else {
-                    card.classList.remove('active-comp');
-                }
-            });
-
-            // Find active Organization card element
-            const activeOrgCard = document.querySelector(`.org-logo-card[data-id="${activeOrgIdGlobal}"]`);
-            if (!activeOrgCard) return;
-
-            const orgRect = activeOrgCard.getBoundingClientRect();
-            const x_org = (orgRect.left - svgRect.left) + (orgRect.width / 2);
-
-            let pathsHtml = '';
-            const y_mid = 50; // Middle Y coordinate of the 100px SVG height
-
-            activeComps.forEach((compCard, idx) => {
-                const compRect = compCard.getBoundingClientRect();
-                const x_comp = (compRect.left - svgRect.left) + (compRect.width / 2);
-                
-                // Construct orthogonal square path coordinate string
-                const pathData = `M ${x_org} 0 L ${x_org} ${y_mid} L ${x_comp} ${y_mid} L ${x_comp} 100`;
-
-                // Add active pathway and a native SVG animated motion pulse along the wire
-                pathsHtml += `
-                    <path d="${pathData}" class="partners-bridge-path active-path" />
-                    <rect width="8" height="8" x="-4" y="-4" fill="#1cb0f6" class="partners-bridge-pulse active-pulse">
-                        <animateMotion dur="2.2s" repeatCount="indefinite" path="${pathData}" />
-                    </rect>
-                `;
-            });
-
-            svg.innerHTML = pathsHtml;
-        }
-
         // Initialize features on page load
         window.addEventListener('DOMContentLoaded', () => {
             initMouseTilt();
             initTypingAnimation();
             initConstellation();
-            initNetworkGraph();
             
             // Start slideshows for all 4 roles
             setupSlideshow('organization');
