@@ -814,74 +814,44 @@ body.dark-theme .phone-notch {
     background-size: 24px 24px;
 }
 
-.notifications-timeline {
+.notifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
     position: relative;
-    max-width: 900px;
-    margin: 50px auto 0;
+    z-index: 5;
+}
+
+.notification-column {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
+    align-items: center;
 }
 
-/* Timeline center vertical dotted line */
-.timeline-line {
-    position: absolute;
-    top: 10px;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    border-left: 2px dotted var(--primary);
-    z-index: 1;
-}
-
-.timeline-item {
-    position: relative;
-    width: 44%;
-    z-index: 2;
-    transition: transform var(--transition-speed);
+.column-header {
     display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    width: 290px;
+    padding-bottom: 10px;
+    border-bottom: 2px dotted var(--primary);
 }
 
-.timeline-item.right-item {
-    align-self: flex-start;
-    justify-content: flex-end; /* Snugs it to the left (center line) in RTL */
+.column-header h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text);
 }
 
-.timeline-item.left-item {
-    align-self: flex-end;
-    justify-content: flex-start; /* Snugs it to the right (center line) in RTL */
+.column-icon {
+    font-size: 18px;
 }
-
-/* Dots on the center line matching dialog entries */
-.timeline-dot {
-    position: absolute;
-    top: 35px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--card-bg);
-    border: 3px solid var(--primary);
-    z-index: 3;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.right-item .timeline-dot {
-    left: -20px;
-    right: auto;
-}
-
-.left-item .timeline-dot {
-    right: -20px;
-    left: auto;
-}
-
-.timeline-dot.dot-approaching { border-color: var(--secondary); }
-.timeline-dot.dot-pickedup { border-color: var(--primary); }
-.timeline-dot.dot-delivered { border-color: var(--accent-purple); }
 
 .dialog-wrapper {
-    width: 290px; /* Highly compact, premium sizing */
+    width: 290px;
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.06));
     transition: transform var(--transition-speed);
 }
@@ -1124,20 +1094,8 @@ body.dark-theme footer {
         gap: 20px;
     }
 
-    .timeline-line {
-        left: 20px;
-        transform: none;
-    }
-
-    .timeline-item {
-        width: calc(100% - 50px);
-        align-self: flex-end !important;
-        justify-content: flex-start !important;
-    }
-
-    .right-item .timeline-dot,
-    .left-item .timeline-dot {
-        left: -37px !important;
-        right: auto !important;
+    .notifications-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 }
