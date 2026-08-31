@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="dark-theme">
 
     <!-- Ambient colorful background blobs -->
     <div class="ambient-blobs">
@@ -399,7 +399,9 @@
         const themeToggle = document.getElementById('theme-toggle');
 
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
+        if (savedTheme === 'light') {
+            document.body.classList.remove('dark-theme');
+        } else {
             document.body.classList.add('dark-theme');
         }
 

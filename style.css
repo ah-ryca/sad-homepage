@@ -255,7 +255,8 @@ header {
 
 /* Hero Section */
 .hero {
-    padding: 120px 0 100px;
+    height: 100vh;
+    min-height: 600px;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -627,6 +628,9 @@ header {
     height: 0;
     overflow: hidden;
     cursor: zoom-in;
+    background: linear-gradient(135deg, rgba(88, 204, 2, 0.08) 0%, rgba(28, 176, 246, 0.12) 50%, rgba(88, 204, 2, 0.08) 100%);
+    background-size: 200% 200%;
+    animation: shimmerBg 3s ease infinite;
 }
 
 .browser-body::after, .phone-screen::after {
@@ -721,6 +725,15 @@ body.dark-theme .phone-notch {
     overflow: hidden;
     border-radius: 28px;
     cursor: zoom-in;
+    background: linear-gradient(135deg, rgba(255, 150, 0, 0.08) 0%, rgba(120, 83, 232, 0.12) 50%, rgba(255, 150, 0, 0.08) 100%);
+    background-size: 200% 200%;
+    animation: shimmerBg 3s ease infinite;
+}
+
+@keyframes shimmerBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .phone-screen img {
