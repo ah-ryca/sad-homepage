@@ -197,7 +197,7 @@
                 <!-- Vertical dotted route line -->
                 <div class="timeline-line"></div>
                 
-                <!-- Dialogue 1: Approaching (Right side, Short) -->
+                <!-- Dialogue 1: Driver Assigned (Right side, Short) -->
                 <div class="dialog-wrapper dialog-1 timeline-item right-item">
                     <div class="timeline-dot dot-approaching"></div>
                     <svg class="dialog-svg" viewBox="0 0 380 90" xmlns="http://www.w3.org/2000/svg">
@@ -205,17 +205,17 @@
                         <foreignObject x="22" y="16" width="336" height="55">
                             <div class="dialog-content" xmlns="http://www.w3.org/1999/xhtml">
                                 <div class="dialog-header">
-                                    <span class="dialog-icon">🚗</span>
-                                    <span class="dialog-title">شروع سفر و نزدیک شدن سرویس</span>
-                                    <span class="dialog-time">۷:۱۰ صبح</span>
+                                    <span class="dialog-icon">📋</span>
+                                    <span class="dialog-title">تخصیص ماموریت جدید (راننده)</span>
+                                    <span class="dialog-time">۶:۴۵ صبح</span>
                                 </div>
-                                <div class="dialog-body">راننده سرویس (آقای علوی) به محدوده منزل نزدیک شد.</div>
+                                <div class="dialog-body">ماموریت رفت صبح مسیر شاهرود به شما واگذار شد. ایستگاه‌ها را بررسی کنید.</div>
                             </div>
                         </foreignObject>
                     </svg>
                 </div>
 
-                <!-- Dialogue 2: Boarded (Left side, Medium) -->
+                <!-- Dialogue 2: Parent Approaching (Left side, Medium) -->
                 <div class="dialog-wrapper dialog-2 timeline-item left-item">
                     <div class="timeline-dot dot-pickedup"></div>
                     <svg class="dialog-svg" viewBox="0 0 380 115" xmlns="http://www.w3.org/2000/svg">
@@ -223,21 +223,75 @@
                         <foreignObject x="22" y="16" width="336" height="80">
                             <div class="dialog-content" xmlns="http://www.w3.org/1999/xhtml">
                                 <div class="dialog-header">
-                                    <span class="dialog-icon">✅</span>
-                                    <span class="dialog-title">دانش‌آموز سوار شد</span>
-                                    <span class="dialog-time">۷:۱۵ صبح</span>
+                                    <span class="dialog-icon">🚗</span>
+                                    <span class="dialog-title">نزدیک شدن سرویس (والدین)</span>
+                                    <span class="dialog-time">۷:۱۰ صبح</span>
                                 </div>
-                                <div class="dialog-body">فرزند شما (سینا) سوار سرویس مدرسه شد. سفر رفت آغاز گردید.</div>
+                                <div class="dialog-body">راننده سرویس (آقای علوی) به محدوده منزل نزدیک شد. لطفاً آماده شوید.</div>
                             </div>
                         </foreignObject>
                     </svg>
                 </div>
 
-                <!-- Dialogue 3: Arrived (Right side, Tall) -->
+                <!-- Dialogue 3: Driver Address Change (Right side, Medium) -->
                 <div class="dialog-wrapper dialog-3 timeline-item right-item">
+                    <div class="timeline-dot dot-approaching"></div>
+                    <svg class="dialog-svg" viewBox="0 0 380 115" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 10 L 360 10 A 10 10 0 0 1 370 20 L 370 90 A 10 10 0 0 1 360 100 L 300 100 L 315 115 L 285 100 L 20 100 A 10 10 0 0 1 10 90 L 10 20 A 10 10 0 0 1 20 10 Z" fill="var(--card-bg)" stroke="var(--border)" stroke-width="1.5" />
+                        <foreignObject x="22" y="16" width="336" height="80">
+                            <div class="dialog-content" xmlns="http://www.w3.org/1999/xhtml">
+                                <div class="dialog-header">
+                                    <span class="dialog-icon">📍</span>
+                                    <span class="dialog-title">تغییر آدرس ایستگاه (راننده)</span>
+                                    <span class="dialog-time">۷:۱۲ صبح</span>
+                                </div>
+                                <div class="dialog-body">تغییر لوکیشن: آدرس سوار شدن دانش‌آموز (سینا علوی) اصلاح شد؛ نقشه بروزرسانی گردید.</div>
+                            </div>
+                        </foreignObject>
+                    </svg>
+                </div>
+
+                <!-- Dialogue 4: Parent Student Boarded (Left side, Medium) -->
+                <div class="dialog-wrapper dialog-4 timeline-item left-item">
+                    <div class="timeline-dot dot-pickedup"></div>
+                    <svg class="dialog-svg" viewBox="0 0 380 115" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 10 L 360 10 A 10 10 0 0 1 370 20 L 370 90 A 10 10 0 0 1 360 100 L 80 100 L 65 115 L 75 100 L 20 100 A 10 10 0 0 1 10 90 L 10 20 A 10 10 0 0 1 20 10 Z" fill="var(--card-bg)" stroke="var(--border)" stroke-width="1.5" />
+                        <foreignObject x="22" y="16" width="336" height="80">
+                            <div class="dialog-content" xmlns="http://www.w3.org/1999/xhtml">
+                                <div class="dialog-header">
+                                    <span class="dialog-icon">✅</span>
+                                    <span class="dialog-title">دانش‌آموز سوار شد (والدین)</span>
+                                    <span class="dialog-time">۷:۱۵ صبح</span>
+                                </div>
+                                <div class="dialog-body">فرزند شما (سینا) سوار سرویس مدرسه شد. سفر رفت با موفقیت آغاز گردید.</div>
+                            </div>
+                        </foreignObject>
+                    </svg>
+                </div>
+
+                <!-- Dialogue 5: Support Approved Leave (Right side, Medium) -->
+                <div class="dialog-wrapper dialog-5 timeline-item right-item">
+                    <div class="timeline-dot dot-delivered"></div>
+                    <svg class="dialog-svg" viewBox="0 0 380 115" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 10 L 360 10 A 10 10 0 0 1 370 20 L 370 90 A 10 10 0 0 1 360 100 L 300 100 L 315 115 L 285 100 L 20 100 A 10 10 0 0 1 10 90 L 10 20 A 10 10 0 0 1 20 10 Z" fill="var(--card-bg)" stroke="var(--border)" stroke-width="1.5" />
+                        <foreignObject x="22" y="16" width="336" height="80">
+                            <div class="dialog-content" xmlns="http://www.w3.org/1999/xhtml">
+                                <div class="dialog-header">
+                                    <span class="dialog-icon">💬</span>
+                                    <span class="dialog-title">تایید مرخصی از پشتیبانی (شرکت)</span>
+                                    <span class="dialog-time">۷:۳۰ صبح</span>
+                                </div>
+                                <div class="dialog-body">پشتیبانی ساد: مرخصی روز فردا تایید شد و راننده جایگزین تخصیص یافت.</div>
+                            </div>
+                        </foreignObject>
+                    </svg>
+                </div>
+
+                <!-- Dialogue 6: School Arrival (Left side, Tall) -->
+                <div class="dialog-wrapper dialog-6 timeline-item left-item">
                     <div class="timeline-dot dot-delivered"></div>
                     <svg class="dialog-svg" viewBox="0 0 380 145" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 20 10 L 360 10 A 10 10 0 0 1 370 20 L 370 120 A 10 10 0 0 1 360 130 L 300 130 L 315 145 L 285 130 L 20 130 A 10 10 0 0 1 10 120 L 10 20 A 10 10 0 0 1 20 10 Z" fill="var(--card-bg)" stroke="var(--border)" stroke-width="1.5" />
+                        <path d="M 20 10 L 360 10 A 10 10 0 0 1 370 20 L 370 120 A 10 10 0 0 1 360 130 L 80 130 L 65 145 L 75 130 L 20 130 A 10 10 0 0 1 10 120 L 10 20 A 10 10 0 0 1 20 10 Z" fill="var(--card-bg)" stroke="var(--border)" stroke-width="1.5" />
                         <foreignObject x="22" y="16" width="336" height="110">
                             <div class="dialog-content" xmlns="http://www.w3.org/1999/xhtml">
                                 <div class="dialog-header">

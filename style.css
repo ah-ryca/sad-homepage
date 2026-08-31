@@ -900,6 +900,21 @@ body.dark-theme .phone-notch {
     animation-delay: -4s;
 }
 
+.dialog-wrapper.dialog-4 {
+    animation: floatSlow 7s ease-in-out infinite;
+    animation-delay: -1s;
+}
+
+.dialog-wrapper.dialog-5 {
+    animation: floatMedium 6s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+.dialog-wrapper.dialog-6 {
+    animation: floatFast 8s ease-in-out infinite;
+    animation-delay: -5s;
+}
+
 .dialog-svg {
     width: 100%;
     height: auto;
@@ -913,8 +928,11 @@ body.dark-theme .phone-notch {
 }
 
 .dialog-1 .dialog-svg path { stroke: var(--secondary); }
-.dialog-2 .dialog-svg path { stroke: var(--primary); }
-.dialog-3 .dialog-svg path { stroke: var(--accent-purple); }
+.dialog-2 .dialog-svg path { stroke: var(--secondary); }
+.dialog-3 .dialog-svg path { stroke: var(--primary); }
+.dialog-4 .dialog-svg path { stroke: var(--primary); }
+.dialog-5 .dialog-svg path { stroke: var(--accent-orange); }
+.dialog-6 .dialog-svg path { stroke: var(--accent-purple); }
 
 .dialog-content {
     direction: rtl;
