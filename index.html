@@ -8,12 +8,19 @@
 </head>
 <body>
 
+    <!-- Ambient colorful background blobs -->
+    <div class="ambient-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
     <!-- Header & Navigation -->
     <header>
         <div class="container nav-wrapper">
             <div class="logo-section">
                 <!-- Using Logo from assets -->
-                <img src="images/logo.png" alt="لوگو سامانه ساد" class="site-logo" style="width: 48px; height: 48px; object-fit: contain;">
+                <img src="images/student-time-management.svg" alt="لوگو سامانه ساد" class="site-logo">
                 <div>
                     <div class="logo-title">ساد</div>
                 </div>
@@ -41,7 +48,7 @@
     <section class="hero" id="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1>سفر هوشمند و ایمن مدارس با <span>سامانه ساد</span></h1>
+                <h1>سفر هوشمند و ایمن مدارس با <span class="highlight" id="typing-text"></span><span class="typing-cursor">|</span></h1>
                 <p>ساد بستری یکپارچه و نوآورانه برای مانیتورینگ، برنامه‌ریزی هوشمند، و مدیریت همه‌جانبه سرویس‌های مدارس است. این سامانه با متصل کردن سازمان‌ها، شرکت‌های پیمانکار، رانندگان و والدین، امنیت و آسودگی خاطر را برای خانواده‌ها به ارمغان می‌آورد.</p>
                 <div class="hero-buttons">
                     <a href="#features" class="btn btn-primary">مشاهده امکانات سامانه</a>
@@ -928,6 +935,44 @@
             updateCalc();
         }
 
+        // Typing animation for hero header
+        function initTypingAnimation() {
+            const textElement = document.getElementById('typing-text');
+            if (!textElement) return;
+
+            const words = ["سامانه ساد", "برنامه‌ریزی هوشمند", "امنیت تضمین شده", "مانیتورینگ لحظه‌ای"];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 150;
+
+            function type() {
+                const currentWord = words[wordIndex];
+                if (isDeleting) {
+                    textElement.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 75;
+                } else {
+                    textElement.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 150;
+                }
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    isDeleting = true;
+                    typingSpeed = 2000; // Pause at end of word
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typingSpeed = 500; // Pause before next word
+                }
+
+                setTimeout(type, typingSpeed);
+            }
+
+            type();
+        }
+
         // Initialize slideshow on page load
         window.addEventListener('DOMContentLoaded', () => {
             // Dynamically add progress bar to all feature cards
@@ -940,6 +985,7 @@
             startAutoplay();
             initMouseTilt();
             initCalculator();
+            initTypingAnimation();
         });
     </script>
 </body>
