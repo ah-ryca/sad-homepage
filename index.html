@@ -192,13 +192,13 @@
                 <div class="graph-container">
                     <canvas id="graph-canvas"></canvas>
                     
-                    <!-- Right Column: Organizations -->
-                    <div class="graph-column" id="graph-orgs">
+                    <!-- Top Row: Organizations -->
+                    <div class="graph-row" id="graph-orgs">
                         <!-- Org nodes dynamically rendered here -->
                     </div>
                     
-                    <!-- Left Column: Companies -->
-                    <div class="graph-column" id="graph-comps">
+                    <!-- Bottom Row: Companies -->
+                    <div class="graph-row" id="graph-comps">
                         <!-- Company nodes dynamically rendered here -->
                     </div>
                 </div>
@@ -351,7 +351,6 @@
                 mouse.active = false;
             });
             
-            // Denser node network (90 nodes to simulate a complex city route map)
             const particleCount = 90;
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
@@ -364,7 +363,6 @@
                 });
             }
             
-            // Glowing signal pulse particles traveling along connected lines
             const pulses = [];
             
             function animate() {
@@ -654,7 +652,7 @@
                     const nodeRect = org.element.getBoundingClientRect();
                     orgCoords[org.id] = {
                         x: (nodeRect.left - rect.left) + (nodeRect.width / 2),
-                        y: (nodeRect.top - rect.top) + (nodeRect.height / 2)
+                        y: nodeRect.bottom - rect.top // Center-Bottom coordinate
                     };
                 });
 
@@ -666,7 +664,7 @@
                         orgId: comp.orgId,
                         element: comp.element,
                         x: (nodeRect.left - rect.left) + (nodeRect.width / 2),
-                        y: (nodeRect.top - rect.top) + (nodeRect.height / 2)
+                        y: nodeRect.top - rect.top // Center-Top coordinate
                     });
                 });
 
@@ -675,9 +673,13 @@
                     const org = orgCoords[comp.orgId];
                     if (!org) return;
 
-                    // Draw connection path
+                    const y_mid = (org.y + comp.y) / 2;
+
+                    // Draw orthogonal path
                     ctx.beginPath();
                     ctx.moveTo(org.x, org.y);
+                    ctx.lineTo(org.x, y_mid);
+                    ctx.lineTo(comp.x, y_mid);
                     ctx.lineTo(comp.x, comp.y);
                     ctx.strokeStyle = lineColor;
                     ctx.lineWidth = 2;
@@ -689,7 +691,7 @@
                             x1: org.x, y1: org.y,
                             x2: comp.x, y2: comp.y,
                             progress: 0,
-                            speed: 0.02,
+                            speed: 0.015,
                             compElement: comp.element
                         });
                     }
@@ -710,17 +712,42 @@
                         continue;
                     }
 
-                    const currX = p.x1 + (p.x2 - p.x1) * p.progress;
-                    const currY = p.y1 + (p.y2 - p.y1) * p.progress;
+                    const y_mid = (p.y1 + p.y2) / 2;
+                    const len1 = y_mid - p.y1;
+                    const len2 = Math.abs(p.x2 - p.x1);
+                    const len3 = p.y2 - y_mid;
+                    const total_len = len1 + len2 + len3;
 
-                    // Draw glowing pulse dot
+                    const current_dist = p.progress * total_len;
+                    let currX, currY;
+
+                    if (current_dist < len1) {
+                        // Segment 1: Vertical down
+                        currX = p.x1;
+                        currY = p.y1 + current_dist;
+                    } else if (current_dist < len1 + len2) {
+                        // Segment 2: Horizontal
+                        const segment2_dist = current_dist - len1;
+                        const direction = p.x2 > p.x1 ? 1 : -1;
+                        currX = p.x1 + direction * segment2_dist;
+                        currY = y_mid;
+                    } else {
+                        // Segment 3: Vertical down
+                        const segment3_dist = current_dist - len1 - len2;
+                        currX = p.x2;
+                        currY = y_mid + segment3_dist;
+                    }
+
+                    // Draw a square data packet pulse
+                    ctx.save();
+                    ctx.translate(currX, currY);
                     ctx.beginPath();
-                    ctx.arc(currX, currY, 5, 0, Math.PI * 2);
+                    ctx.rect(-5, -5, 10, 10);
                     ctx.fillStyle = '#1cb0f6';
-                    ctx.shadowBlur = 12;
+                    ctx.shadowBlur = 15;
                     ctx.shadowColor = '#1cb0f6';
                     ctx.fill();
-                    ctx.shadowBlur = 0;
+                    ctx.restore();
                 }
 
                 requestAnimationFrame(drawConnections);
