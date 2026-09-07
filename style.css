@@ -1204,8 +1204,10 @@ body.dark-theme footer {
         height: 70px;
     }
 
-    .nav-menu {
-        display: none;
+    /* .nav-menu is inside mobile drawer .nav-menu-wrapper */
+    .nav-menu-wrapper .nav-menu {
+        display: flex !important;
+        flex-direction: column !important;
     }
 
     .hero {
