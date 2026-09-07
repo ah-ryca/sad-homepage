@@ -265,7 +265,14 @@
                     <div class="logo-title">ساد</div>
                 </div>
             </div>
-            <div class="nav-menu-wrapper">
+            
+            <button class="navbar-toggler" id="navbarToggler" aria-label="تغییر وضعیت منو">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+            </button>
+
+            <div class="nav-menu-wrapper" id="navMenuWrapper">
                 <nav>
                     <ul class="nav-menu">
                         <li><a href="#hero">صفحه اصلی</a></li>
@@ -1301,6 +1308,23 @@
             initMouseTilt();
             initTypingAnimation();
             initConstellation();
+
+            // Mobile menu toggle logic
+            const toggler = document.getElementById('navbarToggler');
+            const menuWrapper = document.getElementById('navMenuWrapper');
+            if (toggler && menuWrapper) {
+                toggler.addEventListener('click', () => {
+                    toggler.classList.toggle('active');
+                    menuWrapper.classList.toggle('show');
+                });
+                // Close menu when clicking nav links
+                menuWrapper.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        toggler.classList.remove('active');
+                        menuWrapper.classList.remove('show');
+                    });
+                });
+            }
 
             // Discover screenshots dynamically for all 4 roles
             const roles = ['organization', 'company', 'driver', 'parent'];

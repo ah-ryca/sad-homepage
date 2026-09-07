@@ -196,28 +196,93 @@ header {
     letter-spacing: 0.5px;
 }
 
-.nav-menu-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 24px;
+/* Mobile Navigation Toggle & Drawer Styles */
+.navbar-toggler {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    outline: none;
+    z-index: 110;
 }
 
-.nav-menu {
-    display: flex;
-    gap: 24px;
-    list-style: none;
+.navbar-toggler .toggler-icon {
+    width: 26px;
+    height: 2px;
+    background-color: var(--text);
+    display: block;
+    margin: 6px 0;
+    transition: all 0.3s ease;
 }
 
-.nav-menu a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 15px;
-    transition: color var(--transition-speed);
+.navbar-toggler.active .toggler-icon:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
 }
 
-.nav-menu a:hover {
-    color: var(--text);
+.navbar-toggler.active .toggler-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler.active .toggler-icon:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+@media (max-width: 991px) {
+    .navbar-toggler {
+        display: block;
+    }
+
+    .nav-menu-wrapper {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 80px);
+        background-color: var(--card-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border-left: 1px solid var(--border);
+        box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 24px;
+        gap: 20px;
+        transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 100;
+        overflow-y: auto;
+    }
+
+    .nav-menu-wrapper.show {
+        right: 0;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 10px 0;
+        font-size: 16px;
+        border-bottom: 1px dashed var(--border);
+    }
+
+    .auth-buttons {
+        margin-right: 0 !important;
+        width: 100%;
+    }
+
+    .auth-buttons a {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* Theme Toggle Button */
