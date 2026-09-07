@@ -132,7 +132,7 @@
             }
 
             // Fetch Main News Detail
-            fetch(`http://127.0.0.1:8000/api/public/news/${currentNewsId}/`)
+            fetch(`http://127.0.0.1:18000/api/public/news/${currentNewsId}/`)
                 .then(response => {
                     if (!response.ok) throw new Error('News not found');
                     return response.json();

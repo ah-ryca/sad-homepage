@@ -1325,7 +1325,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Fetch News and render as Instagram-style cards (Limit to top 3)
-            fetch('http://127.0.0.1:8000/api/public/news/')
+            fetch('http://127.0.0.1:18000/api/public/news/')
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
