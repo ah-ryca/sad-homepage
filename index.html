@@ -5,7 +5,246 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سامانه مدیریت حمل‌و‌نقل دانش‌آموزی (ساد)</title>
-    <link rel="stylesheet" href="style.css?v=2.0.2">
+    
+    <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/lineicons.css">
+    <link rel="stylesheet" href="assets/css/ud-styles.css">
+    <link rel="stylesheet" href="style.css?v=2.0.3">
+    <style>
+        /* Base RTL and alignment for UIdeck sections */
+        .ud-about, .ud-team, .ud-blog-grids, .ud-contact, .ud-footer {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        /* Extra variables for light/dark theme adaptation */
+        body.dark-theme { --invert-icon: 1; }
+        body:not(.dark-theme) { --invert-icon: 0; --card-bg: #fff; --border: #dee2e6; }
+
+        /* Scoped overrides to make UIdeck compatible with dark theme */
+        body.dark-theme .ud-about, body.dark-theme .ud-team, body.dark-theme .ud-blog-grids, body.dark-theme .ud-contact, body.dark-theme .ud-footer {
+            background-color: transparent !important;
+            color: #fff !important;
+        }
+        body.dark-theme .ud-section-title h2, body.dark-theme .ud-feature-title, body.dark-theme .ud-widget-title, body.dark-theme .ud-banner-content h1 {
+            color: #fff !important;
+        }
+        body.dark-theme .ud-section-title p, body.dark-theme .ud-feature-desc, body.dark-theme .ud-widget-desc, body.dark-theme .ud-blog-desc {
+            color: #aaa !important;
+        }
+        body.dark-theme .ud-single-team, body.dark-theme .ud-single-blog {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+        body.dark-theme .ud-team-info h5, body.dark-theme .ud-blog-title a {
+            color: #fff !important;
+        }
+        body.dark-theme .ud-team-info h6 {
+            color: #ccc !important;
+        }
+        
+        body.dark-theme .ud-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1) !important; background: transparent !important; }
+        body.dark-theme .ud-footer-bottom p, body.dark-theme .ud-footer-bottom a { color: #aaa !important; }
+        body.dark-theme .ud-widget-links li a { color: #aaa !important; }
+        body.dark-theme .ud-widget-links li a:hover { color: #1cb0f6 !important; }
+
+        /* Light mode specific fixes */
+        body:not(.dark-theme) .ud-single-team, body:not(.dark-theme) .ud-single-blog {
+            background-color: #fff !important;
+            color: #333 !important;
+            border: 1px solid #ccc !important;
+        }
+        body:not(.dark-theme) .ud-section-title h2 { color: #333 !important; }
+        body:not(.dark-theme) .ud-footer { background-color: #f8f9fa !important; color: #333; }
+        body:not(.dark-theme) .ud-widget-title { color: #333 !important; }
+        body:not(.dark-theme) .ud-widget-desc { color: #666 !important; }
+        body:not(.dark-theme) .ud-footer-logo h3 { color: #333 !important; }
+        body:not(.dark-theme) .ud-footer-bottom { border-top: 1px solid #ddd !important; }
+        body:not(.dark-theme) .ud-footer-bottom p { color: #666 !important; }
+    
+        /* Social Icons Universal Frame */
+        .social-icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+        .social-icon-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+        .social-icon-box img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+        }
+
+        
+
+        /* --- Elegant Cardless Design --- */
+        
+        /* 1. Ensure sections & pseudo-elements blend seamlessly into the background */
+        #about, .ud-about, #contact, .ud-contact {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        .ud-contact::after, #contact::after, .ud-about::after, #about::after {
+            display: none !important;
+            content: none !important;
+            background: transparent !important;
+        }
+
+        /* 2. Remove bulky card wrappers but keep layout intact */
+        .ud-about-wrapper, .ud-contact-content-wrapper, .ud-contact-form-wrapper {
+            background: transparent !important;
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* 3. Typography & Spacing for About & Contact text */
+        .ud-about-content h2, .ud-contact-title h2 {
+            font-weight: 800;
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+        .ud-about-content h2 span, .ud-contact-title h2 span, .ud-contact-title span {
+            color: var(--primary) !important;
+        }
+        
+        /* 4. Elegant Icons for Contact Info */
+        .ud-single-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .ud-contact .ud-info-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(28, 176, 246, 0.12) !important;
+            color: var(--primary) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 24px !important;
+            margin-left: 20px !important;
+            margin-right: 0 !important;
+            transition: all 0.3s ease;
+        }
+        .ud-single-info:hover .ud-info-icon {
+            background: var(--primary) !important;
+            color: #fff !important;
+            transform: scale(1.08);
+        }
+        .ud-info-meta h5 {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* 5. Dark Mode Specific Contact Styles */
+        body.dark-theme .ud-contact-title h2,
+        body.dark-theme .ud-contact-form-title,
+        body.dark-theme .ud-info-meta h5 {
+            color: #ffffff !important;
+        }
+        body.dark-theme .ud-info-meta p,
+        body.dark-theme .ud-contact-info-meta p {
+            color: #b0b8c4 !important;
+        }
+        body.dark-theme .ud-contact-form-wrapper .ud-form-group label,
+        body.dark-theme .ud-contact-form label {
+            color: #e2e8f0 !important;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+        body.dark-theme .ud-contact-form-wrapper .ud-form-group input,
+        body.dark-theme .ud-contact-form-wrapper .ud-form-group textarea,
+        body.dark-theme .ud-contact-form input,
+        body.dark-theme .ud-contact-form textarea {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 12px !important;
+            padding: 14px 18px !important;
+            font-size: 15px;
+            width: 100%;
+            outline: none !important;
+            transition: all 0.3s ease !important;
+        }
+        body.dark-theme .ud-contact-form-wrapper .ud-form-group input:focus,
+        body.dark-theme .ud-contact-form-wrapper .ud-form-group textarea:focus,
+        body.dark-theme .ud-contact-form input:focus,
+        body.dark-theme .ud-contact-form textarea:focus {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            border-color: var(--primary) !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 0 4px rgba(28, 176, 246, 0.25) !important;
+        }
+
+        /* 6. Light Mode Specific Contact Styles */
+        body:not(.dark-theme) .ud-contact-title h2,
+        body:not(.dark-theme) .ud-contact-form-title,
+        body:not(.dark-theme) .ud-info-meta h5 {
+            color: #0f172a !important;
+        }
+        body:not(.dark-theme) .ud-info-meta p,
+        body:not(.dark-theme) .ud-contact-info-meta p {
+            color: #475569 !important;
+        }
+        body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group label,
+        body:not(.dark-theme) .ud-contact-form label {
+            color: #334155 !important;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+        body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group input,
+        body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group textarea,
+        body:not(.dark-theme) .ud-contact-form input,
+        body:not(.dark-theme) .ud-contact-form textarea {
+            background-color: #ffffff !important;
+            color: #0f172a !important;
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 12px !important;
+            padding: 14px 18px !important;
+            font-size: 15px;
+            width: 100%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+            outline: none !important;
+            transition: all 0.3s ease !important;
+        }
+        body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group input:focus,
+        body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group textarea:focus,
+        body:not(.dark-theme) .ud-contact-form input:focus,
+        body:not(.dark-theme) .ud-contact-form textarea:focus {
+            background-color: #ffffff !important;
+            border-color: var(--primary) !important;
+            color: #0f172a !important;
+            box-shadow: 0 0 0 4px rgba(28, 176, 246, 0.15) !important;
+        }
+
+        .ud-contact-form button {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px !important;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+</style>
+
 </head>
 
 <body class="dark-theme">
@@ -31,8 +270,17 @@
                     <ul class="nav-menu">
                         <li><a href="#hero">صفحه اصلی</a></li>
                         <li><a href="#features">قابلیت‌ها</a></li>
+                        <li><a href="#about">درباره ما</a></li>
+                        <li><a href="#team">تیم ما</a></li>
+                        <li><a href="#blog">اخبار</a></li>
+                        <li><a href="#contact">تماس با ما</a></li>
                     </ul>
                 </nav>
+                
+                <div class="auth-buttons" style="display: flex; gap: 10px; margin-right: 15px;">
+                    <a href="http://p.sad.shahrood133.ir" class="btn btn-primary" style="padding: 5px 15px; font-size: 0.9em; border-radius: 20px;">ورود / ثبت‌نام</a>
+                </div>
+
                 <!-- Theme Toggle Switch -->
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="تغییر پوسته">
                     <svg id="theme-icon" viewBox="0 0 24 24">
@@ -205,6 +453,205 @@
         </div>
     </section>
 
+    
+    <!-- ====== About Start ====== -->
+    <section id="about" class="ud-about" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="container">
+        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
+          <div class="ud-about-content-wrapper">
+            <div class="ud-about-content">
+              <span class="tag">درباره ما</span>
+              <h2>سامانه جامع و یکپارچه مدیریت سرویس مدارس</h2>
+              <p>
+                سامانه مدیریت حمل‌و‌نقل دانش‌آموزی (ساد) با هدف افزایش امنیت، شفافیت و کارایی در حوزه سرویس‌های مدارس طراحی شده است. ما با ایجاد یک بستر ارتباطی زنده بین والدین، رانندگان، مدارس و شرکت‌های پیمانکار، دغدغه‌های رفت و آمد دانش‌آموزان را به حداقل رسانده‌ایم.
+              </p>
+
+              <p>
+                نظارت آنلاین، مسیریابی هوشمند، حسابداری شفاف و اطلاع‌رسانی آنی از ویژگی‌های بارز این سامانه می‌باشد که تجربه‌ای امن و لذت‌بخش را برای تمامی ذینفعان فراهم می‌آورد.
+              </p>
+              <a href="#features" class="btn btn-primary">امکانات سامانه</a>
+            </div>
+          </div>
+          <div class="ud-about-image">
+            <img src="assets/images/about/about-image.svg" alt="about-image" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== About End ====== -->
+
+    <!-- ====== Team Start ====== -->
+    <section id="team" class="ud-team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <span>تیم ما</span>
+              <h2>آشنایی با تیم توسعه</h2>
+              <p>
+                متخصصان ما با تلاش شبانه‌روزی، سامانه‌ای پایدار و هوشمند را برای امنیت فرزندان شما توسعه داده‌اند.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-team wow fadeInUp" data-wow-delay=".1s">
+              <div class="ud-team-image-wrapper">
+                <div class="ud-team-image">
+                  <img src="assets/images/team/team-01.png" alt="team" />
+                </div>
+                <img src="assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
+                <img src="assets/images/team/shape-2.svg" alt="shape" class="shape shape-2" />
+              </div>
+              <div class="ud-team-info">
+                <h5>سعید حسنی</h5>
+                <h6>توسعه‌دهنده نرم‌افزار</h6>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-team wow fadeInUp" data-wow-delay=".15s">
+              <div class="ud-team-image-wrapper">
+                <div class="ud-team-image">
+                  <img src="assets/images/team/team-02.png" alt="team" />
+                </div>
+                <img src="assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
+                <img src="assets/images/team/shape-2.svg" alt="shape" class="shape shape-2" />
+              </div>
+              <div class="ud-team-info">
+                <h5>سید مصطفی فرمانبر</h5>
+                <h6>مدیر محصول</h6>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-team wow fadeInUp" data-wow-delay=".2s">
+              <div class="ud-team-image-wrapper">
+                <div class="ud-team-image">
+                  <img src="assets/images/team/team-03.png" alt="team" />
+                </div>
+                <img src="assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
+                <img src="assets/images/team/shape-2.svg" alt="shape" class="shape shape-2" />
+              </div>
+              <div class="ud-team-info">
+                <h5>محمدحسن علیزاد</h5>
+                <h6>طراح رابط کاربری</h6>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-team wow fadeInUp" data-wow-delay=".25s">
+              <div class="ud-team-image-wrapper">
+                <div class="ud-team-image">
+                  <img src="assets/images/team/team-04.png" alt="team" style="border-radius: 50%;" />
+                </div>
+                <img src="assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
+                <img src="assets/images/team/shape-2.svg" alt="shape" class="shape shape-2" />
+              </div>
+              <div class="ud-team-info">
+                <h5>دکتر میررضایی</h5>
+                <h6>مشاور پروژه</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Team End ====== -->
+
+    <!-- ====== Blog Start ====== -->
+    <section id="blog" class="ud-blog-grids">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <span>اخبار</span>
+              <h2>آخرین رویدادها و اخبار سامانه</h2>
+              <p>از آخرین پیشرفت‌ها و اخبار سامانه ساد مطلع شوید.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="dynamic-news-container">
+          <!-- News cards will be dynamically loaded here by JavaScript -->
+          <div class="col-12 text-center">
+            <p>در حال بارگذاری اخبار...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Blog End ====== -->
+
+    <!-- ====== Contact Start ====== -->
+    <section id="contact" class="ud-contact" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="container">
+        <div class="row align-items-stretch" style="gap: 20px 0;">
+          <div class="col-xl-8 col-lg-7">
+            <div class="ud-contact-content-wrapper">
+              <div class="ud-contact-title">
+                <span>تماس با ما</span>
+                <h2>
+                  دوست داریم صدای شما را بشنویم!<br />
+                  با ما در ارتباط باشید.
+                </h2>
+              </div>
+              <div class="ud-contact-info-wrapper">
+                <div class="ud-single-info">
+                  <div class="ud-info-icon">
+                    <i class="lni lni-map-marker"></i>
+                  </div>
+                  <div class="ud-info-meta">
+                    <h5>آدرس ما</h5>
+                    <p>ایران، استان سمنان، شاهرود، خیابان اصلی، پلاک ۱</p>
+                  </div>
+                </div>
+                <div class="ud-single-info">
+                  <div class="ud-info-icon">
+                    <i class="lni lni-envelope"></i>
+                  </div>
+                  <div class="ud-info-meta">
+                    <h5>چگونه می‌توانیم کمک کنیم؟</h5>
+                    <p>info@sad.shahrood133.ir</p>
+                    <p>support@sad.shahrood133.ir</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5">
+            <div class="ud-contact-form-wrapper wow fadeInUp" data-wow-delay=".2s">
+              <h3 class="ud-contact-form-title">ارسال پیام</h3>
+              <form class="ud-contact-form" id="contactForm">
+                <div class="ud-form-group">
+                  <label for="fullName">نام و نام خانوادگی*</label>
+                  <input type="text" id="fullName" name="fullName" placeholder="علی محمدی" required />
+                </div>
+                <div class="ud-form-group">
+                  <label for="phone">شماره تماس*</label>
+                  <input type="text" id="phone" name="phone" placeholder="09123456789" required />
+                </div>
+                <div class="ud-form-group">
+                  <label for="message">پیام (اختیاری)</label>
+                  <textarea id="message" name="message" rows="3" placeholder="پیام خود را اینجا بنویسید"></textarea>
+                </div>
+                <div class="ud-form-group mb-0">
+                  <button type="submit" class="ud-main-btn" id="submitBtn">
+                    ارسال پیام
+                  </button>
+                </div>
+                <p id="formStatus" style="margin-top: 10px; font-weight: bold;"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Contact End ====== -->
+
     <!-- Dedicated Live Notifications Section -->
     <section class="notifications-showcase-section" id="notifications-showcase">
         <div class="container">
@@ -355,37 +802,95 @@
         </div>
     </section>
 
-    <!-- Footer with Animated Waves -->
-    <footer>
-        <div class="footer-waves-container">
-            <svg class="footer-wave" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
-                </defs>
-                <g class="parallax-waves">
-                    <use href="#gentle-wave" x="48" y="0" fill="rgba(28, 176, 246, 0.08)" />
-                    <use href="#gentle-wave" x="48" y="3" fill="rgba(88, 204, 2, 0.06)" />
-                    <use href="#gentle-wave" x="48" y="5" fill="rgba(120, 83, 232, 0.04)" />
-                    <use href="#gentle-wave" x="48" y="7" fill="var(--card-bg)" />
-                </g>
-            </svg>
-        </div>
+    
+    <!-- ====== Footer Start ====== -->
+    <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s" style="margin-top: 80px;">
+      <div class="ud-footer-widgets">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="images/logo.png" alt="لوگو ساد" style="width: 40px; height: 40px; object-fit: contain;">
-                    <h3>سامانه ساد</h3>
-                </div>
-                <div class="footer-links">
-                    <a href="#hero">صفحه اصلی</a>
-                    <a href="#features">قابلیت‌ها</a>
-                </div>
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="ud-widget">
+                <a href="#hero" class="ud-footer-logo" style="display:flex; align-items:center; gap: 10px; text-decoration: none; color: #fff;">
+                  <img src="images/logo.png" alt="logo" style="width: 40px;" />
+                  <h3 style="margin:0; font-size: 24px; color: #fff;">ساد</h3>
+                </a>
+                <p class="ud-widget-desc">
+                  مدیریت هوشمند، مانیتورینگ آنلاین و اتصال یکپارچه در یک بستر امن.
+                </p>
+              </div>
             </div>
-            <div class="footer-bottom">
-                © ۱۴۰۵ سامانه ساد. تمامی حقوق محفوظ است.
+
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">لینک‌های سریع</h5>
+                <ul class="ud-widget-links">
+                  <li><a href="#hero">صفحه اصلی</a></li>
+                  <li><a href="#features">قابلیت‌ها</a></li>
+                  <li><a href="#about">درباره ما</a></li>
+                  <li><a href="#team">تیم ما</a></li>
+                </ul>
+              </div>
             </div>
+            
+            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">پشتیبانی</h5>
+                <ul class="ud-widget-links">
+                  <li><a href="#contact">تماس با ما</a></li>
+                  <li><a href="#">سوالات متداول</a></li>
+                  <li><a href="#">قوانین و مقررات</a></li>
+                  <li><a href="#">حریم خصوصی</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">ارتباط با ما</h5>
+                <p class="ud-widget-desc">
+                  شاهرود، خیابان اصلی، پلاک ۱<br>
+                  تلفن: ۰۲۳-۱۲۳۴۵۶۷۸
+                </p>
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">ارتباط با ما در شبکه‌های اجتماعی</h5>
+                <ul class="ud-widget-socials" style="display:flex; gap:12px; list-style:none; padding:0; flex-wrap: wrap;">
+                  <li><a href="https://t.me/sadservice_ir" target="_blank" title="تلگرام" class="social-icon-box">
+                      <img src="assets/images/logo/telegram.png" alt="تلگرام">
+                  </a></li>
+                  <li><a href="https://instagram.com/sadservice_ir" target="_blank" title="اینستاگرام" class="social-icon-box">
+                      <img src="assets/images/logo/instagram.png" alt="اینستاگرام">
+                  </a></li>
+                  <li><a href="https://eitaa.com/sadservice_ir" target="_blank" title="ایتا" class="social-icon-box">
+                      <img src="assets/images/logo/eitaa.png" alt="ایتا">
+                  </a></li>
+                  <li><a href="https://rubika.ir/sadservice_ir" target="_blank" title="روبیکا" class="social-icon-box">
+                      <img src="assets/images/logo/rubika.png" alt="روبیکا">
+                  </a></li>
+                  <li><a href="https://bale.ai/sadservice_ir" target="_blank" title="بله" class="social-icon-box">
+                      <img src="assets/images/logo/bale.png" alt="بله">
+                  </a></li>
+                </ul>
+              </div>
+
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="ud-footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p class="ud-footer-bottom-right" style="text-align: center;">
+                © ۱۴۰۵ سامانه ساد. تمامی حقوق محفوظ است. توسعه یافته توسط تیم ساد.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
+    <!-- ====== Footer End ====== -->
+
 
     <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -631,6 +1136,53 @@
             animate();
         }
 
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = document.getElementById('submitBtn');
+                const status = document.getElementById('formStatus');
+                btn.disabled = true;
+                btn.innerText = 'در حال ارسال...';
+                
+                const data = {
+                    name: document.getElementById('fullName').value,
+                    phone_number: document.getElementById('phone').value,
+                    message: document.getElementById('message').value
+                };
+
+                fetch('/api/public/contact/', { // Adjust URL based on environment
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if(response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('خطا در ارسال پیام');
+                })
+                .then(data => {
+                    status.style.color = '#58cc02';
+                    status.innerText = 'پیام شما با موفقیت ارسال شد.';
+                    contactForm.reset();
+                })
+                .catch(err => {
+                    status.style.color = '#ff4b4b';
+                    status.innerText = 'متاسفانه در ارسال پیام خطایی رخ داد.';
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.innerText = 'ارسال پیام';
+                    setTimeout(() => { status.innerText = ''; }, 5000);
+                });
+            });
+        }
+
         // Dynamic auto-discovery of screenshots (image1, image2...) to support adding images later
         const roleScreenshots = {
             organization: [],
@@ -760,6 +1312,77 @@
                     setupSlideshow(role);
                 });
             });
+        });
+    </script>
+
+    
+
+
+    
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch News and render as Instagram-style cards
+            fetch('http://127.0.0.1:8000/api/public/news/')
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    const container = document.getElementById('dynamic-news-container');
+                    if (data.length === 0) {
+                        container.innerHTML = '<div class="col-12 text-center"><p>خبری برای نمایش وجود ندارد.</p></div>';
+                        return;
+                    }
+                    
+                    let html = '';
+                    data.forEach(news => {
+                        const date = new Date(news.created_at).toLocaleDateString('fa-IR');
+                        const imageUrl = news.image_url ? news.image_url : 'assets/images/blog/blog-01.jpg'; // fallback
+                        
+                        html += `
+                        <div class="col-lg-4 col-md-6">
+                            <div class="insta-card">
+                                <div class="insta-header">
+                                    <img src="images/logo.png" alt="SAD Logo" class="insta-avatar">
+                                    <div class="insta-header-text">
+                                        <h4 class="insta-author">سامانه ساد</h4>
+                                        <p class="insta-date">${date}</p>
+                                    </div>
+                                </div>
+                                <a href="news-detail.html?id=${news.id}" class="insta-image-wrapper">
+                                    <img src="${imageUrl}" alt="${news.title}">
+                                </a>
+                                <div class="insta-footer">
+                                    <div class="insta-actions">
+                                        <div class="insta-icons">
+                                            <i class="lni lni-heart insta-icon"></i>
+                                            <i class="lni lni-bubble insta-icon"></i>
+                                            <i class="lni lni-telegram-original insta-icon"></i>
+                                        </div>
+                                        <div class="insta-views">
+                                            <i class="lni lni-eye"></i> ${news.views_count} بازدید
+                                        </div>
+                                    </div>
+                                    <div class="insta-content">
+                                        <h3><a href="news-detail.html?id=${news.id}" style="color: inherit; text-decoration: none;">${news.title}</a></h3>
+                                        <p>${news.snippet}</p>
+                                        <a href="news-detail.html?id=${news.id}" class="insta-read-more">مشاهده پست کامل ...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    });
+                    container.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error fetching news:', error);
+                    const container = document.getElementById('dynamic-news-container');
+                    container.innerHTML = '<div class="col-12 text-center"><p>خطا در دریافت اخبار. لطفاً اتصال اینترنت خود را بررسی کنید.</p></div>';
+                });
         });
     </script>
 </body>
