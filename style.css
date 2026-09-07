@@ -211,6 +211,46 @@ header {
     }
 }
 
+/* Desktop Navigation Styles */
+@media (min-width: 992px) {
+    .nav-menu-wrapper {
+        display: flex !important;
+        align-items: center !important;
+        gap: 24px !important;
+        position: static !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        height: auto !important;
+        width: auto !important;
+        padding: 0 !important;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 24px !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .nav-menu a {
+        color: var(--text-muted) !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+        font-size: 15px !important;
+        padding: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        transition: color var(--transition-speed) !important;
+    }
+
+    .nav-menu a:hover, .nav-menu a.active {
+        color: var(--text) !important;
+        background: transparent !important;
+    }
+}
+
 /* Mobile Navigation Toggle & Drawer Styles */
 .navbar-toggler {
     display: none;
