@@ -269,6 +269,20 @@ header {
         display: flex !important;
     }
 
+    /* Force override any template display:none rules on mobile nav elements */
+    .nav-menu-wrapper nav,
+    .nav-menu-wrapper .navbar-collapse,
+    .nav-menu-wrapper .navbar-nav {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        position: static !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+
     body.dark-theme .nav-menu-wrapper {
         background-color: rgba(15, 23, 42, 0.98) !important;
     }
