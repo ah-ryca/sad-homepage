@@ -1324,7 +1324,7 @@
     <script src="assets/js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Fetch News and render as Instagram-style cards
+            // Fetch News and render as Instagram-style cards (Limit to top 3)
             fetch('http://127.0.0.1:8000/api/public/news/')
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
@@ -1332,13 +1332,16 @@
                 })
                 .then(data => {
                     const container = document.getElementById('dynamic-news-container');
-                    if (data.length === 0) {
+                    const newsList = Array.isArray(data) ? data : (data.result || []);
+                    if (newsList.length === 0) {
                         container.innerHTML = '<div class="col-12 text-center"><p>خبری برای نمایش وجود ندارد.</p></div>';
                         return;
                     }
                     
+                    // Display only top 3 items
+                    const topNews = newsList.slice(0, 3);
                     let html = '';
-                    data.forEach(news => {
+                    topNews.forEach(news => {
                         const date = new Date(news.created_at).toLocaleDateString('fa-IR');
                         const imageUrl = news.image_url ? news.image_url : 'assets/images/blog/blog-01.jpg'; // fallback
                         

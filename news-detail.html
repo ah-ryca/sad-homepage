@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="assets/css/lineicons.css">
     <link rel="stylesheet" href="assets/css/ud-styles.css">
-    <link rel="stylesheet" href="style.css?v=2.0.3">
+    <link rel="stylesheet" href="style.css?v=2.0.4">
 </head>
 
 <body class="dark-theme">
@@ -30,54 +30,84 @@
             <div class="nav-menu-wrapper">
                 <nav>
                     <ul class="nav-menu">
-                        <li><a href="index.html#hero">بازگشت به صفحه اصلی</a></li>
+                        <li><a href="index.html#blog">بازگشت به لیست اخبار</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <section class="pt-120 pb-120" style="min-height: 100vh;">
+    <section class="news-detail-container" style="min-height: 100vh;">
         <div class="container">
             <div id="loading-container" class="text-center" style="margin-top: 100px;">
                 <p>در حال بارگذاری جزئیات خبر...</p>
             </div>
+            
             <div id="detail-container" style="display: none;">
-                <div class="insta-detail-layout">
-                    <!-- Image Side -->
-                    <div class="insta-detail-image-side">
-                        <img id="news-image" src="" alt="News Image">
+                <div class="row">
+                    <!-- Main Content (8 cols) -->
+                    <div class="col-lg-8">
+                        <div class="insta-card mb-4" style="box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
+                            <div class="insta-header">
+                                <img src="images/logo.png" alt="SAD Logo" class="insta-avatar">
+                                <div class="insta-header-text">
+                                    <h4 class="insta-author">سامانه ساد (اخبار رسمی)</h4>
+                                    <p class="insta-date" id="news-date">تاریخ...</p>
+                                </div>
+                            </div>
+                            
+                            <div class="insta-image-wrapper" style="padding-top: 55%; border-radius: 0;">
+                                <img id="news-image" src="" alt="News Image">
+                            </div>
+                            
+                            <div class="insta-footer">
+                                <div class="insta-actions">
+                                    <div class="insta-icons">
+                                        <i class="lni lni-heart insta-icon"></i>
+                                        <i class="lni lni-bubble insta-icon"></i>
+                                        <i class="lni lni-telegram-original insta-icon"></i>
+                                    </div>
+                                    <div class="insta-views">
+                                        <i class="lni lni-eye"></i> <span id="news-views">0</span> بازدید
+                                    </div>
+                                </div>
+                                <div class="insta-content">
+                                    <h2 id="news-title" style="font-size: 22px; font-weight: 800; margin: 15px 0; color: var(--text);">عنوان خبر</h2>
+                                    <div id="news-content" style="font-size: 16px; line-height: 1.9; color: var(--text-muted); white-space: pre-line;">
+                                        متن کامل خبر...
+                                    </div>
+
+                                    <!-- Annotation / Highlight Box -->
+                                    <div class="news-annotation-box">
+                                        📌 <strong>حاشیه‌نویسی ساد:</strong> سامانه هوشمند مدیریت حمل‌و‌نقل دانش‌آموزی (ساد) به‌طور پیوسته در حال ارتقا و بهینه‌سازی سرویس‌دهی به مدارس و خانواده‌ها است. برای کسب اطلاعات بیشتر می‌توانید با تیم پشتیبانی در ارتباط باشید.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <!-- Content Side -->
-                    <div class="insta-detail-content-side">
-                        <!-- Header -->
-                        <div class="insta-header">
-                            <img src="images/logo.png" alt="SAD Logo" class="insta-avatar">
-                            <div class="insta-header-text">
-                                <h4 class="insta-author">سامانه ساد</h4>
-                                <p class="insta-date" id="news-date">در حال دریافت تاریخ...</p>
+
+                    <!-- Sidebar Content (4 cols) -->
+                    <div class="col-lg-4">
+                        <!-- Sidebar Card 1: Latest News Lazy Loading -->
+                        <div class="news-sidebar-card">
+                            <div class="news-sidebar-title">
+                                <i class="lni lni-list"></i>
+                                <span>سایر اخبار و رویدادها</span>
+                            </div>
+                            <div id="sidebar-news-list">
+                                <!-- Dynamically loaded sidebar items -->
+                            </div>
+                            <div id="sidebar-lazy-sentinel" class="lazy-load-sentinel">
+                                <span class="spinner-border spinner-border-sm" role="status"></span>
+                                در حال بارگذاری اخبار بیشتر...
                             </div>
                         </div>
-                        
-                        <!-- Body (Scrollable) -->
-                        <div class="insta-detail-body">
-                            <h2 id="news-title">عنوان خبر</h2>
-                            <p id="news-content">محتوای خبر...</p>
-                        </div>
-                        
-                        <!-- Footer -->
-                        <div class="insta-footer" style="border-top: 1px solid var(--border);">
-                            <div class="insta-actions">
-                                <div class="insta-icons">
-                                    <i class="lni lni-heart insta-icon"></i>
-                                    <i class="lni lni-bubble insta-icon"></i>
-                                    <i class="lni lni-telegram-original insta-icon"></i>
-                                </div>
-                                <div class="insta-views">
-                                    <i class="lni lni-eye"></i> <span id="news-views">0</span> بازدید
-                                </div>
-                            </div>
+
+                        <!-- Sidebar Card 2: Quick Links / Banner -->
+                        <div class="news-sidebar-card text-center" style="background: linear-gradient(135deg, rgba(28,176,246,0.15) 0%, rgba(120,83,232,0.15) 100%);">
+                            <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text);">دانلود اپلیکیشن ساد</h4>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">دسترسی آسان به پنل والدین و رانندگان سرویس مدارس</p>
+                            <a href="index.html#features" class="btn btn-primary btn-sm" style="border-radius: 20px; padding: 8px 20px;">مشاهده اپلیکیشن‌ها</a>
                         </div>
                     </div>
                 </div>
@@ -87,16 +117,22 @@
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script>
+        let currentNewsId = null;
+        let allNewsData = [];
+        let loadedIndex = 0;
+        const BATCH_SIZE = 3;
+
         document.addEventListener("DOMContentLoaded", function() {
             const urlParams = new URLSearchParams(window.location.search);
-            const newsId = urlParams.get('id');
+            currentNewsId = urlParams.get('id');
 
-            if (!newsId) {
+            if (!currentNewsId) {
                 document.getElementById('loading-container').innerHTML = '<p>خطا: شناسه خبر نامعتبر است.</p>';
                 return;
             }
 
-            fetch(`http://127.0.0.1:8000/api/public/news/${newsId}/`)
+            // Fetch Main News Detail
+            fetch(`http://127.0.0.1:8000/api/public/news/${currentNewsId}/`)
                 .then(response => {
                     if (!response.ok) throw new Error('News not found');
                     return response.json();
@@ -114,12 +150,92 @@
                     const imageUrl = news.image_url ? news.image_url : 'assets/images/blog/blog-01.jpg';
                     document.getElementById('news-image').src = imageUrl;
                     document.title = news.title + ' - سامانه ساد';
+
+                    // Fetch all news for lazy-loading sidebar
+                    fetchSidebarNews();
                 })
                 .catch(error => {
                     console.error('Error fetching news details:', error);
                     document.getElementById('loading-container').innerHTML = '<p>خطا در دریافت جزئیات خبر. ممکن است این خبر حذف شده باشد.</p>';
                 });
         });
+
+        function fetchSidebarNews() {
+            fetch('http://127.0.0.1:8000/api/public/news/')
+                .then(res => res.json())
+                .then(data => {
+                    const newsList = Array.isArray(data) ? data : (data.result || []);
+                    // Filter out current news from sidebar list
+                    allNewsData = newsList.filter(item => item.id != currentNewsId);
+                    
+                    if (allNewsData.length === 0) {
+                        document.getElementById('sidebar-news-list').innerHTML = '<p style="font-size: 13px; color: var(--text-muted);">خبر دیگری ثبت نشده است.</p>';
+                        document.getElementById('sidebar-lazy-sentinel').style.display = 'none';
+                        return;
+                    }
+
+                    // Initial Batch Load
+                    loadNextSidebarBatch();
+
+                    // Setup Intersection Observer for Lazy Loading
+                    setupLazyLoadingObserver();
+                })
+                .catch(err => {
+                    console.error('Sidebar fetch error:', err);
+                    document.getElementById('sidebar-lazy-sentinel').style.display = 'none';
+                });
+        }
+
+        function loadNextSidebarBatch() {
+            const sidebarContainer = document.getElementById('sidebar-news-list');
+            const sentinel = document.getElementById('sidebar-lazy-sentinel');
+            
+            if (loadedIndex >= allNewsData.length) {
+                sentinel.style.display = 'none';
+                return;
+            }
+
+            const nextBatch = allNewsData.slice(loadedIndex, loadedIndex + BATCH_SIZE);
+            nextBatch.forEach(item => {
+                const date = new Date(item.created_at).toLocaleDateString('fa-IR');
+                const img = item.image_url ? item.image_url : 'assets/images/blog/blog-01.jpg';
+
+                const el = document.createElement('a');
+                el.href = `news-detail.html?id=${item.id}`;
+                el.className = 'sidebar-news-item';
+                el.innerHTML = `
+                    <img src="${img}" alt="${item.title}" class="sidebar-news-thumb">
+                    <div class="sidebar-news-info">
+                        <h5>${item.title}</h5>
+                        <span><i class="lni lni-eye"></i> ${item.views_count} بازدید | ${date}</span>
+                    </div>
+                `;
+                sidebarContainer.appendChild(el);
+            });
+
+            loadedIndex += BATCH_SIZE;
+
+            if (loadedIndex >= allNewsData.length) {
+                sentinel.style.display = 'none';
+            }
+        }
+
+        function setupLazyLoadingObserver() {
+            const sentinel = document.getElementById('sidebar-lazy-sentinel');
+            if (!sentinel) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    // Simulate smooth lazy load with slight delay
+                    setTimeout(() => {
+                        loadNextSidebarBatch();
+                    }, 400);
+                }
+            }, { threshold: 0.1 });
+
+            observer.observe(sentinel);
+        }
     </script>
 </body>
 </html>
+
