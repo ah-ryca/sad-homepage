@@ -1325,7 +1325,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Fetch News and render as Instagram-style cards (Limit to top 3)
-            fetch('http://127.0.0.1:18000/api/public/news/')
+            fetch('http://127.0.0.1:18000/api/public/news/?limit=3')
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
@@ -1358,23 +1358,22 @@
                                 <a href="news-detail.html?id=${news.id}" class="insta-image-wrapper">
                                     <img src="${imageUrl}" alt="${news.title}">
                                 </a>
-                                <div class="insta-footer">
-                                    <div class="insta-actions">
-                                        <div class="insta-icons">
-                                            <i class="lni lni-heart insta-icon"></i>
-                                            <i class="lni lni-bubble insta-icon"></i>
-                                            <i class="lni lni-telegram-original insta-icon"></i>
+                                    <div class="insta-footer">
+                                        <div class="insta-actions">
+                                            <div class="insta-icons">
+                                                <i class="lni lni-heart insta-icon like-btn" onclick="toggleLike(this)" title="لایک"></i>
+                                                <i class="lni lni-share-alt insta-icon share-btn" onclick="sharePost('${news.title}', ${news.id})" title="اشتراک‌گذاری"></i>
+                                            </div>
+                                            <div class="insta-views">
+                                                <i class="lni lni-eye"></i> ${news.views_count} بازدید
+                                            </div>
                                         </div>
-                                        <div class="insta-views">
-                                            <i class="lni lni-eye"></i> ${news.views_count} بازدید
+                                        <div class="insta-content">
+                                            <h3><a href="news-detail.html?id=${news.id}" style="color: inherit; text-decoration: none;">${news.title}</a></h3>
+                                            <p>${news.snippet}</p>
+                                            <a href="news-detail.html?id=${news.id}" class="insta-read-more">مشاهده پست کامل ...</a>
                                         </div>
                                     </div>
-                                    <div class="insta-content">
-                                        <h3><a href="news-detail.html?id=${news.id}" style="color: inherit; text-decoration: none;">${news.title}</a></h3>
-                                        <p>${news.snippet}</p>
-                                        <a href="news-detail.html?id=${news.id}" class="insta-read-more">مشاهده پست کامل ...</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         `;
@@ -1387,6 +1386,34 @@
                     container.innerHTML = '<div class="col-12 text-center"><p>خطا در دریافت اخبار. لطفاً اتصال اینترنت خود را بررسی کنید.</p></div>';
                 });
         });
+
+        function toggleLike(btn) {
+            btn.classList.toggle('liked');
+            if (btn.classList.contains('liked')) {
+                btn.style.color = '#ed4956';
+                btn.style.transform = 'scale(1.2)';
+                setTimeout(() => btn.style.transform = 'scale(1)', 200);
+            } else {
+                btn.style.color = '';
+            }
+        }
+
+        function sharePost(title, id) {
+            const shareUrl = `${window.location.origin}${window.location.pathname.replace('index.html', '')}news-detail.html?id=${id}`;
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: title + ' - سامانه ساد',
+                    url: shareUrl
+                }).catch(err => console.log('Share canceled', err));
+            } else {
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert('لینک خبر با موفقیت کپی شد!');
+                }).catch(() => {
+                    window.open(`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(title)}`, '_blank');
+                });
+            }
+        }
     </script>
 </body>
 

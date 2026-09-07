@@ -4,12 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جزئیات خبر - سامانه ساد</title>
+    <title id="seo-title">جزئیات خبر - سامانه مدیریت حمل‌ونقل دانش‌آموزی (ساد)</title>
+    <meta id="seo-description" name="description" content="جدیدترین اخبار و اطلاعیه‌های رسمی سامانه مدیریت سرویس مدارس ساد، ردیابی زنده، ناوگان دانش‌آموزی و والدین.">
+    <meta name="keywords" content="ساد, سرویس مدارس, ردیابی سرویس مدرسه, شاهرود, اپلیکیشن راننده, اپلیکیشن والدین, حمل و نقل دانش آموزی">
+    <meta property="og:title" id="og-title" content="اخبار سامانه ساد">
+    <meta property="og:description" id="og-description" content="سامانه مدیریت حمل‌ونقل دانش‌آموزی ساد">
+    <meta property="og:type" content="article">
+    <meta property="og:url" id="og-url" content="">
+    <meta property="og:image" id="og-image" content="">
     
     <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="assets/css/lineicons.css">
     <link rel="stylesheet" href="assets/css/ud-styles.css">
-    <link rel="stylesheet" href="style.css?v=2.0.4">
+    <link rel="stylesheet" href="style.css?v=2.0.5">
 </head>
 
 <body class="dark-theme">
@@ -47,33 +54,32 @@
                 <div class="row">
                     <!-- Main Content (8 cols) -->
                     <div class="col-lg-8">
-                        <div class="insta-card mb-4" style="box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
-                            <div class="insta-header">
+                        <article class="insta-card mb-4" style="box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
+                            <header class="insta-header">
                                 <img src="images/logo.png" alt="SAD Logo" class="insta-avatar">
                                 <div class="insta-header-text">
                                     <h4 class="insta-author">سامانه ساد (اخبار رسمی)</h4>
-                                    <p class="insta-date" id="news-date">تاریخ...</p>
+                                    <time class="insta-date" id="news-date">تاریخ...</time>
                                 </div>
-                            </div>
+                            </header>
                             
                             <div class="insta-image-wrapper" style="padding-top: 55%; border-radius: 0;">
-                                <img id="news-image" src="" alt="News Image">
+                                <img id="news-image" src="" alt="تصویر خبر سامانه ساد">
                             </div>
                             
                             <div class="insta-footer">
                                 <div class="insta-actions">
                                     <div class="insta-icons">
-                                        <i class="lni lni-heart insta-icon"></i>
-                                        <i class="lni lni-bubble insta-icon"></i>
-                                        <i class="lni lni-telegram-original insta-icon"></i>
+                                        <i class="lni lni-heart insta-icon like-btn" onclick="toggleLike(this)" title="لایک"></i>
+                                        <i class="lni lni-share-alt insta-icon share-btn" onclick="shareCurrentNews()" title="اشتراک‌گذاری"></i>
                                     </div>
                                     <div class="insta-views">
                                         <i class="lni lni-eye"></i> <span id="news-views">0</span> بازدید
                                     </div>
                                 </div>
                                 <div class="insta-content">
-                                    <h2 id="news-title" style="font-size: 22px; font-weight: 800; margin: 15px 0; color: var(--text);">عنوان خبر</h2>
-                                    <div id="news-content" style="font-size: 16px; line-height: 1.9; color: var(--text-muted); white-space: pre-line;">
+                                    <h1 id="news-title" style="font-size: 24px; font-weight: 800; margin: 15px 0; color: var(--text);">عنوان خبر</h1>
+                                    <div id="news-content" style="font-size: 16px; line-height: 2; color: var(--text-muted); white-space: pre-line; word-break: break-word;">
                                         متن کامل خبر...
                                     </div>
 
@@ -83,16 +89,16 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
 
                     <!-- Sidebar Content (4 cols) -->
                     <div class="col-lg-4">
                         <!-- Sidebar Card 1: Latest News Lazy Loading -->
-                        <div class="news-sidebar-card">
+                        <aside class="news-sidebar-card">
                             <div class="news-sidebar-title">
                                 <i class="lni lni-list"></i>
-                                <span>سایر اخبار و رویدادها</span>
+                                <h3>سایر اخبار و رویدادها</h3>
                             </div>
                             <div id="sidebar-news-list">
                                 <!-- Dynamically loaded sidebar items -->
@@ -101,14 +107,14 @@
                                 <span class="spinner-border spinner-border-sm" role="status"></span>
                                 در حال بارگذاری اخبار بیشتر...
                             </div>
-                        </div>
+                        </aside>
 
                         <!-- Sidebar Card 2: Quick Links / Banner -->
-                        <div class="news-sidebar-card text-center" style="background: linear-gradient(135deg, rgba(28,176,246,0.15) 0%, rgba(120,83,232,0.15) 100%);">
+                        <aside class="news-sidebar-card text-center" style="background: linear-gradient(135deg, rgba(28,176,246,0.15) 0%, rgba(120,83,232,0.15) 100%);">
                             <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text);">دانلود اپلیکیشن ساد</h4>
                             <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">دسترسی آسان به پنل والدین و رانندگان سرویس مدارس</p>
                             <a href="index.html#features" class="btn btn-primary btn-sm" style="border-radius: 20px; padding: 8px 20px;">مشاهده اپلیکیشن‌ها</a>
-                        </div>
+                        </aside>
                     </div>
                 </div>
             </div>
@@ -118,6 +124,7 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script>
         let currentNewsId = null;
+        let currentNewsTitle = '';
         let allNewsData = [];
         let loadedIndex = 0;
         const BATCH_SIZE = 3;
@@ -142,6 +149,7 @@
                     document.getElementById('detail-container').style.display = 'block';
 
                     const date = new Date(news.created_at).toLocaleDateString('fa-IR');
+                    currentNewsTitle = news.title;
                     document.getElementById('news-date').innerText = date;
                     document.getElementById('news-title').innerText = news.title;
                     document.getElementById('news-content').innerText = news.content;
@@ -149,7 +157,14 @@
                     
                     const imageUrl = news.image_url ? news.image_url : 'assets/images/blog/blog-01.jpg';
                     document.getElementById('news-image').src = imageUrl;
+                    
+                    // SEO & Meta updates
                     document.title = news.title + ' - سامانه ساد';
+                    document.getElementById('seo-description').setAttribute('content', news.snippet || news.title);
+                    document.getElementById('og-title').setAttribute('content', news.title);
+                    document.getElementById('og-description').setAttribute('content', news.snippet || news.title);
+                    document.getElementById('og-url').setAttribute('content', window.location.href);
+                    document.getElementById('og-image').setAttribute('content', imageUrl);
 
                     // Fetch all news for lazy-loading sidebar
                     fetchSidebarNews();
@@ -161,7 +176,7 @@
         });
 
         function fetchSidebarNews() {
-            fetch('http://127.0.0.1:8000/api/public/news/')
+            fetch('http://127.0.0.1:18000/api/public/news/')
                 .then(res => res.json())
                 .then(data => {
                     const newsList = Array.isArray(data) ? data : (data.result || []);
@@ -184,6 +199,34 @@
                     console.error('Sidebar fetch error:', err);
                     document.getElementById('sidebar-lazy-sentinel').style.display = 'none';
                 });
+        }
+
+        function toggleLike(btn) {
+            btn.classList.toggle('liked');
+            if (btn.classList.contains('liked')) {
+                btn.style.color = '#ed4956';
+                btn.style.transform = 'scale(1.2)';
+                setTimeout(() => btn.style.transform = 'scale(1)', 200);
+            } else {
+                btn.style.color = '';
+            }
+        }
+
+        function shareCurrentNews() {
+            const shareUrl = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: currentNewsTitle,
+                    text: currentNewsTitle + ' - سامانه ساد',
+                    url: shareUrl
+                }).catch(err => console.log('Share canceled', err));
+            } else {
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert('لینک این خبر با موفقیت کپی شد!');
+                }).catch(() => {
+                    window.open(`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(currentNewsTitle)}`, '_blank');
+                });
+            }
         }
 
         function loadNextSidebarBatch() {
