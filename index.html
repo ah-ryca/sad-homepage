@@ -892,7 +892,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
               <p class="ud-footer-bottom-right" style="text-align: center;">
-                © ۱۴۰۵ سامانه ساد. تمامی حقوق محفوظ است. توسعه یافته توسط تیم ساد.
+                © <span id="footer-year"></span> سامانه ساد. تمامی حقوق محفوظ است. توسعه یافته توسط تیم ساد.
               </p>
             </div>
           </div>
@@ -910,6 +910,34 @@
 
     <!-- JavaScript code -->
     <script>
+        const persianDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+        function toPersianDigits(n) {
+            return String(n).replace(/\d/g, d => persianDigits[+d]);
+        }
+        function gregorianToJalali(gy, gm, gd) {
+            const g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
+            let jy = (gy <= 1600) ? 0 : 979;
+            gy -= (gy <= 1600) ? 621 : 1600;
+            const gy2 = (gm > 2) ? (gy + 1) : gy;
+            let days = (365 * gy) + Math.floor((gy2 + 3) / 4) - Math.floor((gy2 + 99) / 100) + Math.floor((gy2 + 399) / 400) - 80 + gd + g_d_m[gm - 1];
+            jy += 33 * Math.floor(days / 12053);
+            days %= 12053;
+            jy += 4 * Math.floor(days / 1461);
+            days %= 1461;
+            jy += Math.floor((days - 1) / 365);
+            if (days > 365) days = (days - 1) % 365;
+            const jm = (days < 186) ? 1 + Math.floor(days / 31) : 7 + Math.floor((days - 186) / 30);
+            const jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
+            return { jy, jm, jd };
+        }
+        const now = new Date();
+        const jalali = gregorianToJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
+        const footerYearText = toPersianDigits(jalali.jy);
+        const footerYearEl = document.getElementById('footer-year');
+        if (footerYearEl) {
+            footerYearEl.textContent = footerYearText;
+        }
+
         // Dark/Light Theme Switching
         const themeToggle = document.getElementById('theme-toggle');
 
@@ -1163,7 +1191,7 @@
                     message: document.getElementById('message').value
                 };
 
-                fetch('http://127.0.0.1:18000/api/public/contact/', { // Adjust URL based on environment
+                fetch('https://sadservice.ir/api/public/contact/', { // Adjust URL based on environment
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1352,7 +1380,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Fetch News and render as Instagram-style cards (Limit to top 3)
-            fetch('http://127.0.0.1:18000/api/public/news/?limit=3')
+            fetch('https://sadservice.ir/api/public/news/?limit=3')
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
