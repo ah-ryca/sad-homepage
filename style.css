@@ -170,24 +170,36 @@ header {
 }
 
 .nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     height: 80px;
 }
 
 .logo-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 12px;
+    flex-shrink: 0 !important;
 }
 
 .header-right-actions {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
     gap: 10px;
-    flex-shrink: 0;
+    flex-shrink: 0 !important;
+}
+
+.auth-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
 }
 
 .site-logo {
@@ -212,32 +224,6 @@ header {
     white-space: nowrap;
 }
 
-/* Mobile Header Auth Icon Button */
-.header-auth-icon-btn {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    background: var(--primary);
-    color: #ffffff;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: all var(--transition-speed) ease;
-    box-shadow: 0 4px 12px rgba(88, 204, 2, 0.25);
-    border: none;
-}
-
-.header-auth-icon-btn:hover {
-    background: var(--primary-hover);
-    color: #ffffff;
-    transform: scale(1.05);
-}
-
-.header-auth-icon-btn svg {
-    stroke: #ffffff;
-}
-
 .mobile-drawer-auth {
     display: none;
 }
@@ -247,20 +233,14 @@ header {
         padding-left: 0;
         padding-right: 0;
     }
-    .desktop-auth-btn {
+    .auth-buttons {
         display: none !important;
-    }
-    .mobile-auth-icon-btn {
-        display: flex !important;
-        width: 40px;
-        height: 40px;
-        border-radius: 11px;
     }
     .mobile-drawer-auth {
         display: block !important;
         width: 100%;
-        margin-top: 15px;
-        padding-top: 15px;
+        margin-top: 20px;
+        padding-top: 16px;
         border-top: 1px solid var(--border-solid);
     }
     .mobile-drawer-auth .mobile-auth-btn {
@@ -272,26 +252,37 @@ header {
         border-radius: 12px;
         text-decoration: none;
         font-weight: bold;
+        background-color: var(--primary);
+        color: #ffffff !important;
     }
     .site-logo {
-        width: 42px;
-        height: 42px;
+        width: 40px;
+        height: 40px;
     }
     .logo-title {
-        font-size: 20px;
+        font-size: 19px;
     }
     .logo-section {
         gap: 8px;
     }
     .header-right-actions {
-        gap: 8px;
+        gap: 10px;
+    }
+    .theme-toggle-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    .theme-toggle-btn svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
 @media (max-width: 576px) {
     .container {
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
     .site-logo {
         width: 36px;
@@ -301,24 +292,14 @@ header {
         font-size: 17px;
     }
     .logo-section {
-        gap: 6px;
+        gap: 8px;
     }
     .header-right-actions {
-        gap: 6px;
-    }
-    .mobile-auth-icon-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-    }
-    .mobile-auth-icon-btn svg {
-        width: 18px;
-        height: 18px;
+        gap: 8px;
     }
     .theme-toggle-btn {
         width: 36px;
         height: 36px;
-        border-radius: 10px;
     }
     .theme-toggle-btn svg {
         width: 18px;
