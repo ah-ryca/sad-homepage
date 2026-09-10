@@ -305,6 +305,10 @@ header {
 }
 
 @media (max-width: 991px) {
+    .logo-title {
+        display: none;
+    }
+
     .navbar-toggler {
         display: block;
     }
