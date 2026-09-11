@@ -243,102 +243,6 @@
             font-size: 16px;
         }
 
-        /* --- Guide Stepper Styles --- */
-        .stepper {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: relative;
-            padding-right: 15px;
-        }
-        .stepper::before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            bottom: 20px;
-            right: 29px;
-            width: 2px;
-            background: #e2e8f0;
-            z-index: 0;
-        }
-        body.dark-theme .stepper::before {
-            background: rgba(255,255,255,0.1);
-        }
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            position: relative;
-            z-index: 1;
-        }
-        .step-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #7853e8;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-            flex-shrink: 0;
-            box-shadow: 0 0 0 5px #fff;
-        }
-        body.dark-theme .step-icon {
-            box-shadow: 0 0 0 5px #0f172a; 
-        }
-        .step-content {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            padding: 15px 20px;
-            border-radius: 12px;
-            flex-grow: 1;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        body.dark-theme .step-content {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        .step-content:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        body.dark-theme .step-content:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .step-content h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #0f172a;
-        }
-        body.dark-theme .step-content h4 {
-            color: #fff;
-        }
-        .step-content p {
-            font-size: 14px;
-            margin-bottom: 0;
-            line-height: 1.6;
-            color: #475569;
-        }
-        body.dark-theme .step-content p {
-            color: #b0b8c4;
-        }
-        .guide-card {
-            transition: transform 0.3s ease;
-            background: rgba(120, 83, 232, 0.03);
-            border: 1px solid #dee2e6;
-        }
-        body.dark-theme .guide-card {
-            background: rgba(255, 255, 255, 0.02) !important;
-            border-color: rgba(255, 255, 255, 0.1) !important;
-        }
-        .guide-card:hover {
-            transform: translateY(-5px);
-        }
-
 </style>
 
 </head>
@@ -368,7 +272,6 @@
                     <ul class="nav-menu">
                         <li><a href="#hero">صفحه اصلی</a></li>
                         <li><a href="#features">قابلیت‌ها</a></li>
-                        <li><a href="#guide">راهنما</a></li>
                         <li><a href="#about">درباره ما</a></li>
                         <li><a href="#team">تیم ما</a></li>
                         <li><a href="#blog">اخبار</a></li>
@@ -568,98 +471,6 @@
     </section>
 
     
-    <!-- ====== Guide Start ====== -->
-    <section id="guide" class="ud-guide" style="padding-top: 80px; padding-bottom: 20px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title mx-auto text-center">
-              <span>راهنمای استفاده</span>
-              <h2>مراحل ثبت و تخصیص سرویس</h2>
-              <p>راهنمای گام‌به‌گام برای والدین و شرکت‌های حمل‌ونقل جهت کار با سامانه ساد</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row">
-            <!-- Parents Column -->
-            <div class="col-lg-6 mb-4">
-                <div class="guide-card p-4 rounded-4 h-100" style="border-top: 4px solid #7853e8;">
-                    <h3 class="mb-4 text-center" style="color: #7853e8; font-weight: 800;">👨‍👩‍👧 راهنمای والدین</h3>
-                    <div class="stepper">
-                        <div class="step">
-                            <div class="step-icon">۱</div>
-                            <div class="step-content">
-                                <h4>ورود و ثبت‌نام</h4>
-                                <p>ورود به <a href="http://app.sadservice.ir" target="_blank" style="color: #7853e8; font-weight: bold; text-decoration: underline;">اپلیکیشن والدین</a> و ثبت مشخصات دانش‌آموز.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon">۲</div>
-                            <div class="step-content">
-                                <h4>ثبت درخواست</h4>
-                                <p>انتخاب مدرسه و ثبت دقیق آدرس منزل روی نقشه برای مسیریابی بهتر.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon">۳</div>
-                            <div class="step-content">
-                                <h4>پرداخت و تایید</h4>
-                                <p>پرداخت پیش‌پرداخت یا تایید قرارداد برای نهایی شدن درخواست سرویس.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon">۴</div>
-                            <div class="step-content">
-                                <h4>تخصیص سرویس</h4>
-                                <p>مشاهده اطلاعات راننده و خودرو بلافاصله پس از تخصیص توسط شرکت.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Companies Column -->
-            <div class="col-lg-6 mb-4">
-                <div class="guide-card p-4 rounded-4 h-100" style="border-top: 4px solid #1cb0f6;">
-                    <h3 class="mb-4 text-center" style="color: #1cb0f6; font-weight: 800;">🏢 راهنمای شرکت‌ها</h3>
-                    <div class="stepper">
-                        <div class="step">
-                            <div class="step-icon" style="background: #1cb0f6;">۱</div>
-                            <div class="step-content">
-                                <h4>بررسی درخواست‌ها</h4>
-                                <p>ورود به <a href="http://panel.sadservice.ir" target="_blank" style="color: #1cb0f6; font-weight: bold; text-decoration: underline;">پنل شرکت‌ها</a> و مشاهده لیست دانش‌آموزان متقاضی.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon" style="background: #1cb0f6;">۲</div>
-                            <div class="step-content">
-                                <h4>مسیریابی و گروه‌بندی</h4>
-                                <p>استفاده از نقشه هوشمند برای گروه‌بندی دانش‌آموزان هم‌مسیر در یک سرویس.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon" style="background: #1cb0f6;">۳</div>
-                            <div class="step-content">
-                                <h4>تخصیص راننده</h4>
-                                <p>انتخاب راننده مناسب و تخصیص مسیر ایجاد شده به وی.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon" style="background: #1cb0f6;">۴</div>
-                            <div class="step-content">
-                                <h4>تایید و اطلاع‌رسانی</h4>
-                                <p>ارسال خودکار نوتیفیکیشن تخصیص سرویس به والدین و راننده.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </section>
-    <!-- ====== Guide End ====== -->
-
     <!-- ====== About Start ====== -->
     <section id="about" class="ud-about" style="padding-top: 60px; padding-bottom: 60px;">
       <div class="container">
@@ -1031,7 +842,6 @@
                 <ul class="ud-widget-links">
                   <li><a href="#hero">صفحه اصلی</a></li>
                   <li><a href="#features">قابلیت‌ها</a></li>
-                  <li><a href="#guide">راهنما</a></li>
                   <li><a href="#about">درباره ما</a></li>
                   <li><a href="#team">تیم ما</a></li>
                 </ul>
