@@ -215,20 +215,19 @@ header {
 
 @media (max-width: 768px) {
     .header-auth-btn {
-        width: 42px;
-        height: 42px;
-        padding: 0;
-        border-radius: 12px;
+        width: auto;
+        height: auto;
+        padding: 5px 10px;
+        font-size: 0.76rem;
+        border-radius: 16px;
     }
 
     .header-auth-btn .auth-btn-text {
-        display: none;
+        display: inline-block;
     }
 
     .header-auth-btn .auth-btn-icon {
-        display: block;
-        width: 22px;
-        height: 22px;
+        display: none;
     }
 }
 
