@@ -215,20 +215,25 @@ header {
 
 @media (max-width: 768px) {
     .header-auth-btn {
-        width: 38px;
-        height: 38px;
-        padding: 0;
-        border-radius: 50%;
+        width: auto;
+        height: auto;
+        padding: 5px 12px;
+        font-size: 0.75rem;
+        border-radius: 12px;
     }
 
     .header-auth-btn .auth-btn-text {
         display: none;
     }
 
+    .header-auth-btn::after {
+        content: "ورود";
+        display: inline-block;
+        font-weight: bold;
+    }
+
     .header-auth-btn .auth-btn-icon {
-        display: block;
-        width: 20px;
-        height: 20px;
+        display: none;
     }
 }
 
