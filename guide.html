@@ -189,6 +189,60 @@
             border-color: rgba(255,255,255,0.05);
         }
         body.dark-theme .step-icon { box-shadow: 0 0 0 6px #121826; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .guide-section {
+                padding: 100px 0 40px;
+            }
+            .guide-header h1 {
+                font-size: 26px;
+            }
+            .guide-header p {
+                font-size: 15px;
+                padding: 0 15px;
+            }
+            .guide-card {
+                padding: 20px 15px;
+            }
+            .guide-card h3 {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+            .stepper {
+                gap: 20px;
+                padding-right: 15px;
+            }
+            .stepper-item {
+                gap: 15px;
+            }
+            .stepper::before {
+                right: 29px;
+            }
+            .step-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 13px;
+                box-shadow: 0 0 0 4px var(--card-bg);
+            }
+            body.dark-theme .step-icon { box-shadow: 0 0 0 4px #121826; }
+            .step-content {
+                padding: 15px;
+            }
+            .step-content h4 {
+                font-size: 17px;
+                margin-bottom: 8px;
+            }
+            .step-content p {
+                font-size: 14px;
+            }
+            .download-btn {
+                font-size: 13px;
+                padding: 8px 18px;
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
