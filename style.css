@@ -227,7 +227,7 @@ header {
     }
 
     .header-auth-btn::after {
-        content: "ورود";
+        content: "ثبت نام والدین";
         display: inline-block;
         font-weight: bold;
     }
