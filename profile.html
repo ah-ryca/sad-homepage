@@ -248,6 +248,30 @@
             transition: transform 0.3s ease;
         }
 
+        /* Social Icons Universal Frame */
+        .social-icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+        .social-icon-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+        .social-icon-box img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+        }
+
         body:not(.dark-theme) .p-details-card {
             background: #ffffff;
             border-color: #e2e8f0;
