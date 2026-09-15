@@ -26,8 +26,8 @@
 
         /* Profile Layout */
         .profile-wrapper {
-            padding-top: 100px;
-            padding-bottom: 80px;
+            padding-top: 80px;
+            padding-bottom: 40px;
             min-height: calc(100vh - 300px); /* Adjust for header/footer */
         }
 
@@ -54,7 +54,7 @@
         }
 
         .premium-cover {
-            height: 220px;
+            height: 130px;
             background: linear-gradient(120deg, #1cb0f6 0%, #7853e8 100%);
             position: relative;
             overflow: hidden;
@@ -71,16 +71,16 @@
         /* Avatar */
         .premium-avatar-wrap {
             position: relative;
-            margin-top: -80px;
+            margin-top: -50px;
             text-align: center;
             z-index: 2;
         }
 
         .premium-avatar {
-            width: 160px;
-            height: 160px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 8px solid #0b1121;
+            border: 4px solid #0b1121;
             object-fit: cover;
             background-color: #fff;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -95,11 +95,11 @@
         /* Info Section */
         .premium-info {
             text-align: center;
-            padding: 25px 40px 45px;
+            padding: 15px 30px 25px;
         }
 
         .premium-title {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 8px;
@@ -149,9 +149,9 @@
         .p-stat-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 20px 30px;
-            min-width: 150px;
+            border-radius: 16px;
+            padding: 12px 20px;
+            min-width: 120px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -168,7 +168,7 @@
         }
 
         .p-stat-val {
-            font-size: 28px;
+            font-size: 20px;
             font-weight: 900;
             color: #ffffff;
             margin-bottom: 5px;
@@ -243,7 +243,7 @@
             background: rgba(255, 255, 255, 0.02);
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 35px;
+            padding: 25px;
             height: 100%;
             transition: transform 0.3s ease;
         }
@@ -483,8 +483,8 @@
                             <a href="http://panel.sadservice.ir" class="btn-p-primary">
                                 <i class="lni lni-enter"></i> ورود به پنل
                             </a>
-                            <a href="index.html#contact" class="btn-p-outline">
-                                <i class="lni lni-envelope"></i> تماس با ما
+                            <a href="#" id="contactCompanyBtn" class="btn-p-outline">
+                                <i class="lni lni-phone"></i> تماس با شرکت
                             </a>
                         </div>
                     </div>
@@ -712,6 +712,10 @@
                     document.getElementById('companyPhone').textContent = companyData.phone || "ثبت نشده";
                     document.getElementById('companyCeo').textContent = companyData.ceo_name || "ثبت نشده";
                     document.getElementById('companyRegCode').textContent = companyData.registration_number || "ثبت نشده";
+                    
+                    if (companyData.phone) {
+                        document.getElementById('contactCompanyBtn').href = "tel:" + companyData.phone;
+                    }
                     
                     document.title = `${companyData.name} - سامانه ساد`;
                     content.style.display = 'block';
