@@ -27,8 +27,8 @@
         
         .faq-question { width: 100%; text-align: right; padding: 22px 26px; background: transparent; border: none; outline: none; font-size: 17px; font-weight: 700; color: var(--text); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.3s ease; }
         .faq-question i { color: var(--accent-orange); transition: transform 0.3s ease; font-size: 18px; }
-        .faq-item.active .faq-question { color: var(--accent-orange); }
-        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-item.open .faq-question { color: var(--accent-orange); }
+        .faq-item.open .faq-question i { transform: rotate(180deg); }
         
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .faq-answer-inner { padding: 0 26px 26px; font-size: 15px; line-height: 2.1; color: var(--text-muted); border-top: 1px dashed rgba(255, 150, 0, 0.15); margin-top: 5px; padding-top: 20px; }
@@ -131,7 +131,6 @@
                 <div class="faq-tab active" data-target="all">همه سوالات</div>
                 <div class="faq-tab" data-target="parents">والدین</div>
                 <div class="faq-tab" data-target="company">پیمانکاران و رانندگان</div>
-                <div class="faq-tab" data-target="finance">امور مالی</div>
             </div>
 
             <div class="faq-accordion">
@@ -161,18 +160,6 @@
                     </div>
                 </div>
 
-                <!-- Question 3 -->
-                <div class="faq-item reveal faq-cat-finance faq-cat-all">
-                    <button class="faq-question">
-                        نحوه پرداخت هزینه سرویس به چه صورت است؟
-                        <i class="lni lni-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            پس از اینکه پیمانکار درخواست شما را تایید و قیمت‌گذاری کرد، پیامکی حاوی لینک پرداخت دریافت می‌کنید. شما می‌توانید از طریق اپلیکیشن یا لینک وب، با استفاده از درگاه امن بانکی، هزینه را به صورت آنلاین (یکجا یا اقساطی در صورت توافق) پرداخت نمایید.
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Question 4 -->
                 <div class="faq-item reveal faq-cat-company faq-cat-all">
@@ -292,15 +279,15 @@
             faqItems.forEach(item => {
                 const btn = item.querySelector('.faq-question');
                 btn.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
+                    const isOpen = item.classList.contains('open');
                     // close all
                     faqItems.forEach(i => {
-                        i.classList.remove('active');
+                        i.classList.remove('open');
                         i.querySelector('.faq-answer').style.maxHeight = null;
                     });
-                    // open clicked if it wasn't active
-                    if (!isActive) {
-                        item.classList.add('active');
+                    // open clicked if it wasn't open
+                    if (!isOpen) {
+                        item.classList.add('open');
                         const answer = item.querySelector('.faq-answer');
                         answer.style.maxHeight = answer.scrollHeight + "px";
                     }
@@ -321,7 +308,7 @@
                         if (target === 'all' || item.classList.contains('faq-cat-' + target)) {
                             item.style.display = 'block'; // show matching
                             // re-trigger animation class slightly
-                            item.classList.remove('active'); // reset accordion state
+                            item.classList.remove('open'); // reset accordion state
                             item.querySelector('.faq-answer').style.maxHeight = null;
                         }
                     });
