@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حریم خصوصی - سامانه مدیریت حمل‌ونقل دانش‌آموزی (ساد)</title>
+    <meta name="description" content="سیاست حفظ حریم خصوصی کاربران در سامانه ساد. نحوه جمع‌آوری، استفاده و محافظت از اطلاعات شخصی شما.">
+    <meta name="keywords" content="حریم خصوصی ساد, امنیت اطلاعات, سیاست حفظ حریم خصوصی, سرویس مدارس">
+    
+    <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="assets/css/lineicons.css">
+    <link rel="stylesheet" href="assets/css/ud-styles.css">
+    <link rel="stylesheet" href="style.css?v=3.0.0">
+    
+    <style>
+        .legal-section { padding: 120px 0 60px; min-height: 100vh; }
+        .legal-header { text-align: center; margin-bottom: 60px; }
+        .legal-header h1 { font-weight: 900; margin-bottom: 18px; color: var(--text); font-size: clamp(28px, 4vw, 38px); }
+        .legal-header .legal-badge { display: inline-flex; align-items: center; padding: 8px 22px; background: linear-gradient(135deg, rgba(28, 176, 246, 0.08) 0%, rgba(28, 176, 246, 0.03) 100%); border: 1px solid rgba(28, 176, 246, 0.15); border-radius: 30px; font-size: 14px; font-weight: 700; color: var(--secondary); margin-bottom: 20px; }
+        .legal-header p { color: var(--text-muted); font-size: 16px; max-width: 650px; margin: 0 auto; line-height: 2; }
+        .legal-card { background: var(--card-bg); border-radius: 24px; padding: 44px; margin-bottom: 36px; box-shadow: var(--glass-shadow); border: 1px solid var(--border); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .legal-card:hover { box-shadow: var(--card-hover-shadow); }
+        body.dark-theme .legal-card { background: rgba(15, 23, 42, 0.50); border-color: rgba(255,255,255,0.07); }
+        .legal-card h2 { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, var(--secondary), var(--primary)) 1; }
+        .legal-card h2 i { color: var(--secondary); font-size: 20px; }
+        .legal-card h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 24px 0 12px; }
+        .legal-card p, .legal-card li { font-size: 15px; line-height: 2.2; color: var(--text-muted); }
+        .legal-card ul, .legal-card ol { padding-right: 24px; margin-bottom: 16px; }
+        .legal-card li { margin-bottom: 8px; }
+        .legal-card li::marker { color: var(--secondary); }
+        .legal-card strong { color: var(--text); }
+        .legal-card .highlight-box { background: linear-gradient(135deg, rgba(28, 176, 246, 0.06) 0%, rgba(88, 204, 2, 0.04) 100%); border-right: 3px solid var(--secondary); border-radius: 12px; padding: 20px 24px; margin: 20px 0; font-size: 14px; line-height: 2; }
+        .legal-updated { text-align: center; margin-top: 40px; font-size: 14px; color: var(--text-muted); }
+
+        /* Footer overrides */
+        .ud-about, .ud-team, .ud-blog-grids, .ud-contact, .ud-footer { direction: rtl; text-align: right; }
+        body.dark-theme .ud-footer { background-color: transparent !important; color: #fff !important; }
+        body.dark-theme .ud-widget-title { color: #fff !important; }
+        body.dark-theme .ud-widget-desc { color: #9ca3af !important; }
+        body.dark-theme .ud-widget-links li a { color: #9ca3af !important; transition: all 0.3s ease !important; }
+        body.dark-theme .ud-widget-links li a:hover { color: var(--primary) !important; transform: translateX(-3px); }
+        body.dark-theme .ud-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08) !important; background: transparent !important; }
+        body.dark-theme .ud-footer-bottom p { color: #9ca3af !important; }
+        body:not(.dark-theme) .ud-footer { background-color: transparent !important; color: #333; }
+        body:not(.dark-theme) .ud-widget-title { color: #0f172a !important; }
+        body:not(.dark-theme) .ud-widget-desc { color: #4b5563 !important; }
+        body:not(.dark-theme) .ud-widget-links li a { color: #4b5563 !important; transition: all 0.3s ease !important; }
+        body:not(.dark-theme) .ud-widget-links li a:hover { color: var(--primary) !important; transform: translateX(-3px); }
+        body:not(.dark-theme) .ud-footer-bottom { border-top: 1px solid rgba(0,0,0,0.06) !important; }
+        body:not(.dark-theme) .ud-footer-bottom p { color: #4b5563 !important; }
+        .ud-widget-title { font-weight: 700 !important; font-size: 17px !important; margin-bottom: 20px !important; padding-bottom: 12px !important; border-bottom: 2px solid transparent !important; border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1 !important; }
+        .ud-widget-links { list-style: none !important; padding: 0 !important; }
+        .ud-widget-links li { margin-bottom: 10px !important; }
+        .ud-widget-links li a { font-size: 14px !important; font-weight: 500 !important; text-decoration: none !important; }
+        .ud-widget-desc { line-height: 2 !important; font-size: 14px !important; }
+        .ud-footer-bottom { position: relative; }
+        .ud-footer-bottom::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent); opacity: 0.3; }
+        .social-icon-box { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; background: rgba(255, 255, 255, 0.90); border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+        body.dark-theme .social-icon-box { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.10); box-shadow: 0 4px 16px rgba(0,0,0,0.20); }
+        .social-icon-box:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 25px rgba(88, 204, 2, 0.20); border-color: rgba(88, 204, 2, 0.30); }
+        .social-icon-box img { width: 26px; height: 26px; object-fit: contain; }
+        @media (max-width: 768px) { .legal-section { padding: 100px 0 40px; } .legal-card { padding: 24px 20px; } }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <div class="ambient-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo-section">
+                <a href="index.html" style="display:flex; align-items:center; gap: 12px; text-decoration: none; color: inherit;">
+                    <img src="images/logo.png" alt="لوگو سامانه ساد" class="site-logo">
+                    <div class="logo-title">ساد</div>
+                </a>
+            </div>
+            <div class="nav-menu-wrapper" id="navMenuWrapper">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html#hero">صفحه اصلی</a></li>
+                        <li><a href="index.html#features">قابلیت‌ها</a></li>
+                        <li><a href="index.html#about">درباره ما</a></li>
+                        <li><a href="index.html#team">تیم ما</a></li>
+                        <li><a href="index.html#blog">اخبار</a></li>
+                        <li><a href="index.html#contact">تماس با ما</a></li>
+                        <li><a href="guide.html">راهنما</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right-actions" style="display: flex; align-items: center; gap: 10px;">
+                <div class="auth-buttons">
+                    <a href="http://app.sadservice.ir" class="btn btn-primary header-auth-btn" style="padding: 5px 10px !important" aria-label="ورود / ثبت‌نام والدین" title="ورود / ثبت‌نام والدین">
+                        <svg class="auth-btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                        <span class="auth-btn-text" style="padding: 0 !important">ورود / ثبت‌نام والدین</span>
+                    </a>
+                </div>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="تغییر پوسته">
+                    <svg id="theme-icon" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 16.95l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z" /></svg>
+                </button>
+                <button class="navbar-toggler" id="navbarToggler" aria-label="تغییر وضعیت منو">
+                    <span class="toggler-icon"></span><span class="toggler-icon"></span><span class="toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Privacy Content -->
+    <section class="legal-section">
+        <div class="container">
+            <div class="legal-header reveal">
+                <span class="legal-badge">🔒 حریم خصوصی</span>
+                <h1>سیاست حفظ حریم خصوصی سامانه ساد</h1>
+                <p>امنیت و حفظ حریم خصوصی اطلاعات شما برای ما در سامانه ساد از بالاترین اولویت برخوردار است. در این بخش با نحوه جمع‌آوری و استفاده از اطلاعات آشنا می‌شوید.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="legal-card reveal">
+                        <h2><i class="lni lni-database"></i> ماده ۱ — اطلاعاتی که جمع‌آوری می‌کنیم</h2>
+                        <p>به منظور ارائه خدمات هوشمند حمل‌ونقل دانش‌آموزی، ما اطلاعات زیر را با رضایت شما جمع‌آوری می‌کنیم:</p>
+                        <ul>
+                            <li><strong>اطلاعات هویتی:</strong> نام، نام خانوادگی، شماره ملی (برای رانندگان و دانش‌آموزان).</li>
+                            <li><strong>اطلاعات تماس:</strong> شماره تلفن همراه و آدرس منزل/مدرسه.</li>
+                            <li><strong>داده‌های مکانی (مسیریابی):</strong> مکان لحظه‌ای رانندگان در زمان اجرای سرویس، جهت نمایش به والدین.</li>
+                            <li><strong>اطلاعات مالی:</strong> سوابق پرداخت‌ها در سامانه (توجه: اطلاعات کارت بانکی در سامانه ساد ذخیره نمی‌شود و مستقیماً در درگاه شاپرک پردازش می‌گردد).</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-card reveal">
+                        <h2><i class="lni lni-cog"></i> ماده ۲ — نحوه استفاده از اطلاعات</h2>
+                        <p>اطلاعات جمع‌آوری شده تنها برای مقاصد زیر مورد استفاده قرار می‌گیرند:</p>
+                        <ul>
+                            <li>تخصیص بهینه‌ترین مسیر و سرویس به دانش‌آموزان.</li>
+                            <li>نمایش موقعیت زنده سرویس مدرسه به والدین در اپلیکیشن.</li>
+                            <li>ارسال پیامک‌های اطلاع‌رسانی مربوط به وضعیت سرویس و پرداخت‌ها.</li>
+                            <li>بهبود عملکرد سامانه و پشتیبانی کاربران.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-card reveal">
+                        <h2><i class="lni lni-lock"></i> ماده ۳ — امنیت داده‌ها و محافظت</h2>
+                        <p>ما برای محافظت از اطلاعات شخصی شما از تکنیک‌های استاندارد و امنیتی پیشرفته استفاده می‌کنیم:</p>
+                        <ul>
+                            <li>تمامی ارتباطات بین اپلیکیشن‌ها و سرورهای ساد توسط پروتکل امن <strong>HTTPS/SSL</strong> رمزنگاری می‌شوند.</li>
+                            <li>دسترسی به اطلاعات دانش‌آموزان و رانندگان کاملاً محدود و <strong>سطح‌بندی شده</strong> است (به عنوان مثال یک راننده تنها اطلاعات دانش‌آموزان سرویس خود را مشاهده می‌کند).</li>
+                            <li>از سرورهای قدرتمند داخلی و دیوارهای آتش (Firewall) چندلایه استفاده می‌شود.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <strong>💡 نکته امنیتی:</strong> سامانه ساد هرگز اطلاعات هویتی یا مکانی کاربران را در اختیار شخص ثالث یا سازمان‌های تبلیغاتی قرار نخواهد داد. این اطلاعات منحصراً برای خدمات حمل‌ونقل و نهادهای نظارتی (همچون تاکسیرانی) استفاده می‌شود.
+                        </div>
+                    </div>
+
+                    <div class="legal-card reveal">
+                        <h2><i class="lni lni-map-marker"></i> ماده ۴ — حریم خصوصی موقعیت مکانی (Location)</h2>
+                        <p>با توجه به ماهیت سامانه که نیازمند ردیابی ناوگان است، سیاست‌های مکانی به شرح زیر اعمال می‌شود:</p>
+                        <ul>
+                            <li>موقعیت مکانی <strong>راننده</strong> تنها در ساعات تعریف شده سرویس مدرسه جمع‌آوری و برای والدین مرتبط به نمایش در می‌آید.</li>
+                            <li>موقعیت مکانی <strong>والدین</strong> تنها هنگام ثبت آدرس منزل روی نقشه دریافت می‌شود و سامانه هیچ‌گونه ردیابی از اپلیکیشن والدین انجام نمی‌دهد.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-card reveal">
+                        <h2><i class="lni lni-customer"></i> ماده ۵ — حقوق کاربران</h2>
+                        <ul>
+                            <li>کاربران حق دارند در هر زمان اطلاعات شخصی خود را در پنل کاربری ویرایش و بروزرسانی کنند.</li>
+                            <li>کاربران می‌توانند در صورت اتمام قرارداد و پایان نیاز به سامانه، درخواست غیرفعال‌سازی یا حذف حساب کاربری خود را به پشتیبانی ارائه دهند.</li>
+                        </ul>
+                    </div>
+
+                    <p class="legal-updated">آخرین بروزرسانی: تیر ۱۴۰۴</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer class="ud-footer" style="margin-top: 40px;">
+      <div class="ud-footer-widgets">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="ud-widget">
+                <a href="index.html" class="ud-footer-logo" style="display:flex; align-items:center; gap: 10px; text-decoration: none; color: inherit;">
+                  <img src="images/logo.png" alt="logo" style="width: 40px;" />
+                  <h3 style="margin:0; font-size: 24px;">ساد</h3>
+                </a>
+                <p class="ud-widget-desc">مدیریت هوشمند، مانیتورینگ آنلاین و اتصال یکپارچه در یک بستر امن.</p>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">لینک‌های سریع</h5>
+                <ul class="ud-widget-links">
+                  <li><a href="index.html#hero">صفحه اصلی</a></li>
+                  <li><a href="index.html#features">قابلیت‌ها</a></li>
+                  <li><a href="index.html#about">درباره ما</a></li>
+                  <li><a href="guide.html">راهنما</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">پشتیبانی</h5>
+                <ul class="ud-widget-links">
+                  <li><a href="index.html#contact">تماس با ما</a></li>
+                  <li><a href="faq.html">سوالات متداول</a></li>
+                  <li><a href="terms.html">قوانین و مقررات</a></li>
+                  <li><a href="privacy.html">حریم خصوصی</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">ارتباط با ما</h5>
+                <p class="ud-widget-desc">شاهرود، دانشگاه صنعتی شاهرود، ساختمان مرکز رشد و فناوریهای نوین</p>
+                <div class="ud-widget">
+                  <h5 class="ud-widget-title">شبکه‌های اجتماعی</h5>
+                  <ul class="ud-widget-socials" style="display:flex; gap:12px; list-style:none; padding:0; flex-wrap: wrap;">
+                    <li><a href="https://t.me/sadservice_ir" target="_blank" title="تلگرام" class="social-icon-box"><img src="assets/images/logo/telegram.png" alt="تلگرام"></a></li>
+                    <li><a href="https://instagram.com/sadservice_app" target="_blank" title="اینستاگرام" class="social-icon-box"><img src="assets/images/logo/instagram.png" alt="اینستاگرام"></a></li>
+                    <li><a href="https://eitaa.com/sadservice_ir" target="_blank" title="ایتا" class="social-icon-box"><img src="assets/images/logo/eitaa.png" alt="ایتا"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ud-footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p class="ud-footer-bottom-right" style="text-align: center;">© <span id="footer-year"></span> سامانه ساد. تمامی حقوق محفوظ است.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') document.body.classList.remove('dark-theme');
+            else document.body.classList.add('dark-theme');
+            const themeBtn = document.getElementById('theme-toggle');
+            if (themeBtn) themeBtn.addEventListener('click', () => { document.body.classList.toggle('dark-theme'); localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light'); });
+            const toggler = document.getElementById('navbarToggler');
+            const menuWrapper = document.getElementById('navMenuWrapper');
+            if (toggler && menuWrapper) { toggler.addEventListener('click', () => { toggler.classList.toggle('active'); menuWrapper.classList.toggle('show'); }); menuWrapper.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { toggler.classList.remove('active'); menuWrapper.classList.remove('show'); })); }
+            // Jalali footer year
+            const pd = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+            function tp(n) { return String(n).replace(/\d/g, d => pd[+d]); }
+            function gtj(gy,gm,gd) { const g=[0,31,59,90,120,151,181,212,243,273,304,334]; let jy=(gy<=1600)?0:979; gy-=(gy<=1600)?621:1600; const g2=(gm>2)?(gy+1):gy; let d=(365*gy)+Math.floor((g2+3)/4)-Math.floor((g2+99)/100)+Math.floor((g2+399)/400)-80+gd+g[gm-1]; jy+=33*Math.floor(d/12053); d%=12053; jy+=4*Math.floor(d/1461); d%=1461; jy+=Math.floor((d-1)/365); return {jy}; }
+            const n=new Date(), j=gtj(n.getFullYear(),n.getMonth()+1,n.getDate()); const el=document.getElementById('footer-year'); if(el) el.textContent=tp(j.jy);
+            // Scroll reveal
+            const revealElements = document.querySelectorAll('.reveal');
+            if (revealElements.length > 0) { const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }); revealElements.forEach(el => obs.observe(el)); }
+        });
+    </script>
+</body>
+</html>

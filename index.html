@@ -10,19 +10,21 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/lineicons.css">
     <link rel="stylesheet" href="assets/css/ud-styles.css">
-    <link rel="stylesheet" href="style.css?v=2.0.3">
+    <link rel="stylesheet" href="style.css?v=3.0.0">
     <style>
+        /* ═══ UIdeck Section Overrides ═══ */
+
         /* Base RTL and alignment for UIdeck sections */
         .ud-about, .ud-team, .ud-blog-grids, .ud-contact, .ud-footer {
             direction: rtl;
             text-align: right;
         }
-        
+
         /* Extra variables for light/dark theme adaptation */
         body.dark-theme { --invert-icon: 1; }
-        body:not(.dark-theme) { --invert-icon: 0; --card-bg: #fff; --border: #dee2e6; }
+        body:not(.dark-theme) { --invert-icon: 0; }
 
-        /* Scoped overrides to make UIdeck compatible with dark theme */
+        /* ─── Dark Theme UIdeck ─── */
         body.dark-theme .ud-about, body.dark-theme .ud-team, body.dark-theme .ud-blog-grids, body.dark-theme .ud-contact, body.dark-theme .ud-footer {
             background-color: transparent !important;
             color: #fff !important;
@@ -31,68 +33,95 @@
             color: #fff !important;
         }
         body.dark-theme .ud-section-title p, body.dark-theme .ud-feature-desc, body.dark-theme .ud-widget-desc, body.dark-theme .ud-blog-desc {
-            color: #aaa !important;
+            color: #9ca3af !important;
         }
         body.dark-theme .ud-single-team, body.dark-theme .ud-single-blog {
-            background-color: rgba(255, 255, 255, 0.05) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04) !important;
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body.dark-theme .ud-single-team:hover, body.dark-theme .ud-single-blog:hover {
+            background: rgba(255, 255, 255, 0.07) !important;
+            border-color: rgba(88, 204, 2, 0.15) !important;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 30px rgba(88, 204, 2, 0.06);
         }
         body.dark-theme .ud-team-info h5, body.dark-theme .ud-blog-title a {
             color: #fff !important;
         }
         body.dark-theme .ud-team-info h6 {
-            color: #ccc !important;
+            color: #9ca3af !important;
         }
-        
-        body.dark-theme .ud-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1) !important; background: transparent !important; }
-        body.dark-theme .ud-footer-bottom p, body.dark-theme .ud-footer-bottom a { color: #aaa !important; }
-        body.dark-theme .ud-widget-links li a { color: #aaa !important; }
-        body.dark-theme .ud-widget-links li a:hover { color: #1cb0f6 !important; }
+        body.dark-theme .ud-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08) !important; background: transparent !important; }
+        body.dark-theme .ud-footer-bottom p, body.dark-theme .ud-footer-bottom a { color: #9ca3af !important; }
+        body.dark-theme .ud-widget-links li a { color: #9ca3af !important; transition: all 0.3s ease !important; }
+        body.dark-theme .ud-widget-links li a:hover { color: var(--primary) !important; transform: translateX(-3px); }
 
-        /* Light mode specific fixes */
+        /* ─── Light Theme UIdeck ─── */
         body:not(.dark-theme) .ud-single-team, body:not(.dark-theme) .ud-single-blog {
-            background-color: #fff !important;
+            background: rgba(255, 255, 255, 0.65) !important;
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
             color: #333 !important;
-            border: 1px solid #ccc !important;
+            border: 1px solid rgba(0, 0, 0, 0.06) !important;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        body:not(.dark-theme) .ud-section-title h2 { color: #333 !important; }
-        body:not(.dark-theme) .ud-footer { background-color: #f8f9fa !important; color: #333; }
-        body:not(.dark-theme) .ud-widget-title { color: #333 !important; }
-        body:not(.dark-theme) .ud-widget-desc { color: #666 !important; }
-        body:not(.dark-theme) .ud-footer-logo h3 { color: #333 !important; }
-        body:not(.dark-theme) .ud-footer-bottom { border-top: 1px solid #ddd !important; }
-        body:not(.dark-theme) .ud-footer-bottom p { color: #666 !important; }
-    
-        /* Social Icons Universal Frame */
+        body:not(.dark-theme) .ud-single-team:hover, body:not(.dark-theme) .ud-single-blog:hover {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border-color: rgba(88, 204, 2, 0.15) !important;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 0 30px rgba(88, 204, 2, 0.06);
+        }
+        body:not(.dark-theme) .ud-section-title h2 { color: #0f172a !important; }
+        body:not(.dark-theme) .ud-section-title span { color: var(--primary) !important; }
+        body:not(.dark-theme) .ud-footer { background-color: transparent !important; color: #333; }
+        body:not(.dark-theme) .ud-widget-title { color: #0f172a !important; }
+        body:not(.dark-theme) .ud-widget-desc { color: #4b5563 !important; }
+        body:not(.dark-theme) .ud-footer-logo h3 { color: #0f172a !important; }
+        body:not(.dark-theme) .ud-footer-bottom { border-top: 1px solid rgba(0,0,0,0.06) !important; }
+        body:not(.dark-theme) .ud-footer-bottom p { color: #4b5563 !important; }
+        body:not(.dark-theme) .ud-widget-links li a { color: #4b5563 !important; transition: all 0.3s ease !important; }
+        body:not(.dark-theme) .ud-widget-links li a:hover { color: var(--primary) !important; transform: translateX(-3px); }
+
+        /* ─── Social Icons (Premium Framed) ─── */
         .social-icon-box {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 42px;
-            height: 42px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 46px;
+            height: 46px;
+            background: rgba(255, 255, 255, 0.90);
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             overflow: hidden;
-            border: 1px solid #eaeaea;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        body.dark-theme .social-icon-box {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.10);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.20);
         }
         .social-icon-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(88, 204, 2, 0.20), 0 2px 8px rgba(0,0,0,0.10);
+            border-color: rgba(88, 204, 2, 0.30);
         }
         .social-icon-box img {
             width: 26px;
             height: 26px;
             object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .social-icon-box:hover img {
+            transform: scale(1.1);
         }
 
-        
-
-        /* --- Elegant Cardless Design --- */
-        
-        /* 1. Ensure sections & pseudo-elements blend seamlessly into the background */
+        /* ─── Elegant Cardless Design for About & Contact ─── */
         #about, .ud-about, #contact, .ud-contact {
             background: transparent !important;
             background-color: transparent !important;
@@ -103,7 +132,6 @@
             background: transparent !important;
         }
 
-        /* 2. Remove bulky card wrappers but keep layout intact */
         .ud-about-wrapper, .ud-contact-content-wrapper, .ud-contact-form-wrapper {
             background: transparent !important;
             background-color: transparent !important;
@@ -111,48 +139,84 @@
             box-shadow: none !important;
         }
 
-        /* 3. Typography & Spacing for About & Contact text */
+        /* About & Contact Typography */
         .ud-about-content h2, .ud-contact-title h2 {
             font-weight: 800;
-            font-size: 32px;
-            margin-bottom: 25px;
+            font-size: clamp(26px, 4vw, 34px);
+            margin-bottom: 28px;
+            line-height: 1.5;
         }
         .ud-about-content h2 span, .ud-contact-title h2 span, .ud-contact-title span {
             color: var(--primary) !important;
         }
-        
-        /* 4. Elegant Icons for Contact Info */
+        .ud-about-content p {
+            line-height: 2.1;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* About section accent border */
+        .ud-about-content {
+            border-right: 3px solid var(--primary);
+            padding-right: 24px;
+            border-radius: 2px;
+        }
+
+        /* Tag (badge) modernized */
+        .ud-about-content .tag,
+        .ud-contact-title span:first-child {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 18px;
+            background: linear-gradient(135deg, rgba(88, 204, 2, 0.08) 0%, rgba(88, 204, 2, 0.03) 100%);
+            border: 1px solid rgba(88, 204, 2, 0.15);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        /* ─── Contact Info Icons ─── */
         .ud-single-info {
             display: flex;
             align-items: center;
             margin-bottom: 30px;
+            padding: 16px;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ud-single-info:hover {
+            background: rgba(88, 204, 2, 0.04);
         }
         .ud-contact .ud-info-icon {
-            width: 55px;
-            height: 55px;
-            background: rgba(28, 176, 246, 0.12) !important;
+            width: 58px;
+            height: 58px;
+            background: linear-gradient(135deg, rgba(88, 204, 2, 0.12) 0%, rgba(28, 176, 246, 0.08) 100%) !important;
             color: var(--primary) !important;
-            border-radius: 50% !important;
+            border-radius: 16px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             font-size: 24px !important;
             margin-left: 20px !important;
             margin-right: 0 !important;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
         }
         .ud-single-info:hover .ud-info-icon {
-            background: var(--primary) !important;
+            background: linear-gradient(135deg, var(--primary), #4ab802) !important;
             color: #fff !important;
-            transform: scale(1.08);
+            transform: scale(1.06);
+            box-shadow: 0 8px 24px rgba(88, 204, 2, 0.25);
         }
         .ud-info-meta h5 {
             font-weight: 700;
             font-size: 18px;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
-        /* 5. Dark Mode Specific Contact Styles */
+        /* ─── Dark Mode Contact Styles ─── */
         body.dark-theme .ud-contact-title h2,
         body.dark-theme .ud-contact-form-title,
         body.dark-theme .ud-info-meta h5 {
@@ -160,40 +224,41 @@
         }
         body.dark-theme .ud-info-meta p,
         body.dark-theme .ud-contact-info-meta p {
-            color: #b0b8c4 !important;
+            color: #9ca3af !important;
         }
         body.dark-theme .ud-contact-form-wrapper .ud-form-group label,
         body.dark-theme .ud-contact-form label {
             color: #e2e8f0 !important;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: block;
+            font-size: 14px;
         }
         body.dark-theme .ud-contact-form-wrapper .ud-form-group input,
         body.dark-theme .ud-contact-form-wrapper .ud-form-group textarea,
         body.dark-theme .ud-contact-form input,
         body.dark-theme .ud-contact-form textarea {
-            background-color: rgba(255, 255, 255, 0.05) !important;
+            background-color: rgba(255, 255, 255, 0.04) !important;
             color: #ffffff !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
-            border-radius: 12px !important;
+            border: 1px solid rgba(255, 255, 255, 0.10) !important;
+            border-radius: 14px !important;
             padding: 14px 18px !important;
             font-size: 15px;
             width: 100%;
             outline: none !important;
-            transition: all 0.3s ease !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
         body.dark-theme .ud-contact-form-wrapper .ud-form-group input:focus,
         body.dark-theme .ud-contact-form-wrapper .ud-form-group textarea:focus,
         body.dark-theme .ud-contact-form input:focus,
         body.dark-theme .ud-contact-form textarea:focus {
-            background-color: rgba(255, 255, 255, 0.08) !important;
+            background-color: rgba(255, 255, 255, 0.06) !important;
             border-color: var(--primary) !important;
             color: #ffffff !important;
-            box-shadow: 0 0 0 4px rgba(28, 176, 246, 0.25) !important;
+            box-shadow: 0 0 0 4px rgba(88, 204, 2, 0.15) !important;
         }
 
-        /* 6. Light Mode Specific Contact Styles */
+        /* ─── Light Mode Contact Styles ─── */
         body:not(.dark-theme) .ud-contact-title h2,
         body:not(.dark-theme) .ud-contact-form-title,
         body:not(.dark-theme) .ud-info-meta h5 {
@@ -207,23 +272,24 @@
         body:not(.dark-theme) .ud-contact-form label {
             color: #334155 !important;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: block;
+            font-size: 14px;
         }
         body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group input,
         body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group textarea,
         body:not(.dark-theme) .ud-contact-form input,
         body:not(.dark-theme) .ud-contact-form textarea {
-            background-color: #ffffff !important;
+            background-color: rgba(255, 255, 255, 0.80) !important;
             color: #0f172a !important;
-            border: 1px solid #cbd5e1 !important;
-            border-radius: 12px !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+            border-radius: 14px !important;
             padding: 14px 18px !important;
             font-size: 15px;
             width: 100%;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
             outline: none !important;
-            transition: all 0.3s ease !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
         body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group input:focus,
         body:not(.dark-theme) .ud-contact-form-wrapper .ud-form-group textarea:focus,
@@ -232,18 +298,114 @@
             background-color: #ffffff !important;
             border-color: var(--primary) !important;
             color: #0f172a !important;
-            box-shadow: 0 0 0 4px rgba(28, 176, 246, 0.15) !important;
+            box-shadow: 0 0 0 4px rgba(88, 204, 2, 0.12) !important;
         }
 
         .ud-contact-form button {
             width: 100%;
             padding: 16px;
-            border-radius: 12px !important;
-            font-weight: bold;
+            border-radius: 14px !important;
+            font-weight: 700;
             font-size: 16px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ud-contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(88, 204, 2, 0.25);
         }
 
-</style>
+        /* ─── Team Section Enhancement ─── */
+        .ud-team-image img {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ud-single-team:hover .ud-team-image img {
+            transform: scale(1.05);
+        }
+        .ud-team-info {
+            transition: all 0.3s ease;
+        }
+        .ud-team-info h5 {
+            font-weight: 700 !important;
+            font-size: 17px !important;
+        }
+        .ud-team-info h6 {
+            font-weight: 500 !important;
+            font-size: 14px !important;
+        }
+
+        /* ─── Section Title Enhancement ─── */
+        .ud-section-title span {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 18px;
+            background: linear-gradient(135deg, rgba(88, 204, 2, 0.08) 0%, rgba(88, 204, 2, 0.03) 100%);
+            border: 1px solid rgba(88, 204, 2, 0.15);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .ud-section-title h2 {
+            font-weight: 800 !important;
+            font-size: clamp(24px, 4vw, 32px) !important;
+            line-height: 1.5 !important;
+            margin-bottom: 16px !important;
+        }
+        .ud-section-title p {
+            font-size: 16px !important;
+            line-height: 2 !important;
+            color: var(--text-muted) !important;
+            max-width: 600px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        /* ─── Footer Widget Enhancement ─── */
+        .ud-widget-title {
+            font-weight: 700 !important;
+            font-size: 17px !important;
+            margin-bottom: 20px !important;
+            padding-bottom: 12px !important;
+            border-bottom: 2px solid transparent !important;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1 !important;
+        }
+        .ud-widget-links {
+            list-style: none !important;
+            padding: 0 !important;
+        }
+        .ud-widget-links li {
+            margin-bottom: 10px !important;
+        }
+        .ud-widget-links li a {
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+        }
+        .ud-widget-desc {
+            line-height: 2 !important;
+            font-size: 14px !important;
+        }
+
+        /* Footer bottom gradient separator */
+        .ud-footer-bottom {
+            position: relative;
+        }
+        .ud-footer-bottom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+            opacity: 0.3;
+        }
+
+    </style>
 
 </head>
 
@@ -318,7 +480,7 @@
                     id="typing-text"></span></h1>
             <p>مدیریت هوشمند، مانیتورینگ آنلاین و اتصال یکپارچه مدارس، شرکت‌ها، رانندگان و والدین در یک بستر امن.</p>
             <div class="hero-buttons">
-                <a href="#features" class="btn btn-primary">مشاهده امکانات و پنل‌ها</a>
+                <a href="#features" class="btn btn-primary hero-cta-glow">مشاهده امکانات و پنل‌ها</a>
             </div>
         </div>
     </section>
@@ -326,7 +488,7 @@
     <!-- Polished Concise Features Section with Step-by-Step Alternating Grid -->
     <section class="features-section" id="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2>پنل‌ها و قابلیت‌های تخصصی سامانه ساد</h2>
                 <p>پاسخگویی به نیازهای تمام ذینفعان در یک بستر یکپارچه و هوشمند</p>
             </div>
@@ -334,7 +496,7 @@
             <div class="steps-flow-container">
 
                 <!-- Step 1: Organization (Info Right, Mockup Left) -->
-                <div class="flow-step">
+                <div class="flow-step reveal">
                     <div class="flow-mockup-side">
                         <div class="mockup-ambient-glow" style="--mockup-glow: rgba(88, 204, 2, 0.16);"></div>
                         <div class="browser-mockup" onclick="openLightbox(this)">
@@ -503,7 +665,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="ud-section-title mx-auto text-center">
+            <div class="ud-section-title mx-auto text-center reveal">
               <span>تیم ما</span>
               <h2>آشنایی با تیم توسعه</h2>
               <p>
@@ -587,7 +749,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="ud-section-title mx-auto text-center">
+            <div class="ud-section-title mx-auto text-center reveal">
               <span>اخبار</span>
               <h2>آخرین رویدادها و اخبار سامانه</h2>
               <p>از آخرین پیشرفت‌ها و اخبار سامانه ساد مطلع شوید.</p>
@@ -672,7 +834,7 @@
     <!-- Dedicated Live Notifications Section -->
     <section class="notifications-showcase-section" id="notifications-showcase">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2>شبکه هوشمند اعلان‌های سفر</h2>
                 <p>اطلاع‌رسانی آنی و زنده به والدین و رانندگان در تمامی مراحل اجرای سرویس</p>
             </div>
@@ -854,10 +1016,10 @@
               <div class="ud-widget">
                 <h5 class="ud-widget-title">پشتیبانی</h5>
                 <ul class="ud-widget-links">
-                  <li><a href="#contact">تماس با ما</a></li>
-                  <li><a href="#">سوالات متداول</a></li>
-                  <li><a href="#">قوانین و مقررات</a></li>
-                  <li><a href="#">حریم خصوصی</a></li>
+                  <li><a href="index.html#contact">تماس با ما</a></li>
+                  <li><a href="faq.html">سوالات متداول</a></li>
+                  <li><a href="terms.html">قوانین و مقررات</a></li>
+                  <li><a href="privacy.html">حریم خصوصی</a></li>
                 </ul>
               </div>
             </div>
@@ -1374,6 +1536,21 @@
                     setupSlideshow(role);
                 });
             });
+            // Scroll Reveal — Intersection Observer
+            const revealElements = document.querySelectorAll('.reveal, .reveal-right, .reveal-left');
+            if (revealElements.length > 0) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        }
+                    });
+                }, {
+                    threshold: 0.12,
+                    rootMargin: '0px 0px -40px 0px'
+                });
+                revealElements.forEach(el => revealObserver.observe(el));
+            }
         });
     </script>
 

@@ -16,17 +16,48 @@
     <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="assets/css/lineicons.css">
     <link rel="stylesheet" href="assets/css/ud-styles.css">
-    <link rel="stylesheet" href="style.css?v=2.0.5">
+    <link rel="stylesheet" href="style.css?v=3.0.0">
+
+    <style>
+        /* UIdeck footer overrides */
+        .ud-about, .ud-team, .ud-blog-grids, .ud-contact, .ud-footer { direction: rtl; text-align: right; }
+        body.dark-theme .ud-footer { background-color: transparent !important; color: #fff !important; }
+        body.dark-theme .ud-widget-title { color: #fff !important; }
+        body.dark-theme .ud-widget-desc { color: #9ca3af !important; }
+        body.dark-theme .ud-widget-links li a { color: #9ca3af !important; transition: all 0.3s ease !important; }
+        body.dark-theme .ud-widget-links li a:hover { color: var(--primary) !important; transform: translateX(-3px); }
+        body.dark-theme .ud-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08) !important; background: transparent !important; }
+        body.dark-theme .ud-footer-bottom p { color: #9ca3af !important; }
+        body:not(.dark-theme) .ud-footer { background-color: transparent !important; color: #333; }
+        body:not(.dark-theme) .ud-widget-title { color: #0f172a !important; }
+        body:not(.dark-theme) .ud-widget-desc { color: #4b5563 !important; }
+        body:not(.dark-theme) .ud-widget-links li a { color: #4b5563 !important; transition: all 0.3s ease !important; }
+        body:not(.dark-theme) .ud-widget-links li a:hover { color: var(--primary) !important; transform: translateX(-3px); }
+        body:not(.dark-theme) .ud-footer-bottom { border-top: 1px solid rgba(0,0,0,0.06) !important; }
+        body:not(.dark-theme) .ud-footer-bottom p { color: #4b5563 !important; }
+        .ud-widget-title { font-weight: 700 !important; font-size: 17px !important; margin-bottom: 20px !important; padding-bottom: 12px !important; border-bottom: 2px solid transparent !important; border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1 !important; }
+        .ud-widget-links { list-style: none !important; padding: 0 !important; }
+        .ud-widget-links li { margin-bottom: 10px !important; }
+        .ud-widget-links li a { font-size: 14px !important; font-weight: 500 !important; text-decoration: none !important; }
+        .ud-widget-desc { line-height: 2 !important; font-size: 14px !important; }
+        .ud-footer-bottom { position: relative; }
+        .ud-footer-bottom::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent); opacity: 0.3; }
+        .social-icon-box { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; background: rgba(255, 255, 255, 0.90); border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+        body.dark-theme .social-icon-box { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.10); box-shadow: 0 4px 16px rgba(0,0,0,0.20); }
+        .social-icon-box:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 25px rgba(88, 204, 2, 0.20); border-color: rgba(88, 204, 2, 0.30); }
+        .social-icon-box img { width: 26px; height: 26px; object-fit: contain; }
+    </style>
 </head>
 
 <body class="dark-theme">
     <div class="ambient-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
     <!-- Header & Navigation -->
-    <header style="background: var(--card-bg); backdrop-filter: var(--glass-blur);">
+    <header>
         <div class="container nav-wrapper">
             <div class="logo-section">
                 <a href="index.html" style="display:flex; align-items:center; gap: 12px; text-decoration: none; color: inherit;">
@@ -35,7 +66,6 @@
                 </a>
             </div>
 
-            <!-- Slide-out Drawer Navigation -->
             <div class="nav-menu-wrapper" id="navMenuWrapper">
                 <nav>
                     <ul class="nav-menu">
@@ -50,27 +80,23 @@
                 </nav>
             </div>
 
-            <!-- Header Right Actions (Visible Always) -->
             <div class="header-right-actions" style="display: flex; align-items: center; gap: 10px;">
                 <div class="auth-buttons">
-                    <a href="http://app.sadservice.ir" class="btn btn-primary header-auth-btn" style="padding: 5px 10px !important"  aria-label="ورود / ثبت‌نام والدین" title="ورود / ثبت‌نام والدین">
+                    <a href="http://app.sadservice.ir" class="btn btn-primary header-auth-btn" style="padding: 5px 10px !important" aria-label="ورود / ثبت‌نام والدین" title="ورود / ثبت‌نام والدین">
                         <svg class="auth-btn-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
                         </svg>
-                        <span class="auth-btn-text">ورود / ثبت‌نام والدین</span>
+                        <span class="auth-btn-text" style="padding: 0 !important">ورود / ثبت‌نام والدین</span>
                     </a>
                 </div>
 
-                <!-- Theme Toggle Switch -->
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="تغییر پوسته">
                     <svg id="theme-icon" viewBox="0 0 24 24">
-                        <path
-                            d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 16.95l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z" />
+                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 16.95l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z" />
                     </svg>
                 </button>
 
-                <!-- Mobile Menu Hamburger Toggler -->
-                <button class="navbar-toggler" id="navbarToggler" aria-label="منو">
+                <button class="navbar-toggler" id="navbarToggler" aria-label="تغییر وضعیت منو">
                     <span class="toggler-icon"></span>
                     <span class="toggler-icon"></span>
                     <span class="toggler-icon"></span>
@@ -89,7 +115,7 @@
                 <div class="row">
                     <!-- Main Content (8 cols) -->
                     <div class="col-lg-8">
-                        <article class="insta-card mb-4" style="box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
+                        <article class="insta-card mb-4">
                             <header class="insta-header">
                                 <img src="images/logo.png" alt="SAD Logo" class="insta-avatar">
                                 <div class="insta-header-text">
@@ -129,7 +155,6 @@
 
                     <!-- Sidebar Content (4 cols) -->
                     <div class="col-lg-4">
-                        <!-- Sidebar Card 1: Latest News Lazy Loading -->
                         <aside class="news-sidebar-card">
                             <div class="news-sidebar-title">
                                 <i class="lni lni-list"></i>
@@ -144,8 +169,7 @@
                             </div>
                         </aside>
 
-                        <!-- Sidebar Card 2: Quick Links / Banner -->
-                        <aside class="news-sidebar-card text-center" style="background: linear-gradient(135deg, rgba(28,176,246,0.15) 0%, rgba(120,83,232,0.15) 100%);">
+                        <aside class="news-sidebar-card text-center" style="background: linear-gradient(135deg, rgba(28,176,246,0.10) 0%, rgba(120,83,232,0.10) 100%);">
                             <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text);">دانلود اپلیکیشن ساد</h4>
                             <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">دسترسی آسان به پنل والدین و رانندگان سرویس مدارس</p>
                             <a href="index.html#features" class="btn btn-primary btn-sm" style="border-radius: 20px; padding: 8px 20px;">مشاهده اپلیکیشن‌ها</a>
@@ -156,6 +180,87 @@
         </div>
     </section>
 
+    <!-- ====== Footer Start ====== -->
+    <footer class="ud-footer" style="margin-top: 40px;">
+      <div class="ud-footer-widgets">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="ud-widget">
+                <a href="index.html" class="ud-footer-logo" style="display:flex; align-items:center; gap: 10px; text-decoration: none; color: inherit;">
+                  <img src="images/logo.png" alt="logo" style="width: 40px;" />
+                  <h3 style="margin:0; font-size: 24px;">ساد</h3>
+                </a>
+                <p class="ud-widget-desc">
+                  مدیریت هوشمند، مانیتورینگ آنلاین و اتصال یکپارچه در یک بستر امن.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">لینک‌های سریع</h5>
+                <ul class="ud-widget-links">
+                  <li><a href="index.html#hero">صفحه اصلی</a></li>
+                  <li><a href="index.html#features">قابلیت‌ها</a></li>
+                  <li><a href="index.html#about">درباره ما</a></li>
+                  <li><a href="index.html#team">تیم ما</a></li>
+                  <li><a href="guide.html">راهنما</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">پشتیبانی</h5>
+                <ul class="ud-widget-links">
+                  <li><a href="index.html#contact">تماس با ما</a></li>
+                  <li><a href="faq.html">سوالات متداول</a></li>
+                  <li><a href="terms.html">قوانین و مقررات</a></li>
+                  <li><a href="privacy.html">حریم خصوصی</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">ارتباط با ما</h5>
+                <p class="ud-widget-desc">
+                  شاهرود، دانشگاه صنعتی شاهرود، ساختمان مرکز رشد و فناوریهای نوین<br>
+                </p>
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">شبکه‌های اجتماعی</h5>
+                <ul class="ud-widget-socials" style="display:flex; gap:12px; list-style:none; padding:0; flex-wrap: wrap;">
+                  <li><a href="https://t.me/sadservice_ir" target="_blank" title="تلگرام" class="social-icon-box">
+                      <img src="assets/images/logo/telegram.png" alt="تلگرام">
+                  </a></li>
+                  <li><a href="https://instagram.com/sadservice_app" target="_blank" title="اینستاگرام" class="social-icon-box">
+                      <img src="assets/images/logo/instagram.png" alt="اینستاگرام">
+                  </a></li>
+                  <li><a href="https://eitaa.com/sadservice_ir" target="_blank" title="ایتا" class="social-icon-box">
+                      <img src="assets/images/logo/eitaa.png" alt="ایتا">
+                  </a></li>
+                </ul>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ud-footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p class="ud-footer-bottom-right" style="text-align: center;">
+                © <span id="footer-year"></span> سامانه ساد. تمامی حقوق محفوظ است. توسعه یافته توسط تیم ساد.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ====== Footer End ====== -->
+
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script>
         let currentNewsId = null;
@@ -165,15 +270,20 @@
         const BATCH_SIZE = 3;
 
         document.addEventListener("DOMContentLoaded", function() {
-            // Theme toggle logic for news-detail
+            // Theme toggle with persistence
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') document.body.classList.remove('dark-theme');
+            else document.body.classList.add('dark-theme');
+
             const themeBtn = document.getElementById('theme-toggle');
             if (themeBtn) {
                 themeBtn.addEventListener('click', () => {
                     document.body.classList.toggle('dark-theme');
+                    localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
                 });
             }
 
-            // Mobile menu toggler logic
+            // Mobile menu toggler
             const toggler = document.getElementById('navbarToggler');
             const menuWrapper = document.getElementById('navMenuWrapper');
             if (toggler && menuWrapper) {
@@ -181,8 +291,34 @@
                     toggler.classList.toggle('active');
                     menuWrapper.classList.toggle('show');
                 });
+                menuWrapper.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        toggler.classList.remove('active');
+                        menuWrapper.classList.remove('show');
+                    });
+                });
             }
 
+            // Footer year (Jalali)
+            const persianDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+            function toPersianDigits(n) { return String(n).replace(/\d/g, d => persianDigits[+d]); }
+            function gregorianToJalali(gy, gm, gd) {
+                const g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
+                let jy = (gy <= 1600) ? 0 : 979; gy -= (gy <= 1600) ? 621 : 1600;
+                const gy2 = (gm > 2) ? (gy + 1) : gy;
+                let days = (365*gy)+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)-80+gd+g_d_m[gm-1];
+                jy += 33*Math.floor(days/12053); days %= 12053;
+                jy += 4*Math.floor(days/1461); days %= 1461;
+                jy += Math.floor((days-1)/365);
+                if (days > 365) days = (days-1) % 365;
+                return { jy };
+            }
+            const now = new Date();
+            const jalali = gregorianToJalali(now.getFullYear(), now.getMonth()+1, now.getDate());
+            const yearEl = document.getElementById('footer-year');
+            if (yearEl) yearEl.textContent = toPersianDigits(jalali.jy);
+
+            // Load news
             const urlParams = new URLSearchParams(window.location.search);
             currentNewsId = urlParams.get('id');
 
@@ -191,7 +327,6 @@
                 return;
             }
 
-            // Fetch Main News Detail
             fetch(`https://sadservice.ir/api/public/news/${currentNewsId}/`)
                 .then(response => {
                     if (!response.ok) throw new Error('News not found');
@@ -219,7 +354,6 @@
                     document.getElementById('og-url').setAttribute('content', window.location.href);
                     document.getElementById('og-image').setAttribute('content', imageUrl);
 
-                    // Fetch all news for lazy-loading sidebar
                     fetchSidebarNews();
                 })
                 .catch(error => {
@@ -233,7 +367,6 @@
                 .then(res => res.json())
                 .then(data => {
                     const newsList = Array.isArray(data) ? data : (data.result || []);
-                    // Filter out current news from sidebar list
                     allNewsData = newsList.filter(item => item.id != currentNewsId);
                     
                     if (allNewsData.length === 0) {
@@ -242,10 +375,7 @@
                         return;
                     }
 
-                    // Initial Batch Load
                     loadNextSidebarBatch();
-
-                    // Setup Intersection Observer for Lazy Loading
                     setupLazyLoadingObserver();
                 })
                 .catch(err => {
@@ -322,7 +452,6 @@
 
             const observer = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
-                    // Simulate smooth lazy load with slight delay
                     setTimeout(() => {
                         loadNextSidebarBatch();
                     }, 400);
@@ -334,4 +463,3 @@
     </script>
 </body>
 </html>
-

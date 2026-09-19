@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="assets/css/lineicons.css">
     <link rel="stylesheet" href="assets/css/ud-styles.css">
-    <link rel="stylesheet" href="style.css?v=2.0.5">
+    <link rel="stylesheet" href="style.css?v=3.0.0">
     
     <style>
         .guide-section {
@@ -22,36 +22,41 @@
         }
         .guide-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         .guide-header h1 {
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             color: var(--text);
-            font-size: 36px;
+            font-size: clamp(28px, 4vw, 38px);
+            letter-spacing: -0.3px;
         }
         .guide-header p {
             color: var(--text-muted);
-            font-size: 18px;
+            font-size: 17px;
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 2;
         }
         
         /* Guide Card Styles */
         .guide-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
+            border-radius: 24px;
+            padding: 44px;
+            margin-bottom: 50px;
             box-shadow: var(--glass-shadow);
             border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
             backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .guide-card:hover {
+            box-shadow: var(--card-hover-shadow);
         }
         
-        /* Ambient Backgrounds for Cards */
         .guide-card::before {
             content: '';
             position: absolute;
@@ -64,12 +69,12 @@
         }
 
         .guide-card h3 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 800;
             margin-bottom: 40px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: var(--text);
             position: relative;
             z-index: 1;
@@ -77,11 +82,11 @@
         .guide-card.parents-card h3 i { color: #7853e8; }
         .guide-card.company-card h3 i { color: #1cb0f6; }
 
-        /* Stepper Styles */
+        /* Stepper */
         .stepper {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 28px;
             position: relative;
             padding-left: 0;
             padding-right: 20px;
@@ -94,11 +99,11 @@
             bottom: 20px;
             right: 34px;
             width: 2px;
-            background: rgba(120, 83, 232, 0.2);
+            background: linear-gradient(180deg, rgba(120, 83, 232, 0.3) 0%, rgba(120, 83, 232, 0.05) 100%);
             z-index: 0;
         }
         .guide-card.company-card .stepper::before {
-            background: rgba(28, 176, 246, 0.2);
+            background: linear-gradient(180deg, rgba(28, 176, 246, 0.3) 0%, rgba(28, 176, 246, 0.05) 100%);
         }
         
         .stepper-item {
@@ -109,10 +114,10 @@
             align-items: flex-start;
         }
         .step-icon {
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            background: #7853e8;
+            background: linear-gradient(135deg, #7853e8, #6642d0);
             color: #fff;
             display: flex;
             align-items: center;
@@ -120,34 +125,42 @@
             font-weight: bold;
             font-size: 15px;
             flex-shrink: 0;
-            box-shadow: 0 0 0 6px var(--card-bg);
+            box-shadow: 0 0 0 6px var(--card-bg), 0 4px 12px rgba(120, 83, 232, 0.25);
             margin-top: 5px;
         }
-        .guide-card.company-card .step-icon { background: #1cb0f6; }
+        .guide-card.company-card .step-icon { 
+            background: linear-gradient(135deg, #1cb0f6, #1598d4);
+            box-shadow: 0 0 0 6px var(--card-bg), 0 4px 12px rgba(28, 176, 246, 0.25);
+        }
         
         .step-content {
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 16px;
+            padding: 28px;
+            border-radius: 18px;
             border: 1px solid var(--border);
             box-shadow: var(--glass-shadow);
             flex-grow: 1;
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
         }
         .step-content:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: rgba(120, 83, 232, 0.15);
+        }
+        .guide-card.company-card .step-content:hover {
+            border-color: rgba(28, 176, 246, 0.15);
         }
         .step-content h4 {
             font-size: 19px;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 12px;
             color: var(--text);
         }
         .step-content p {
             font-size: 15px;
-            line-height: 1.8;
+            line-height: 2;
             color: var(--text-muted);
             margin: 0;
         }
@@ -159,91 +172,83 @@
             gap: 8px;
             margin-top: 15px;
             padding: 10px 24px;
-            background: #7853e8;
+            background: linear-gradient(135deg, #7853e8, #6642d0);
             color: #fff !important;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 14px;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 4px 15px rgba(120, 83, 232, 0.3);
         }
         .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(120, 83, 232, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(120, 83, 232, 0.45);
             color: #fff;
         }
         .company-btn { 
-            background: #1cb0f6; 
+            background: linear-gradient(135deg, #1cb0f6, #1598d4);
             box-shadow: 0 4px 15px rgba(28, 176, 246, 0.3);
         }
         .company-btn:hover { 
-            box-shadow: 0 8px 20px rgba(28, 176, 246, 0.5); 
+            box-shadow: 0 8px 25px rgba(28, 176, 246, 0.45); 
         }
 
-        /* Dark Mode Specific Adjustments */
+        /* Dark Mode */
         body.dark-theme .guide-card {
-            background: rgba(15, 23, 42, 0.45);
-            border-color: rgba(255,255,255,0.06);
+            background: rgba(15, 23, 42, 0.50);
+            border-color: rgba(255,255,255,0.07);
         }
         body.dark-theme .step-content {
-            background: rgba(15, 23, 42, 0.45);
-            border-color: rgba(255,255,255,0.06);
+            background: rgba(15, 23, 42, 0.50);
+            border-color: rgba(255,255,255,0.07);
         }
-        body.dark-theme .step-icon { box-shadow: 0 0 0 6px var(--bg); }
+        body.dark-theme .step-icon { box-shadow: 0 0 0 6px var(--bg), 0 4px 12px rgba(120, 83, 232, 0.25); }
 
-        /* Responsive Design */
+        /* UIdeck footer overrides */
+        .ud-about, .ud-team, .ud-blog-grids, .ud-contact, .ud-footer { direction: rtl; text-align: right; }
+        body.dark-theme .ud-footer { background-color: transparent !important; color: #fff !important; }
+        body.dark-theme .ud-widget-title { color: #fff !important; }
+        body.dark-theme .ud-widget-desc { color: #9ca3af !important; }
+        body.dark-theme .ud-widget-links li a { color: #9ca3af !important; transition: all 0.3s ease !important; }
+        body.dark-theme .ud-widget-links li a:hover { color: var(--primary) !important; transform: translateX(-3px); }
+        body.dark-theme .ud-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08) !important; background: transparent !important; }
+        body.dark-theme .ud-footer-bottom p { color: #9ca3af !important; }
+        body:not(.dark-theme) .ud-footer { background-color: transparent !important; color: #333; }
+        body:not(.dark-theme) .ud-widget-title { color: #0f172a !important; }
+        body:not(.dark-theme) .ud-widget-desc { color: #4b5563 !important; }
+        body:not(.dark-theme) .ud-widget-links li a { color: #4b5563 !important; transition: all 0.3s ease !important; }
+        body:not(.dark-theme) .ud-widget-links li a:hover { color: var(--primary) !important; transform: translateX(-3px); }
+        body:not(.dark-theme) .ud-footer-bottom { border-top: 1px solid rgba(0,0,0,0.06) !important; }
+        body:not(.dark-theme) .ud-footer-bottom p { color: #4b5563 !important; }
+        .ud-widget-title { font-weight: 700 !important; font-size: 17px !important; margin-bottom: 20px !important; padding-bottom: 12px !important; border-bottom: 2px solid transparent !important; border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1 !important; }
+        .ud-widget-links { list-style: none !important; padding: 0 !important; }
+        .ud-widget-links li { margin-bottom: 10px !important; }
+        .ud-widget-links li a { font-size: 14px !important; font-weight: 500 !important; text-decoration: none !important; }
+        .ud-widget-desc { line-height: 2 !important; font-size: 14px !important; }
+        .ud-footer-bottom { position: relative; }
+        .ud-footer-bottom::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent); opacity: 0.3; }
+        .social-icon-box { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; background: rgba(255, 255, 255, 0.90); border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+        body.dark-theme .social-icon-box { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.10); box-shadow: 0 4px 16px rgba(0,0,0,0.20); }
+        .social-icon-box:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 25px rgba(88, 204, 2, 0.20); border-color: rgba(88, 204, 2, 0.30); }
+        .social-icon-box img { width: 26px; height: 26px; object-fit: contain; }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .guide-section {
-                padding: 100px 0 40px;
-            }
-            .guide-header h1 {
-                font-size: 26px;
-            }
-            .guide-header p {
-                font-size: 15px;
-                padding: 0 15px;
-            }
-            .guide-card {
-                padding: 20px 15px;
-            }
-            .guide-card h3 {
-                font-size: 20px;
-                margin-bottom: 25px;
-            }
-            .stepper {
-                gap: 20px;
-                padding-right: 15px;
-            }
-            .stepper-item {
-                gap: 15px;
-            }
-            .stepper::before {
-                right: 29px;
-            }
-            .step-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 13px;
-                box-shadow: 0 0 0 4px var(--bg);
-            }
+            .guide-section { padding: 100px 0 40px; }
+            .guide-header h1 { font-size: 26px; }
+            .guide-header p { font-size: 15px; padding: 0 15px; }
+            .guide-card { padding: 22px 18px; }
+            .guide-card h3 { font-size: 20px; margin-bottom: 25px; }
+            .stepper { gap: 20px; padding-right: 15px; }
+            .stepper-item { gap: 15px; }
+            .stepper::before { right: 29px; }
+            .step-icon { width: 28px; height: 28px; font-size: 13px; box-shadow: 0 0 0 4px var(--bg); }
             body.dark-theme .step-icon { box-shadow: 0 0 0 4px var(--bg); }
-            .step-content {
-                padding: 15px;
-            }
-            .step-content h4 {
-                font-size: 17px;
-                margin-bottom: 8px;
-            }
-            .step-content p {
-                font-size: 14px;
-            }
-            .download-btn {
-                font-size: 13px;
-                padding: 8px 18px;
-                width: 100%;
-                justify-content: center;
-            }
+            .step-content { padding: 18px; }
+            .step-content h4 { font-size: 17px; margin-bottom: 8px; }
+            .step-content p { font-size: 14px; }
+            .download-btn { font-size: 13px; padding: 8px 18px; width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -252,10 +257,11 @@
     <div class="ambient-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
     <!-- Header & Navigation -->
-    <header style="background: var(--card-bg); backdrop-filter: var(--glass-blur);">
+    <header>
         <div class="container nav-wrapper">
             <div class="logo-section">
                 <a href="index.html" style="display:flex; align-items:center; gap: 12px; text-decoration: none; color: inherit;">
@@ -277,10 +283,10 @@
                     </ul>
                 </nav>
             </div>
-            <!-- Header Right Actions (Visible Always) -->
+
             <div class="header-right-actions" style="display: flex; align-items: center; gap: 10px;">
                 <div class="auth-buttons">
-                    <a href="http://app.sadservice.ir" class="btn btn-primary header-auth-btn"  style="padding: 5px 10px !important" aria-label="ورود / ثبت‌نام والدین" title="ورود / ثبت‌نام والدین">
+                    <a href="http://app.sadservice.ir" class="btn btn-primary header-auth-btn" style="padding: 5px 10px !important" aria-label="ورود / ثبت‌نام والدین" title="ورود / ثبت‌نام والدین">
                         <svg class="auth-btn-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
                         </svg>
@@ -288,16 +294,13 @@
                     </a>
                 </div>
 
-                <!-- Theme Toggle Switch -->
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="تغییر پوسته">
                     <svg id="theme-icon" viewBox="0 0 24 24">
-                        <path
-                            d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 16.95l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z" />
+                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 16.95l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z" />
                     </svg>
                 </button>
 
-                <!-- Mobile Menu Hamburger Toggler -->
-                <button class="navbar-toggler" id="navbarToggler" aria-label="منو">
+                <button class="navbar-toggler" id="navbarToggler" aria-label="تغییر وضعیت منو">
                     <span class="toggler-icon"></span>
                     <span class="toggler-icon"></span>
                     <span class="toggler-icon"></span>
@@ -309,14 +312,14 @@
     <!-- Guide Section -->
     <section class="guide-section">
         <div class="container">
-            <div class="guide-header wow fadeInUp" data-wow-delay=".1s">
+            <div class="guide-header reveal">
                 <h1>راهنمای جامع استفاده از سامانه</h1>
                 <p>در این بخش می‌توانید به صورت گام‌به‌گام با نحوه کارکرد سامانه ساد برای والدین و شرکت‌های حمل‌ونقل آشنا شوید.</p>
             </div>
             
             <div class="row justify-content-center">
                 <!-- Parents Guide -->
-                <div class="col-lg-10 wow fadeInUp" data-wow-delay=".2s">
+                <div class="col-lg-10 reveal">
                     <div class="guide-card parents-card">
                         <h3><i class="lni lni-users"></i> راهنمای والدین</h3>
                         <div class="stepper">
@@ -356,7 +359,7 @@
                 </div>
 
                 <!-- Company Guide -->
-                <div class="col-lg-10 wow fadeInUp" data-wow-delay=".3s">
+                <div class="col-lg-10 reveal">
                     <div class="guide-card company-card">
                         <h3><i class="lni lni-apartment"></i> راهنمای شرکت‌های پیمانکار</h3>
                         <div class="stepper">
@@ -399,15 +402,15 @@
     </section>
 
     <!-- ====== Footer Start ====== -->
-    <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
+    <footer class="ud-footer" style="margin-top: 40px;">
       <div class="ud-footer-widgets">
         <div class="container">
           <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-6">
               <div class="ud-widget">
-                <a href="index.html" class="ud-footer-logo" style="display:flex; align-items:center; gap: 10px; text-decoration: none; color: #fff;">
+                <a href="index.html" class="ud-footer-logo" style="display:flex; align-items:center; gap: 10px; text-decoration: none; color: inherit;">
                   <img src="images/logo.png" alt="logo" style="width: 40px;" />
-                  <h3 style="margin:0; font-size: 24px; color: #fff;">ساد</h3>
+                  <h3 style="margin:0; font-size: 24px;">ساد</h3>
                 </a>
                 <p class="ud-widget-desc">
                   مدیریت هوشمند، مانیتورینگ آنلاین و اتصال یکپارچه در یک بستر امن.
@@ -429,30 +432,48 @@
             </div>
             
             <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-                <div class="ud-widget">
-                  <h5 class="ud-widget-title">ارتباط با ما</h5>
-                  <ul class="ud-widget-links">
-                    <li><a href="javascript:void(0)">۰۲۳-۳۲۲۲۰۰۰۰</a></li>
-                    <li><a href="javascript:void(0)">info@sadservice.ir</a></li>
-                    <li><a href="javascript:void(0)">شاهرود، خیابان فردوسی</a></li>
-                  </ul>
-                </div>
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">پشتیبانی</h5>
+                <ul class="ud-widget-links">
+                  <li><a href="index.html#contact">تماس با ما</a></li>
+                  <li><a href="faq.html">سوالات متداول</a></li>
+                  <li><a href="terms.html">قوانین و مقررات</a></li>
+                  <li><a href="privacy.html">حریم خصوصی</a></li>
+                </ul>
               </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10">
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">ارتباط با ما</h5>
+                <p class="ud-widget-desc">
+                  شاهرود، دانشگاه صنعتی شاهرود، ساختمان مرکز رشد و فناوریهای نوین<br>
+                </p>
+              <div class="ud-widget">
+                <h5 class="ud-widget-title">شبکه‌های اجتماعی</h5>
+                <ul class="ud-widget-socials" style="display:flex; gap:12px; list-style:none; padding:0; flex-wrap: wrap;">
+                  <li><a href="https://t.me/sadservice_ir" target="_blank" title="تلگرام" class="social-icon-box">
+                      <img src="assets/images/logo/telegram.png" alt="تلگرام">
+                  </a></li>
+                  <li><a href="https://instagram.com/sadservice_app" target="_blank" title="اینستاگرام" class="social-icon-box">
+                      <img src="assets/images/logo/instagram.png" alt="اینستاگرام">
+                  </a></li>
+                  <li><a href="https://eitaa.com/sadservice_ir" target="_blank" title="ایتا" class="social-icon-box">
+                      <img src="assets/images/logo/eitaa.png" alt="ایتا">
+                  </a></li>
+                </ul>
+              </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="ud-footer-bottom">
         <div class="container">
           <div class="row">
-            <div class="col-md-8">
-              <ul class="ud-footer-bottom-left">
-                <li><a href="javascript:void(0)">قوانین و مقررات</a></li>
-                <li><a href="javascript:void(0)">حریم خصوصی</a></li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <p class="ud-footer-bottom-right">
-                تمامی حقوق برای سامانه ساد محفوظ است.
+            <div class="col-md-12 text-center">
+              <p class="ud-footer-bottom-right" style="text-align: center;">
+                © <span id="footer-year"></span> سامانه ساد. تمامی حقوق محفوظ است. توسعه یافته توسط تیم ساد.
               </p>
             </div>
           </div>
@@ -461,28 +482,23 @@
     </footer>
     <!-- ====== Footer End ====== -->
 
-    <!-- ====== Back To Top Start ====== -->
-    <a href="javascript:void(0)" class="back-to-top">
-      <i class="lni lni-chevron-up"> </i>
-    </a>
-    <!-- ====== Back To Top End ====== -->
-
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
     <script>
-        // Init WOW.js
-        new WOW().init();
-
         document.addEventListener("DOMContentLoaded", function() {
-            // Theme toggle logic (if exists in header, not explicitly added here but handled globally)
+            // Theme toggle
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') document.body.classList.remove('dark-theme');
+            else document.body.classList.add('dark-theme');
+
             const themeBtn = document.getElementById('theme-toggle');
             if (themeBtn) {
                 themeBtn.addEventListener('click', () => {
                     document.body.classList.toggle('dark-theme');
+                    localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
                 });
             }
 
-            // Mobile menu toggler logic
+            // Mobile menu toggler
             const toggler = document.getElementById('navbarToggler');
             const menuWrapper = document.getElementById('navMenuWrapper');
             if (toggler && menuWrapper) {
@@ -490,21 +506,41 @@
                     toggler.classList.toggle('active');
                     menuWrapper.classList.toggle('show');
                 });
+                menuWrapper.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        toggler.classList.remove('active');
+                        menuWrapper.classList.remove('show');
+                    });
+                });
             }
 
-            // Back to top button
-            const backToTop = document.querySelector(".back-to-top");
-            window.onscroll = function () {
-                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                    backToTop.style.display = "flex";
-                } else {
-                    backToTop.style.display = "none";
-                }
-            };
-            backToTop.addEventListener("click", function (e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
+            // Footer year (Jalali)
+            const persianDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+            function toPersianDigits(n) { return String(n).replace(/\d/g, d => persianDigits[+d]); }
+            function gregorianToJalali(gy, gm, gd) {
+                const g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
+                let jy = (gy <= 1600) ? 0 : 979; gy -= (gy <= 1600) ? 621 : 1600;
+                const gy2 = (gm > 2) ? (gy + 1) : gy;
+                let days = (365*gy)+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)-80+gd+g_d_m[gm-1];
+                jy += 33*Math.floor(days/12053); days %= 12053;
+                jy += 4*Math.floor(days/1461); days %= 1461;
+                jy += Math.floor((days-1)/365);
+                if (days > 365) days = (days-1) % 365;
+                return { jy };
+            }
+            const now = new Date();
+            const jalali = gregorianToJalali(now.getFullYear(), now.getMonth()+1, now.getDate());
+            const el = document.getElementById('footer-year');
+            if (el) el.textContent = toPersianDigits(jalali.jy);
+
+            // Scroll reveal
+            const revealElements = document.querySelectorAll('.reveal');
+            if (revealElements.length > 0) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(el => revealObserver.observe(el));
+            }
         });
     </script>
 </body>
